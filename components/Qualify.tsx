@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 const fitSignals = [
-  "You're spending on paid social and creative is what's holding you back.",
-  "You've had a winner you couldn't repeat.",
-  "You have creators but don't know what to tell them.",
-  "You're about to spend more this quarter and want to spend it differently.",
-  "You've paid for strategy before and got a deck you never used.",
-  "Your targeting playbook stopped working.",
-  "Launching and want angles before spending $10K on guesses.",
+  "You're spending on paid social and creative is what's holding you back, not budget or product.",
+  "You've had a winner you couldn't repeat, and it still bothers you.",
+  "You have creators, or can get them, and what's missing is what to tell them.",
+  "You're about to spend more this quarter than last, and you'd rather not spend it the same way.",
+  "You've paid an agency for strategy before and got a deck you never used.",
+  "Your old targeting playbook stopped working and you're not sure what replaced it.",
+  "You're launching your first store and would rather work out the angles now than find them at $10K in.",
 ];
 
 export function Qualify() {
@@ -19,8 +19,9 @@ export function Qualify() {
             Before You <span className="font-secondary italic">Book</span>
           </h2>
           <p className="mt-4 heading-description">
-            We&apos;ve talked more brands out of this than into it. Research only
-            works when the problem is actually creative.
+            We&apos;ve talked more brands out of this than into it. Because
+            research only works when the problem is actually creative. Half
+            the time it isn&apos;t, and we&apos;ll tell you that on the call.
           </p>
         </div>
 
@@ -36,9 +37,6 @@ export function Qualify() {
           </div>
 
           <div className="flex-1">
-            <h3 className="text-large font-medium text-primary-1 mb-8">
-              Built for you if
-            </h3>
             <ul className="space-y-0 divide-y divide-mercury">
               {fitSignals.map((s, i) => (
                 <li

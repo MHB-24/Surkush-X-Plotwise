@@ -1,7 +1,8 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Problem } from "@/components/Problem";
 import { Marquee } from "@/components/Marquee";
+import { Problem } from "@/components/Problem";
+import { PricingBanner } from "@/components/PricingBanner";
 import { Process } from "@/components/Process";
 import { Deliverables } from "@/components/Deliverables";
 import { Testimonials } from "@/components/Testimonials";
@@ -14,8 +15,9 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
-      <Problem />
       <Marquee />
+      <Problem />
+      <PricingBanner />
       <Process />
       <Deliverables />
       <Testimonials />
