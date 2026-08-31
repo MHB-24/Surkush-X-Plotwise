@@ -22,6 +22,14 @@ function buildCalendar(year: number, month: number) {
 export function BookingDrawer() {
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const [form, setForm] = useState({ name: "", email: "", brand: "", problem: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -113,15 +121,15 @@ export function BookingDrawer() {
 
       {/* Drawer */}
       <div
-        className="booking-drawer"
         style={{
           position: "fixed",
           bottom: 0, left: 0, right: 0,
+          top: isMobile ? 0 : "auto",
           zIndex: 50,
           background: "#fff",
-          borderRadius: "20px 20px 0 0",
+          borderRadius: isMobile ? 0 : "20px 20px 0 0",
           boxShadow: "0 -20px 80px rgba(0,0,0,0.18)",
-          maxHeight: "92vh",
+          maxHeight: isMobile ? "100vh" : "92vh",
           display: "flex",
           flexDirection: "column",
           transform: visible ? "translateY(0)" : "translateY(100%)",
@@ -191,11 +199,11 @@ export function BookingDrawer() {
               </button>
             </div>
           ) : (
-            <div className="booking-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, maxWidth: 900, margin: "0 auto" }}>
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? 24 : 32, maxWidth: 900, margin: "0 auto" }}>
 
               {/* LEFT: Form fields */}
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                <div className="booking-name-email" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 12 }}>
                   <FieldBox label="Your name" error={errors.name}>
                     <input
                       type="text" placeholder="Jane Smith" value={form.name}
