@@ -217,3 +217,19 @@ button,
     transform: translateX(-50%);
   }
 }
+
+/* BookingDrawer mobile */
+@media (max-width: 640px) {
+  .booking-drawer {
+    top: 0 !important;
+    border-radius: 0 !important;
+    max-height: 100vh !important;
+  }
+  .booking-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .booking-name-email {
+    grid-template-columns: 1fr !important;
+  }
+}

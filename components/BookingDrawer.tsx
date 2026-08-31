@@ -113,6 +113,7 @@ export function BookingDrawer() {
 
       {/* Drawer */}
       <div
+        className="booking-drawer"
         style={{
           position: "fixed",
           bottom: 0, left: 0, right: 0,
@@ -190,11 +191,11 @@ export function BookingDrawer() {
               </button>
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, maxWidth: 900, margin: "0 auto" }}>
+            <div className="booking-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, maxWidth: 900, margin: "0 auto" }}>
 
               {/* LEFT: Form fields */}
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <div className="booking-name-email" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                   <FieldBox label="Your name" error={errors.name}>
                     <input
                       type="text" placeholder="Jane Smith" value={form.name}
