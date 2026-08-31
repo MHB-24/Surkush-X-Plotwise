@@ -1,7 +1,9 @@
+"use client";
+
 export function PricingBanner() {
   return (
     <section className="py-6 md:py-8 px-4">
-      <div className="w-[90%] max-w-7xl mx-auto">
+      <div className="container-page">
         <div
           className="relative rounded-2xl overflow-hidden min-h-[480px] lg:min-h-[520px] flex items-center"
           style={{
@@ -58,8 +60,8 @@ export function PricingBanner() {
               ))}
             </div>
 
-            <a
-              href="#book"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))}
               className="mt-2 inline-flex items-center gap-2 self-start bg-white text-primary-1 font-semibold text-base px-7 py-3.5 rounded-lg hover:bg-white/90 transition-colors"
             >
               Book a Fit Call
@@ -75,7 +77,7 @@ export function PricingBanner() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </button>
           </div>
 
           {/* Right: portal card — rounded, positioned to overflow bottom-right (ClickUp style) */}

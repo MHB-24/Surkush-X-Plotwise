@@ -1,7 +1,7 @@
 export function Problem() {
   return (
     <section id="why-this" className="py-20 md:py-28">
-      <div className="w-[90%] max-w-7xl mx-auto">
+      <div className="container-page">
         <div className="flex flex-col sm:flex-row gap-10 md:gap-16 xl:gap-20 items-start">
           <div className="flex-1 sm:sticky sm:top-24">
             <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-3">
@@ -12,7 +12,7 @@ export function Problem() {
               <span className="font-secondary italic">never work.</span>{" "}
               Yours included.
             </h2>
-            <p className="mt-4 heading-description text-center sm:text-left max-w-lg">
+            <p className="mt-4 heading-description text-center sm:text-left max-w-2xl">
               That isn&apos;t your team failing. Meta analysed $1.3 billion in
               spend across 550,000 ads: only 5&ndash;8% ever become real winners.
               The question isn&apos;t why most die. It&apos;s what you learn from
@@ -32,7 +32,7 @@ export function Problem() {
               },
               {
                 title: "Your spend compounds. Your knowledge doesn't.",
-                body: "At $5K a month, guessing is a tax you can afford. At $50K, it's the biggest line item on your P&L. Q4 raises everyone's spend. It doesn't raise anyone's answers.",
+                body: "So you're playing a numbers game with no memory. New batch, new invoice, same blindfold. At $5K a month, guessing is a tax you can afford. At $50K, it's the biggest line item on your P&L. Q4 raises everyone's spend. It doesn't raise anyone's answers.",
               },
             ].map((card, i) => (
               <div key={i} className="border border-mercury rounded-md p-6 sm:p-8">

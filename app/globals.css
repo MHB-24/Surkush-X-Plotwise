@@ -76,6 +76,15 @@ body {
   color: #ffffff;
 }
 
+/* Layout containers */
+.container-page {
+  @apply w-[90%] sm:w-[92.5%] max-w-[1440px] mx-auto;
+}
+
+.container-content {
+  @apply w-[90%] sm:w-[92.5%] max-w-5xl mx-auto;
+}
+
 .heading {
   @apply text-primary-1 text-5xl md:text-6xl xl:text-7xl tracking-tight;
 }

@@ -27,7 +27,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="w-[92.5%] mx-auto mt-10">
+    <header className="container-page mt-10">
       <div className="flex justify-between items-center w-full">
         <Link href="/" className="flex items-center w-4 sm:w-6 aspect-1/2">
           <Image
@@ -60,7 +60,7 @@ export function Nav() {
       <div
         className={`fixed inset-0 w-screen h-screen bg-gradient-to-br from-[#D1EDF8] to-[#BDC0E7] z-40 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <div className="flex flex-col w-[92.5%] mx-auto h-full mt-10">
+        <div className="flex flex-col container-page h-full mt-10">
           <div className="flex justify-end">
             <button
               onClick={() => setOpen(false)}

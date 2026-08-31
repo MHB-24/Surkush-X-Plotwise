@@ -6,7 +6,7 @@ const deliverables = [
   {
     num: "01",
     title: "The Research Document",
-    body: "Your buyer, in their words. The belief blocking the sale. The fear underneath it. What your competitors are claiming and where the gaps are. The argument only you can win. This is the part you keep forever.",
+    body: "Your buyer, in their words. The belief blocking the sale. The fear underneath it. What your competitors are claiming and where the gaps are. The argument only you can win. This is the part you keep forever, and the part every future creative decision gets made from.",
   },
   {
     num: "02",
@@ -206,16 +206,17 @@ const delWidgets = [DelWidget01, DelWidget02, DelWidget03, DelWidget04];
 export function Deliverables() {
   return (
     <section id="deliverables" className="py-20 md:py-28">
-      <div className="w-[90%] max-w-7xl mx-auto">
+      <div className="container-page">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           <div className="lg:col-span-3">
             <h2 className="heading-2 mb-4">
               Everything{" "}
               <span className="font-secondary italic">Lands</span> on Day Ten
             </h2>
-            <p className="heading-description mb-12 max-w-lg">
+            <p className="heading-description mb-12 max-w-2xl">
               Here&apos;s everything that hits your inbox on day ten. Built for
-              your brand specifically. Nothing templated, nothing recycled.
+              your brand specifically. Nothing templated, nothing recycled from
+              another client. And most of it isn&apos;t ads.
             </p>
 
             <div className="space-y-4">
@@ -275,12 +276,12 @@ export function Deliverables() {
                 ))}
               </div>
 
-              <a
-                href="#book"
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))}
                 className="mt-8 block w-full text-center bg-white text-primary-1 text-lg font-medium py-3.5 rounded-lg hover:bg-zumthor transition-colors"
               >
                 Book a Fit Call
-              </a>
+              </button>
 
               <p className="mt-4 text-center text-sm font-light text-white/30">
                 You see half the build before you&apos;re committed
