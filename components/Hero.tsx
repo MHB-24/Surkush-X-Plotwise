@@ -41,18 +41,16 @@ export function Hero() {
       <div className="absolute inset-0 bg-[#F1F1F1] sm:rounded-t-xl sm:w-[95%] sm:-mt-27 mx-auto -z-10" />
 
       <div className="container-page pt-6 pb-12 md:pt-10 md:pb-20">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
-
-          {/* Left: text content */}
-          <div className="flex flex-col gap-5 items-start">
-            <p className="inline-flex items-center gap-2 rounded-full border border-mercury bg-white-1 px-4 py-1.5 text-[11px] md:text-xs font-semibold tracking-[0.15em] uppercase text-gray">
-              <span className="size-1.5 rounded-full bg-primary-1" aria-hidden />
+        <div className="flex flex-col gap-5 items-center text-center">
+          {/* Text content — centered, full width */}
+          <div className="flex flex-col gap-5 items-center w-full">
+            <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora">
               For DTC and ecommerce brands tired of guessing what to shoot next
             </p>
 
             <h1
-              className="text-primary-1 tracking-tight text-left leading-tight"
-              style={{ fontSize: "clamp(1.4rem, 2.4vw, 2.8rem)" }}
+              className="text-primary-1 tracking-tight text-center leading-[1.1]"
+              style={{ fontSize: "clamp(2.2rem, 5vw, 72px)" }}
             >
               Your next winner shouldn&apos;t
               <br />
@@ -63,44 +61,32 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="heading-description text-left">
+            <p className="heading-description text-center">
               A complete creative system, built in ten days.
             </p>
 
-            <ul className="flex flex-col items-start gap-2.5">
+            {/* Feature pills */}
+            <div className="flex flex-wrap justify-center gap-3">
               {[
                 "The research on your buyer",
                 "Five ready-to-shoot scripts",
-                "A purpose-built workspace where your whole creative operation runs, from brief to creator to finished ad",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2.5 text-base md:text-lg xl:text-xl text-tundora font-medium"
+                "A purpose-built workspace",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center px-4 py-2 rounded-full border border-mercury bg-white text-sm md:text-base font-medium text-tundora"
                 >
-                  <svg
-                    className="shrink-0 mt-0.5"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#1C2854"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
                   {item}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
 
-            <p className="text-base md:text-lg xl:text-xl text-gray font-medium text-left">
+            <p className="text-base md:text-lg xl:text-xl text-gray font-medium text-center">
               Most agencies hand you files. This is where your creative
               operation actually runs, and it stays yours.
             </p>
 
-            <p className="text-medium font-medium text-tundora text-left leading-relaxed">
+            <p className="text-medium font-medium text-tundora text-center leading-relaxed">
               We map what your buyer actually believes, what&apos;s stopping
               them from buying, and the one argument your competitors can&apos;t
               make. Then we turn it into scripts you can shoot next week, and
@@ -109,7 +95,7 @@ export function Hero() {
               No more winners you can&apos;t repeat.
             </p>
 
-            <div className="flex items-center gap-6 mt-2 flex-wrap">
+            <div className="flex items-center justify-center gap-6 mt-2 flex-wrap">
               <button
                 onClick={() =>
                   window.dispatchEvent(new CustomEvent("open-booking"))
@@ -117,16 +103,7 @@ export function Hero() {
                 className="inline-flex items-center justify-center gap-2 text-base md:text-lg xl:text-xl rounded-lg border border-primary-1 text-white bg-primary-1 hover:text-primary-1 hover:bg-transparent px-7 py-3.5 transition-colors shadow-[0_8px_24px_rgba(28,40,84,0.25)]"
               >
                 Book a Fit Call
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
@@ -138,112 +115,14 @@ export function Hero() {
                 <span className="font-semibold text-primary-1">
                   Explore how it works
                 </span>
-                <svg
-                  width="25"
-                  height="25"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="inline-block rotate-45"
-                >
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block rotate-45">
                   <path d="M12 19V5M5 12l7-7 7 7" />
                 </svg>
               </a>
             </div>
           </div>
 
-          {/* Right: dark navy info card */}
-          <div className="bg-primary-1 text-white rounded-2xl p-8 md:p-10 flex flex-col gap-6">
-            <div>
-              <div
-                style={{
-                  fontFamily: "Inter, system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
-                  color: "#ffffff",
-                  lineHeight: 1,
-                  letterSpacing: "-2px",
-                }}
-              >
-                $1,500
-              </div>
-              <p className="mt-2 text-base md:text-lg xl:text-xl font-medium text-white/50">
-                One flat payment
-              </p>
-            </div>
-
-            <div className="border-t border-white/10 pt-6 flex flex-col gap-4">
-              {[
-                "Delivered in ten working days",
-                "Full refund on day five — no reasons needed",
-                "90-day workspace access included",
-                "Every finding sourced and verifiable",
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg
-                      width="11"
-                      height="11"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.7)"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
-                  <p className="text-base md:text-lg xl:text-xl font-medium text-white/70 leading-snug">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="border-t border-white/10 pt-6">
-              <p className="text-base md:text-lg xl:text-xl font-medium text-white/60 leading-relaxed">
-                Don&apos;t like it? Full refund on day five. You see half the
-                build before you&apos;re committed. If it isn&apos;t what you
-                wanted, say so and we return every dollar. No reasons needed.
-              </p>
-            </div>
-
-            <div className="border-t border-white/10 pt-6 grid grid-cols-2 gap-3">
-              {[
-                "The full research build",
-                "Five scripts, ten hooks",
-                "Your creative operation in one place",
-                "Yours to keep",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-2">
-                  <svg
-                    className="shrink-0 mt-0.5"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="rgba(255,255,255,0.5)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span className="text-base md:text-lg xl:text-xl font-medium text-white/60">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-        {/* Video — full width below the grid */}
+        {/* Video — full width */}
         <div className="mt-12 md:mt-16">
           <video
             className="w-full rounded-2xl shadow-[0_24px_64px_rgba(28,40,84,0.18)]"
@@ -259,6 +138,92 @@ export function Hero() {
             Your browser does not support the video tag.
           </video>
         </div>
+
+        {/* $1,500 card — below the video */}
+        <div className="mt-8 md:mt-12 rounded-2xl border border-mercury bg-white p-8 md:p-10 shadow-[0_16px_40px_-24px_rgba(28,40,84,0.28)] text-left">
+          <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
+            <div className="md:border-r md:border-mercury md:pr-12 flex flex-col items-center text-center">
+              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-4">
+                One flat fee. Everything included.
+              </p>
+              <span
+                className="font-secondary italic text-primary-1 block"
+                style={{ fontSize: "clamp(2.75rem, 6vw, 4rem)", lineHeight: 1 }}
+              >
+                $1,500
+              </span>
+              <p className="text-[18px] font-light text-tundora mt-1">One payment</p>
+
+              <button
+                onClick={() =>
+                  window.dispatchEvent(new CustomEvent("open-booking"))
+                }
+                className="mt-6 flex items-center justify-center gap-2 w-full bg-primary-1 text-white text-sm font-medium px-6 py-3.5 rounded-lg hover:bg-primary-1/90 transition-colors"
+              >
+                Book a Fit Call
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <div>
+              <p className="text-medium font-light text-tundora leading-relaxed mb-6">
+                Don&apos;t like it? Full refund on day five. You see half the
+                build before you&apos;re committed. If it isn&apos;t what you
+                wanted, say so and we return every dollar. No reasons needed.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  "Delivered in ten working days",
+                  "Full refund on day five — no reasons needed",
+                  "90-day workspace access included",
+                  "Every finding sourced and verifiable",
+                  "The full research build",
+                  "Five scripts, ten hooks",
+                  "Your creative operation in one place",
+                  "Yours to keep",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary-1/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#1C2854"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-light text-primary-1 leading-snug">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[15px] font-normal text-tundora mt-4">
+                You see half the build before you&apos;re committed
+              </p>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
       </div>
     </section>
   );

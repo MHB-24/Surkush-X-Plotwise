@@ -62,42 +62,57 @@ export function Deliverables() {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="bg-primary-1 text-white rounded-md p-8 md:p-10 lg:sticky lg:top-24">
-              <div className="text-6xl font-light tracking-[-2px]">$1,500</div>
-              <p className="mt-1 text-medium font-light text-white/50">
-                One payment
+            <div className="rounded-2xl border border-mercury bg-white p-7 shadow-sm lg:sticky lg:top-24">
+              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-5">
+                One flat fee. Everything included.
               </p>
 
-              <p className="mt-6 text-medium font-light leading-relaxed text-white/60">
+              <div className="flex items-baseline gap-1 mb-1">
+                <span
+                  className="font-secondary italic text-primary-1"
+                  style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)", lineHeight: 1 }}
+                >
+                  $1,500
+                </span>
+              </div>
+              <p className="text-sm font-light text-gray mb-6">One payment</p>
+
+              <p className="text-sm font-light text-tundora leading-relaxed mb-6">
                 A creative strategist costs $6&ndash;8K/month. An agency retainer
                 starts at $5K and locks you in for three. This is the research
                 layer, done once, done properly, and it&apos;s yours whether you
                 ever work with us again.
               </p>
 
-              <div className="mt-8 pt-6 border-t border-white/10 space-y-4">
+              <div className="border-t border-mercury mb-6" />
+
+              <div className="flex flex-col gap-3 mb-6">
                 {[
                   "Delivered in ten working days",
                   "Full refund on day five — no reasons needed",
                   "Every finding sourced and verifiable",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/30 mt-2 shrink-0" />
-                    <p className="text-[15px] font-light text-white/60">
-                      {item}
-                    </p>
+                    <div className="w-5 h-5 rounded-full bg-primary-1/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1C2854" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <p className="text-sm font-light text-tundora leading-snug">{item}</p>
                   </div>
                 ))}
               </div>
 
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent("open-booking"))}
-                className="mt-8 block w-full text-center bg-white text-primary-1 text-lg font-medium py-3.5 rounded-lg hover:bg-zumthor transition-colors"
+                className="flex items-center justify-center gap-2 w-full bg-primary-1 text-white text-sm font-medium px-6 py-3.5 rounded-lg hover:bg-primary-1/90 transition-colors"
               >
                 Book a Fit Call
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </button>
-
-              <p className="mt-4 text-center text-sm font-light text-white/30">
+              <p className="text-center text-xs text-gray font-light mt-2">
                 You see half the build before you&apos;re committed
               </p>
             </div>

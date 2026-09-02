@@ -1,3 +1,5 @@
+"use client";
+
 const steps = [
   {
     num: "01",
@@ -38,8 +40,9 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-hero-bg">
+    <section id="how-it-works" className="py-20 md:py-28 bg-white">
       <div className="container-page">
+        {/* Heading */}
         <div className="flex flex-col gap-2 items-center mb-10">
           <h2 className="heading text-center leading-tight">
             What We <span className="font-secondary italic">Actually</span> Do
@@ -53,65 +56,48 @@ export function Process() {
           </p>
         </div>
 
-        <div className="mb-16 p-6 md:p-8 rounded-xl border border-mercury bg-white">
-          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-            Your creative is your targeting now
-          </p>
-          <p className="text-medium font-light text-tundora leading-relaxed">
-            Meta stopped letting you choose your audience in any meaningful way.
-            Broad targeting won, interest stacking died, and the algorithm now
-            reads your ad to decide who sees it. Open with the wrong belief and
-            you get shown to the wrong people, no matter how you set up the
-            campaign. Which means the angle isn&apos;t the thing that comes
-            before the targeting. It is the targeting. That&apos;s what the
-            seven steps below are actually building.
-          </p>
-        </div>
+        <div>
+          <div>
+            <div className="mb-10 p-6 md:p-8 rounded-xl border border-mercury bg-white">
+              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
+                Your creative is your targeting now
+              </p>
+              <p className="text-medium font-light text-tundora leading-relaxed">
+                Meta stopped letting you choose your audience in any meaningful
+                way. Broad targeting won, interest stacking died, and the
+                algorithm now reads your ad to decide who sees it. Open with the
+                wrong belief and you get shown to the wrong people, no matter
+                how you set up the campaign. Which means the angle isn&apos;t
+                the thing that comes before the targeting. It is the targeting.
+                That&apos;s what the seven steps below are actually building.
+              </p>
+            </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Continuous spine */}
-          <div
-            aria-hidden
-            className="absolute top-11 bottom-0 w-[2px] left-5 md:left-1/2 -translate-x-1/2"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(28,40,84,0.30) 0%, rgba(0,142,255,0.45) 62%, rgba(0,142,255,0) 100%)",
-            }}
-          />
+            {/* Single-column timeline */}
+            <div className="relative">
+              {/* Spine */}
+              <div
+                aria-hidden
+                className="absolute top-5 bottom-0 left-5 w-[2px]"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(28,40,84,0.30) 0%, rgba(0,142,255,0.45) 62%, rgba(0,142,255,0) 100%)",
+                }}
+              />
 
-          <div className="flex flex-col gap-6">
-            {steps.map((step, i) => {
-              const onRight = i % 2 === 1;
-              return (
-                <div
-                  key={step.num}
-                  className="relative md:grid md:grid-cols-2 md:gap-x-20"
-                >
-                  {/* Node on the spine */}
-                  <div
-                    aria-hidden
-                    className="absolute z-10 top-6 left-5 md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary-1 text-white grid place-items-center font-secondary italic text-sm"
-                    style={{ boxShadow: "0 0 0 5px #f1f1f1" }}
-                  >
-                    {step.num}
-                  </div>
+              <div className="flex flex-col gap-6">
+                {steps.map((step) => (
+                  <div key={step.num} className="relative flex gap-8">
+                    {/* Node */}
+                    <div
+                      aria-hidden
+                      className="shrink-0 z-10 w-10 h-10 rounded-full bg-primary-1 text-white grid place-items-center font-secondary italic text-sm"
+                      style={{ boxShadow: "0 0 0 5px #ffffff" }}
+                    >
+                      {step.num}
+                    </div>
 
-                  {/* Stub joining node to card */}
-                  <div
-                    aria-hidden
-                    className={`hidden md:block absolute top-[43px] h-[2px] w-10 ${
-                      onRight ? "left-1/2" : "right-1/2"
-                    }`}
-                    style={{ background: "rgba(28,40,84,0.18)" }}
-                  />
-
-                  <div
-                    className={`pl-14 md:pl-0 ${
-                      onRight ? "md:col-start-2" : "md:col-start-1"
-                    }`}
-                  >
-                    <div className="rounded-xl border border-mercury bg-white p-6 md:p-7 shadow-[0_1px_2px_rgba(28,40,84,0.04)] transition-shadow duration-300 hover:shadow-[0_16px_40px_-20px_rgba(28,40,84,0.28)]">
+                    <div className="rounded-xl border border-mercury bg-white p-6 md:p-7 shadow-[0_1px_2px_rgba(28,40,84,0.04)] hover:shadow-[0_16px_40px_-20px_rgba(28,40,84,0.28)] transition-shadow duration-300 flex-1 mb-0">
                       <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-azure-radiance">
                         Step {step.num}
                       </span>
@@ -123,15 +109,98 @@ export function Process() {
                       </p>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                ))}
+              </div>
+            </div>
+
+            <p className="text-[18px] text-tundora font-light mt-10 pl-[4.5rem]">
+              Ten days from now, you stop briefing creators on vibes.
+            </p>
           </div>
+
         </div>
 
-        <p className="text-center text-sm text-gray font-light mt-16">
-          Ten days from now, you stop briefing creators on vibes.
-        </p>
+        {/* $1,500 band */}
+        <div className="mt-16 rounded-2xl border border-mercury bg-white p-8 md:p-10 shadow-[0_16px_40px_-24px_rgba(28,40,84,0.28)]">
+          <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
+            <div className="md:border-r md:border-mercury md:pr-12">
+              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-4">
+                One flat fee. Everything included.
+              </p>
+              <div className="flex items-baseline gap-3">
+                <span
+                  className="font-secondary italic text-primary-1"
+                  style={{ fontSize: "clamp(2.75rem, 6vw, 4rem)", lineHeight: 1 }}
+                >
+                  $1,500
+                </span>
+                <p className="text-sm font-light text-gray">One payment</p>
+              </div>
+
+              <button
+                onClick={() =>
+                  window.dispatchEvent(new CustomEvent("open-booking"))
+                }
+                className="mt-6 flex items-center justify-center gap-2 w-full bg-primary-1 text-white text-sm font-medium px-6 py-3.5 rounded-lg hover:bg-primary-1/90 transition-colors"
+              >
+                Book a Fit Call
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <div>
+              <p className="text-medium font-light text-tundora leading-relaxed mb-6">
+                A creative strategist costs $6&ndash;8K/month. An agency
+                retainer starts at $5K and locks you in for three. This is the
+                research layer, done once, done properly, and it&apos;s yours
+                whether you ever work with us again.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  "Delivered in ten working days",
+                  "Full refund on day five — no reasons needed",
+                  "Every finding sourced and verifiable",
+                  "90-day workspace access included",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary-1/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg
+                        width="11"
+                        height="11"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#1C2854"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <p className="text-[18px] font-light text-tundora leading-snug">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[15px] font-normal text-tundora mt-4">
+                You see half the build before you&apos;re committed
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

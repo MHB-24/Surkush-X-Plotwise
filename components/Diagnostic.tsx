@@ -54,7 +54,7 @@ export function Diagnostic() {
   const started = score > 0;
 
   return (
-    <section className="py-20 md:py-28 bg-hero-bg">
+    <section className="py-20 md:py-28 bg-zumthor">
       <div className="container-content">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
@@ -79,7 +79,7 @@ export function Diagnostic() {
                 className={`flex items-start gap-4 text-left p-4 rounded-xl border transition-all duration-200 ${
                   checked[i]
                     ? "border-primary-1/30 bg-white shadow-sm"
-                    : "border-mercury bg-white/50 hover:bg-white hover:border-mercury/80"
+                    : "border-mercury bg-white/80 hover:bg-white hover:border-mercury/80"
                 }`}
               >
                 <div

@@ -42,7 +42,7 @@ export function FAQ() {
 
   return (
     <section className="py-20 md:py-28">
-      <div className="container-content">
+      <div className="container-page">
         <div className="mb-12">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             The rest of it
@@ -99,7 +99,7 @@ export function FAQ() {
           })}
         </div>
 
-        <p className="mt-10 text-sm font-light text-gray text-center">
+        <p className="mt-10 text-[18px] font-light text-tundora text-center">
           Anything else, ask on the call. It&apos;s twenty minutes and there&apos;s no pitch at the end of it.
         </p>
       </div>

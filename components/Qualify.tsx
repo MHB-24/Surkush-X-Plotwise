@@ -36,7 +36,7 @@ export function Qualify() {
   return (
     <section className="py-20 md:py-28">
       <div className="container-page">
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="heading-2">
             Before You <span className="font-secondary italic">Book</span>
           </h2>
@@ -71,15 +71,6 @@ export function Qualify() {
               <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary-1">
                 This is built for you if
               </p>
-              <button
-                onClick={openBooking}
-                className="ml-auto shrink-0 inline-flex items-center gap-2 text-base font-semibold text-white bg-primary-1 hover:text-primary-1 hover:bg-transparent border border-primary-1 rounded-lg px-6 py-3 transition-colors shadow-[0_8px_24px_rgba(28,40,84,0.25)]"
-              >
-                Book a Fit Call
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
 
             <ul className="divide-y divide-mercury">
@@ -104,6 +95,18 @@ export function Qualify() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-6 pt-6 border-t border-mercury">
+              <button
+                onClick={openBooking}
+                className="w-full flex items-center justify-center gap-2 text-base font-semibold text-white bg-primary-1 hover:bg-primary-1/90 rounded-lg px-6 py-3.5 transition-colors"
+              >
+                Book a Fit Call
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Not a fit */}

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Surkush — Creative Systems for DTC Brands",
   description:
     "A complete creative system, built in ten days. Research, scripts, and the workspace where your creative operation runs.",
+  icons: {
+    icon: "/surkush-logo.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

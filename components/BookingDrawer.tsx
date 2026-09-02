@@ -75,10 +75,13 @@ type F = {
   businessName: string;
   storeUrl: string;
   sells: string;
+  sellsOther: string;
   country: string;
+  dialCode: string;
   phone: string;
   revenue: string;
   problem: string;
+  problemOther: string;
 };
 
 const BLANK: F = {
@@ -87,21 +90,101 @@ const BLANK: F = {
   businessName: "",
   storeUrl: "",
   sells: "",
-  country: "US",
+  sellsOther: "",
+  country: "",
+  dialCode: "+1",
   phone: "",
   revenue: "",
   problem: "",
+  problemOther: "",
 };
+
+type Step = {
+  key: keyof F;
+  question: string;
+  type: "text" | "email" | "select" | "country" | "phone" | "submit";
+  placeholder?: string;
+  options?: string[];
+  otherKey?: keyof F;
+  autoComplete?: string;
+};
+
+const STEPS: Step[] = [
+  {
+    key: "firstName",
+    question: "What's your name?",
+    type: "text",
+    placeholder: "Enter your name",
+    autoComplete: "given-name",
+  },
+  {
+    key: "workEmail",
+    question: "{name}, What's the best email address to reach you?",
+    type: "email",
+    placeholder: "Enter your email",
+    autoComplete: "email",
+  },
+  {
+    key: "businessName",
+    question: "What's the name of your brand?",
+    type: "text",
+    placeholder: "Enter your brand name",
+    autoComplete: "organization",
+  },
+  {
+    key: "storeUrl",
+    question: "What's your store URL?",
+    type: "text",
+    placeholder: "yourbrand.com",
+    autoComplete: "url",
+  },
+  {
+    key: "sells",
+    question: "What do you sell?",
+    type: "select",
+    options: SELL_OPTIONS,
+    otherKey: "sellsOther",
+  },
+  {
+    key: "country",
+    question: "Where are you located?",
+    type: "country",
+  },
+  {
+    key: "phone",
+    question: "What's the best number to reach you?",
+    type: "phone",
+    placeholder: "000 000 0000",
+    autoComplete: "tel-national",
+  },
+  {
+    key: "revenue",
+    question: "Roughly what are you doing in monthly revenue?",
+    type: "select",
+    options: REVENUE_OPTIONS,
+  },
+  {
+    key: "problem",
+    question: "What's not working right now?",
+    type: "select",
+    options: PROBLEM_OPTIONS,
+    otherKey: "problemOther",
+  },
+];
+
+const TOTAL_STEPS = STEPS.length;
 
 export function BookingDrawer() {
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [form, setForm] = useState<F>(BLANK);
-  const [errors, setErrors] = useState<Partial<Record<keyof F, string>>>({});
+  const [step, setStep] = useState(-1);
+  const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [sbw, setSbw] = useState(0);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const scrollY = useRef(0);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -110,31 +193,20 @@ export function BookingDrawer() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  /* The body scrolls, so its scrollbar sits inside the right padding and the
-     fields stop short of it. Measure it once and subtract, so the visual gap
-     on both sides is the same 124px. */
-  useEffect(() => {
-    const d = document.createElement("div");
-    d.style.cssText =
-      "width:100px;height:100px;overflow:scroll;position:absolute;top:-9999px";
-    document.body.appendChild(d);
-    setSbw(d.offsetWidth - d.clientWidth);
-    document.body.removeChild(d);
-  }, []);
-
   useEffect(() => {
     const handler = () => {
       setMounted(true);
       setSubmitted(false);
       setForm(BLANK);
-      setErrors({});
+      setStep(-1);
+      setError("");
+      setDirection("forward");
       requestAnimationFrame(() => requestAnimationFrame(() => setVisible(true)));
     };
     window.addEventListener("open-booking", handler);
     return () => window.removeEventListener("open-booking", handler);
   }, []);
 
-  /* body scroll lock — same fixed-position pattern as HookLibrary */
   useEffect(() => {
     const b = document.body.style;
     if (mounted) {
@@ -154,9 +226,6 @@ export function BookingDrawer() {
       b.right = "";
       b.width = "";
       b.overflow = "";
-      // Unfixing drops the page to 0, so this puts it back. `html {
-      // scroll-behavior: smooth }` would animate that restore — reading as the
-      // page scrolling itself from the top — so force the jump.
       const html = document.documentElement;
       const prev = html.style.scrollBehavior;
       html.style.scrollBehavior = "auto";
@@ -165,6 +234,12 @@ export function BookingDrawer() {
     };
   }, [mounted]);
 
+  useEffect(() => {
+    if (step >= 0 && !submitted) {
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  }, [step, submitted]);
+
   const close = useCallback(() => {
     setVisible(false);
     setTimeout(() => setMounted(false), 400);
@@ -172,32 +247,90 @@ export function BookingDrawer() {
 
   const setField = <K extends keyof F>(k: K, v: F[K]) => {
     setForm((f) => ({ ...f, [k]: v }));
-    setErrors((e) => ({ ...e, [k]: undefined }));
+    setError("");
   };
 
-  const dial = COUNTRIES.find((c) => c.code === form.country)?.dial ?? "+1";
+  const currentStep = step >= 0 && step < TOTAL_STEPS ? STEPS[step] : null;
 
-  const validate = () => {
-    const e: Partial<Record<keyof F, string>> = {};
-    if (!form.firstName.trim()) e.firstName = "Required";
-    if (!form.workEmail.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.workEmail))
-      e.workEmail = "Valid work email required";
-    if (!form.businessName.trim()) e.businessName = "Required";
-    if (!form.storeUrl.trim()) e.storeUrl = "Required";
-    if (!form.sells) e.sells = "Select a category";
-    if (!form.revenue) e.revenue = "Select a range";
-    if (!form.problem) e.problem = "Select an option";
-    setErrors(e);
-    return Object.keys(e).length === 0;
+  const setCountryAndDial = (code: string) => {
+    setField("country", code);
+    const c = COUNTRIES.find((x) => x.code === code);
+    if (c) setField("dialCode", c.dial);
   };
+
+  const validateStep = (): boolean => {
+    if (!currentStep) return true;
+    const val = form[currentStep.key];
+
+    if (currentStep.type === "text" || currentStep.type === "email") {
+      if (!val.trim()) {
+        setError("This field is required");
+        return false;
+      }
+      if (
+        currentStep.type === "email" &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)
+      ) {
+        setError("Please enter a valid email address");
+        return false;
+      }
+    }
+
+    if (currentStep.type === "select" && !val) {
+      setError("Please select an option");
+      return false;
+    }
+
+    if (
+      currentStep.type === "select" &&
+      val === "Something else" &&
+      currentStep.otherKey
+    ) {
+      if (!form[currentStep.otherKey].trim()) {
+        setError("Please tell us more");
+        return false;
+      }
+    }
+
+    if (currentStep.type === "country" && !val) {
+      setError("Please select your country");
+      return false;
+    }
+
+    return true;
+  };
+
+  const goNext = () => {
+    if (!validateStep()) return;
+    setError("");
+    setDirection("forward");
+    if (step < TOTAL_STEPS - 1) {
+      setStep((s) => s + 1);
+    } else {
+      setSubmitted(true);
+    }
+  };
+
+  const goBack = () => {
+    setError("");
+    setDirection("back");
+    if (step > 0) {
+      setStep((s) => s - 1);
+    }
+  };
+
+  const startFlow = () => {
+    setDirection("forward");
+    setStep(0);
+  };
+
+  const resolveQuestion = (q: string) =>
+    q.replace("{name}", form.firstName.trim().split(" ")[0] || "");
 
   if (!mounted) return null;
 
-  const two = !isMobile;
-
   return (
     <>
-      {/* Backdrop */}
       <div
         onClick={close}
         style={{
@@ -211,586 +344,627 @@ export function BookingDrawer() {
         }}
       />
 
-      {/* Drawer */}
       <div
         style={{
           position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          top: isMobile ? 0 : "auto",
+          inset: 0,
           zIndex: 50,
-          background: "#fff",
-          borderRadius: isMobile ? 0 : "20px 20px 0 0",
-          boxShadow: "0 -24px 80px rgba(28,40,84,0.22)",
-          height: isMobile ? "100dvh" : "90vh",
+          background: "#ffffff",
           display: "flex",
           flexDirection: "column",
           transform: visible ? "translateY(0)" : "translateY(100%)",
           transition: "transform 0.4s cubic-bezier(0.32,0.72,0,1)",
         }}
       >
-        {/* Close — absolutely positioned so it never affects content alignment */}
-        <button
-          onClick={close}
-          aria-label="Close"
+        {/* Top bar */}
+        <div
           style={{
-            position: "absolute",
-            top: 20,
-            right: 20,
-            zIndex: 2,
-            width: 34,
-            height: 34,
-            borderRadius: "50%",
-            border: "1px solid #e4e4e4",
-            background: "#fff",
-            cursor: "pointer",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            color: "#9a9fad",
-          }}
-        >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-
-        {/* Handle bar (desktop only) */}
-        {!isMobile && (
-          <div style={{ display: "flex", justifyContent: "center", padding: "12px 0 0" }}>
-            <div style={{ width: 40, height: 4, borderRadius: 9999, background: "#e4e4e4" }} />
-          </div>
-        )}
-
-        {/* Header — same horizontal padding as body so heading left-aligns with fields */}
-        <div
-          style={{
-            borderBottom: "1px solid #e4e4e4",
+            justifyContent: "space-between",
+            padding: isMobile ? "16px 20px" : "20px 40px",
             flexShrink: 0,
-            padding: isMobile ? "24px 20px 20px" : "20px 124px 20px",
           }}
         >
-          {/* heading row: title + 200 hooks pill */}
-          <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
-            <h3
-              style={{
-                fontSize: isMobile ? 28 : 36,
-                fontWeight: 700,
-                color: "#1c2854",
-                margin: 0,
-                fontFamily: "inherit",
-                lineHeight: 1.15,
-              }}
+          {/* Logo */}
+          <img
+            src="/surkush-logo.png"
+            alt="Surkush"
+            style={{ height: 64 }}
+          />
+
+          {/* Close */}
+          <button
+            onClick={close}
+            aria-label="Close"
+            style={{
+              width: 34,
+              height: 34,
+              borderRadius: "50%",
+              border: "1px solid #dfe1e6",
+              background: "#fff",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#9a9fad",
+            }}
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
             >
-              {submitted ? "You’re booked." : "Let’s get started"}
-            </h3>
-            {!submitted && (
-              <button
-                onClick={() => {
-                  close();
-                  setTimeout(() => window.dispatchEvent(new CustomEvent("open-hooks")), 420);
-                }}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 7,
-                  padding: "6px 14px",
-                  borderRadius: 999,
-                  border: "1px solid #e4e4e4",
-                  background: "#fff",
-                  cursor: "pointer",
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "#1c2854",
-                  fontFamily: "inherit",
-                  flexShrink: 0,
-                }}
-              >
-                <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#008eff", display: "inline-block", flexShrink: 0 }} />
-                200 hooks
-              </button>
-            )}
-          </div>
-          {!submitted && (
-            <p style={{ fontSize: 15, fontWeight: 300, color: "#6b7280", margin: "8px 0 0", lineHeight: 1.5 }}>
-              Fill in the blanks and we&apos;ll respond in one business day.
-            </p>
-          )}
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
         </div>
 
-        {/* Body */}
-        <div
-          style={{
-            overflowY: "scroll",
-            flex: 1,
-            padding: isMobile
-              ? "20px 20px 36px"
-              : `24px ${124 - sbw}px 36px 124px`,
-          }}
-        >
-          {submitted ? (
-            /* Confirmation */
+        {/* Stepper */}
+        {step >= 0 && !submitted && (
+          <div
+            style={{
+              padding: isMobile ? "0 20px 16px" : "0 40px 20px",
+              flexShrink: 0,
+            }}
+          >
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
-                padding: "72px 0",
-                textAlign: "center",
-                gap: 18,
+                gap: 4,
+                maxWidth: 480,
+                margin: "0 auto",
               }}
             >
+              {STEPS.map((_, i) => (
+                <div
+                  key={i}
+                  style={{
+                    flex: 1,
+                    height: 3,
+                    borderRadius: 2,
+                    background:
+                      i < step
+                        ? "#1c2854"
+                        : i === step
+                        ? "#008eff"
+                        : "#d1d5db",
+                    transition: "background 0.3s ease",
+                  }}
+                />
+              ))}
+            </div>
+            <p
+              style={{
+                textAlign: "center",
+                fontSize: 13,
+                fontWeight: 500,
+                color: "#9a9fad",
+                marginTop: 10,
+              }}
+            >
+              {step + 1} of {TOTAL_STEPS}
+            </p>
+          </div>
+        )}
+
+        {/* Content area */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: isMobile ? "0 24px 24px" : "0 40px 40px",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            key={submitted ? "done" : step}
+            style={{
+              width: "100%",
+              maxWidth: 560,
+              animation: `${direction === "forward" ? "slideInRight" : "slideInLeft"} 0.35s ease forwards`,
+            }}
+          >
+            {submitted ? (
+              /* Confirmation */
               <div
                 style={{
-                  width: 58,
-                  height: 58,
-                  borderRadius: "50%",
-                  background: "rgba(0,142,255,0.1)",
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
+                  textAlign: "center",
+                  gap: 20,
                 }}
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#008eff"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              </div>
-              <div>
-                <p
-                  style={{
-                    fontWeight: 600,
-                    color: "#1c2854",
-                    fontSize: 18,
-                    margin: "0 0 6px",
-                  }}
-                >
-                  Request received
-                </p>
-                <p
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 300,
-                    color: "#6b7280",
-                    maxWidth: 380,
-                    margin: "0 auto",
-                    lineHeight: 1.65,
-                  }}
-                >
-                  We&apos;ll reach out to{" "}
-                  <strong style={{ fontWeight: 500, color: "#1c2854" }}>
-                    {form.workEmail}
-                  </strong>{" "}
-                  within 24 hours to confirm your slot. It&apos;s 20 minutes —
-                  no pitch.
-                </p>
-              </div>
-              <button
-                onClick={close}
-                style={{
-                  marginTop: 8,
-                  padding: "10px 28px",
-                  borderRadius: 10,
-                  border: "1px solid #e4e4e4",
-                  background: "transparent",
-                  cursor: "pointer",
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: "#1c2854",
-                  fontFamily: "inherit",
-                }}
-              >
-                Close
-              </button>
-            </div>
-          ) : (
-            /* Form */
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: two ? "1fr 1fr" : "1fr",
-                gap: "36px 64px",
-                width: "100%",
-              }}
-            >
-              {/* 1. First name */}
-              <Field label="First name" error={errors.firstName}>
-                <input
-                  type="text"
-                  placeholder="Jane"
-                  value={form.firstName}
-                  autoComplete="given-name"
-                  onChange={(e) => setField("firstName", e.target.value)}
-                  style={inputSt(!!errors.firstName)}
-                />
-              </Field>
-
-              {/* 2. Work email */}
-              <Field label="Work email" error={errors.workEmail}>
-                <input
-                  type="email"
-                  placeholder="jane@yourbrand.com"
-                  value={form.workEmail}
-                  autoComplete="email"
-                  onChange={(e) => setField("workEmail", e.target.value)}
-                  style={inputSt(!!errors.workEmail)}
-                />
-              </Field>
-
-              {/* 3. Business name */}
-              <Field label="Business name" error={errors.businessName}>
-                <input
-                  type="text"
-                  placeholder="Your brand name"
-                  value={form.businessName}
-                  autoComplete="organization"
-                  onChange={(e) => setField("businessName", e.target.value)}
-                  style={inputSt(!!errors.businessName)}
-                />
-              </Field>
-
-              {/* 4. Store URL */}
-              <Field label="Store URL" error={errors.storeUrl}>
-                <input
-                  type="text"
-                  placeholder="yourbrand.com"
-                  value={form.storeUrl}
-                  autoComplete="url"
-                  onChange={(e) => setField("storeUrl", e.target.value)}
-                  style={inputSt(!!errors.storeUrl)}
-                />
-              </Field>
-
-              {/* 5. What do you sell */}
-              <Field label="What do you sell?" error={errors.sells}>
-                <Picker
-                  value={form.sells}
-                  onChange={(v) => setField("sells", v)}
-                  options={SELL_OPTIONS.map((o) => ({ value: o, label: o }))}
-                  placeholder="Select a category"
-                  hasError={!!errors.sells}
-                />
-              </Field>
-
-              {/* 6. Country — searchable */}
-              <Field label="Country" error={errors.country}>
-                <Picker
-                  value={form.country}
-                  onChange={(v) => setField("country", v)}
-                  options={COUNTRIES.map((c) => ({ value: c.code, label: c.name }))}
-                  placeholder="Select a country"
-                  searchable
-                />
-              </Field>
-
-              {/* 7. Phone — dial auto-set from country */}
-              <Field label="Phone number" error={errors.phone}>
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    borderBottom: `1.5px solid ${errors.phone ? "#ef4444" : "#b8c2d8"}`,
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: 18,
-                      fontWeight: 300,
-                      color: "#9a9fad",
-                      flexShrink: 0,
-                      paddingRight: 8,
-                      paddingBottom: 10,
-                      paddingTop: 10,
-                      userSelect: "none",
-                    }}
-                  >
-                    {dial}
-                  </span>
-                  <input
-                    type="tel"
-                    placeholder="000 000 0000"
-                    value={form.phone}
-                    autoComplete="tel-national"
-                    onChange={(e) => setField("phone", e.target.value)}
-                    style={{
-                      ...inputSt(false),
-                      borderBottom: "none",
-                      flex: 1,
-                      minWidth: 0,
-                    }}
-                  />
-                </div>
-              </Field>
-
-              {/* 8. Monthly revenue */}
-              <Field
-                label="Roughly what are you doing in monthly revenue?"
-                error={errors.revenue}
-              >
-                <Picker
-                  value={form.revenue}
-                  onChange={(v) => setField("revenue", v)}
-                  options={REVENUE_OPTIONS.map((o) => ({ value: o, label: o }))}
-                  placeholder="Select a range"
-                  hasError={!!errors.revenue}
-                />
-              </Field>
-
-              {/* 9. Problem — full width */}
-              <div style={{ gridColumn: "1 / -1" }}>
-                <Field
-                  label="What’s not working right now?"
-                  error={errors.problem}
-                >
-                  <Picker
-                    value={form.problem}
-                    onChange={(v) => setField("problem", v)}
-                    options={PROBLEM_OPTIONS.map((o) => ({ value: o, label: o }))}
-                    placeholder="Select an option"
-                    hasError={!!errors.problem}
-                  />
-                </Field>
-              </div>
-
-              {/* Submit */}
-              <div style={{ gridColumn: "1 / -1" }}>
-                <button
-                  onClick={() => { if (validate()) setSubmitted(true); }}
-                  style={{
+                    width: 58,
+                    height: 58,
+                    borderRadius: "50%",
+                    background: "rgba(0,142,255,0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: 8,
-                    width: "100%",
-                    padding: "14px 0",
-                    borderRadius: 12,
-                    border: "none",
-                    background: "#1c2854",
-                    color: "#fff",
-                    fontSize: 15,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    marginTop: 4,
                   }}
                 >
-                  Book my call
                   <svg
-                    width="17"
-                    height="17"
+                    width="24"
+                    height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#008eff"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
+                </div>
+                <div>
+                  <p
+                    style={{
+                      fontWeight: 600,
+                      color: "#1c2854",
+                      fontSize: 22,
+                      margin: "0 0 8px",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    Thank you for taking the time!
+                  </p>
+                  <p
+                    style={{
+                      fontSize: 16,
+                      fontWeight: 300,
+                      color: "#6b7280",
+                      maxWidth: 400,
+                      margin: "0 auto",
+                      lineHeight: 1.65,
+                    }}
+                  >
+                    We&apos;ll reach out to{" "}
+                    <strong style={{ fontWeight: 500, color: "#1c2854" }}>
+                      {form.workEmail}
+                    </strong>{" "}
+                    within 24 hours to confirm your slot.
+                  </p>
+                </div>
+                <button
+                  onClick={close}
+                  style={{
+                    marginTop: 8,
+                    padding: "12px 32px",
+                    borderRadius: 10,
+                    border: "none",
+                    background: "#1c2854",
+                    color: "#fff",
+                    cursor: "pointer",
+                    fontSize: 15,
+                    fontWeight: 600,
+                    fontFamily: "inherit",
+                  }}
+                >
+                  Continue
                 </button>
               </div>
-            </div>
-          )}
+            ) : step < 0 ? (
+              /* Welcome screen */
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 12,
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: isMobile ? 24 : 30,
+                    fontWeight: 400,
+                    color: "#1c2854",
+                    lineHeight: 1.4,
+                    margin: 0,
+                  }}
+                >
+                  We&apos;ve been in your shoes and we know what you&apos;re
+                  going through.
+                </p>
+                <p
+                  style={{
+                    fontSize: isMobile ? 24 : 30,
+                    fontWeight: 600,
+                    color: "#1c2854",
+                    lineHeight: 1.4,
+                    margin: 0,
+                  }}
+                >
+                  Now, let&apos;s kick-start your brand journey!
+                </p>
+                <div style={{ marginTop: 12 }}>
+                  <button
+                    onClick={startFlow}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "14px 32px",
+                      borderRadius: 10,
+                      border: "none",
+                      background: "#1c2854",
+                      color: "#fff",
+                      fontSize: 15,
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    Continue
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ) : currentStep ? (
+              /* Step content */
+              <div>
+                <p
+                  style={{
+                    fontSize: isMobile ? 24 : 30,
+                    fontWeight: 400,
+                    color: "#1c2854",
+                    lineHeight: 1.3,
+                    margin: "0 0 24px",
+                  }}
+                >
+                  {resolveQuestion(currentStep.question)}
+                </p>
+
+                {/* Text / Email input */}
+                {(currentStep.type === "text" ||
+                  currentStep.type === "email") && (
+                  <div>
+                    <input
+                      ref={inputRef}
+                      type={currentStep.type}
+                      placeholder={currentStep.placeholder}
+                      value={form[currentStep.key]}
+                      autoComplete={currentStep.autoComplete}
+                      onChange={(e) =>
+                        setField(currentStep.key, e.target.value)
+                      }
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") goNext();
+                      }}
+                      style={{
+                        width: "100%",
+                        boxSizing: "border-box",
+                        border: "none",
+                        borderBottom: `2px solid ${error ? "#ef4444" : "#1c2854"}`,
+                        borderRadius: 0,
+                        padding: "12px 0",
+                        fontSize: isMobile ? 20 : 24,
+                        fontWeight: 300,
+                        color: "#1c2854",
+                        background: "transparent",
+                        outline: "none",
+                        fontFamily: "inherit",
+                      }}
+                    />
+                  </div>
+                )}
+
+                {/* Select options */}
+                {currentStep.type === "select" && currentStep.options && (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 8,
+                    }}
+                  >
+                    {currentStep.options.map((opt) => {
+                      const isOther = opt === "Something else";
+                      const isSelected = form[currentStep.key] === opt;
+                      return (
+                        <div key={opt}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setField(currentStep.key, opt);
+                              if (!isOther) {
+                                if (currentStep.otherKey)
+                                  setField(currentStep.otherKey, "");
+                              }
+                            }}
+                            style={{
+                              width: "100%",
+                              maxWidth: 560,
+                              textAlign: "left",
+                              padding: "14px 18px",
+                              borderRadius: 10,
+                              border: `1.5px solid ${isSelected ? "#1c2854" : "#dfe1e6"}`,
+                              background: isSelected ? "#1c2854" : "#fff",
+                              color: isSelected ? "#fff" : "#1c2854",
+                              fontSize: 16,
+                              fontWeight: isSelected ? 500 : 400,
+                              cursor: "pointer",
+                              fontFamily: "inherit",
+                              transition: "all 0.15s ease",
+                            }}
+                          >
+                            {opt}
+                          </button>
+                          {isOther &&
+                            isSelected &&
+                            currentStep.otherKey && (
+                              <input
+                                ref={inputRef}
+                                type="text"
+                                placeholder="Please tell us more..."
+                                value={form[currentStep.otherKey]}
+                                onChange={(e) =>
+                                  setField(
+                                    currentStep.otherKey!,
+                                    e.target.value
+                                  )
+                                }
+                                onKeyDown={(e) => {
+                                  if (e.key === "Enter") goNext();
+                                }}
+                                style={{
+                                  width: "100%",
+                                  maxWidth: 560,
+                                  boxSizing: "border-box",
+                                  border: "none",
+                                  borderBottom: `2px solid ${error && !form[currentStep.otherKey!].trim() ? "#ef4444" : "#1c2854"}`,
+                                  borderRadius: 0,
+                                  padding: "12px 0",
+                                  marginTop: 12,
+                                  fontSize: 18,
+                                  fontWeight: 300,
+                                  color: "#1c2854",
+                                  background: "transparent",
+                                  outline: "none",
+                                  fontFamily: "inherit",
+                                }}
+                              />
+                            )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Country picker */}
+                {currentStep.type === "country" && (
+                  <CountryPicker
+                    value={form.country}
+                    onChange={(v) => setCountryAndDial(v)}
+                    hasError={!!error}
+                  />
+                )}
+
+                {/* Phone input */}
+                {currentStep.type === "phone" && (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      borderBottom: `2px solid ${error ? "#ef4444" : "#1c2854"}`,
+                      maxWidth: 560,
+                    }}
+                  >
+                    <input
+                      type="text"
+                      value={form.dialCode}
+                      onChange={(e) => setField("dialCode", e.target.value)}
+                      style={{
+                        width: `${Math.max(3, form.dialCode.length + 1)}ch`,
+                        flexShrink: 0,
+                        border: "none",
+                        borderRadius: 0,
+                        padding: "12px 0",
+                        paddingRight: 8,
+                        fontSize: isMobile ? 20 : 24,
+                        fontWeight: 300,
+                        color: "#9a9fad",
+                        background: "transparent",
+                        outline: "none",
+                        fontFamily: "inherit",
+                      }}
+                    />
+                    <input
+                      ref={inputRef}
+                      type="tel"
+                      placeholder={currentStep.placeholder}
+                      value={form.phone}
+                      autoComplete={currentStep.autoComplete}
+                      onChange={(e) => setField("phone", e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") goNext();
+                      }}
+                      style={{
+                        flex: 1,
+                        minWidth: 0,
+                        border: "none",
+                        borderRadius: 0,
+                        padding: "12px 0",
+                        fontSize: isMobile ? 20 : 24,
+                        fontWeight: 300,
+                        color: "#1c2854",
+                        background: "transparent",
+                        outline: "none",
+                        fontFamily: "inherit",
+                      }}
+                    />
+                  </div>
+                )}
+
+                {/* Error message */}
+                {error && (
+                  <p
+                    style={{
+                      fontSize: 13,
+                      color: "#ef4444",
+                      marginTop: 10,
+                    }}
+                  >
+                    {error}
+                  </p>
+                )}
+
+                {/* Navigation buttons */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    marginTop: 28,
+                  }}
+                >
+                  {step > 0 && (
+                    <button
+                      type="button"
+                      onClick={goBack}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        padding: "12px 20px",
+                        borderRadius: 10,
+                        border: "1px solid #dfe1e6",
+                        background: "#fff",
+                        color: "#1c2854",
+                        fontSize: 15,
+                        fontWeight: 500,
+                        cursor: "pointer",
+                        fontFamily: "inherit",
+                      }}
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                      </svg>
+                      Back
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={goNext}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "12px 28px",
+                      borderRadius: 10,
+                      border: "none",
+                      background: "#1c2854",
+                      color: "#fff",
+                      fontSize: 15,
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    {step === TOTAL_STEPS - 1 ? "Submit" : "Next"}
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes slideInRight {
+          from { opacity: 0; transform: translateX(40px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInLeft {
+          from { opacity: 0; transform: translateX(-40px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
     </>
   );
 }
 
-function Field({
-  label,
-  error,
-  children,
-}: {
-  label: string;
-  error?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <label
-        style={{
-          display: "block",
-          fontSize: 18,
-          fontWeight: 500,
-          color: "#1c2854",
-          marginBottom: 10,
-        }}
-      >
-        {label}
-      </label>
-      {children}
-      {error && (
-        <p style={{ fontSize: 12, color: "#ef4444", marginTop: 6 }}>{error}</p>
-      )}
-    </div>
-  );
-}
-
-function inputSt(hasError: boolean): React.CSSProperties {
-  return {
-    width: "100%",
-    boxSizing: "border-box",
-    border: "none",
-    borderBottom: `1.5px solid ${hasError ? "#ef4444" : "#b8c2d8"}`,
-    borderRadius: 0,
-    padding: "10px 0",
-    fontSize: 18,
-    fontWeight: 300,
-    color: "#1c2854",
-    background: "transparent",
-    outline: "none",
-    transition: "border-color 0.15s",
-    fontFamily: "inherit",
-  };
-}
-
-type Opt = { value: string; label: string };
-
-/**
- * Themed dropdown. The panel is portalled to <body> because the drawer carries a
- * `transform`, which would otherwise make it the containing block for a fixed
- * child and also clip it inside the scrolling form body.
- */
-function Picker({
+function CountryPicker({
   value,
   onChange,
-  options,
-  placeholder,
   hasError,
-  searchable,
 }: {
   value: string;
   onChange: (v: string) => void;
-  options: Opt[];
-  placeholder: string;
-  hasError?: boolean;
-  searchable?: boolean;
+  hasError: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
-  const [active, setActive] = useState(0);
-  const [pos, setPos] = useState<{
-    top: number;
-    left: number;
-    width: number;
-    maxH: number;
-    up: boolean;
-  } | null>(null);
-
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const needle = q.trim().toLowerCase();
   const list = needle
-    ? options.filter((o) => o.label.toLowerCase().includes(needle))
-    : options;
-  const selected = options.find((o) => o.value === value);
+    ? COUNTRIES.filter((c) => c.name.toLowerCase().includes(needle))
+    : COUNTRIES;
 
-  const place = useCallback(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const gap = 8;
-    const edge = 16;
-    // Scrolled out of the drawer's viewport — nothing sensible to anchor to.
-    if (r.bottom < 0 || r.top > vh) {
-      setOpen(false);
-      return;
-    }
-    const below = vh - r.bottom - gap - edge;
-    const above = r.top - gap - edge;
-    // a little shorter than the drawer, which is 90vh
-    const cap = Math.round(vh * 0.9) - 72;
-    const up = below < 240 && above > below;
-    const maxH = Math.max(180, Math.min(cap, Math.max(0, up ? above : below)));
-    setPos({
-      top: up ? r.top - gap : r.bottom + gap,
-      left: r.left,
-      width: r.width,
-      maxH,
-      up,
-    });
-  }, []);
+  const selected = COUNTRIES.find((c) => c.code === value);
 
   useEffect(() => {
-    if (!open) {
-      setQ("");
-      setActive(0);
-      return;
+    if (open) {
+      setTimeout(() => searchRef.current?.focus(), 50);
+      const handler = (e: MouseEvent) => {
+        if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+          setOpen(false);
+        }
+      };
+      document.addEventListener("mousedown", handler);
+      return () => document.removeEventListener("mousedown", handler);
     }
-    place();
-    const onScroll = () => place();
-    const onDown = (e: MouseEvent) => {
-      const t = e.target as Node;
-      if (wrapRef.current?.contains(t) || panelRef.current?.contains(t)) return;
-      setOpen(false);
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.stopPropagation();
-        setOpen(false);
-      }
-    };
-    window.addEventListener("scroll", onScroll, true);
-    window.addEventListener("resize", place);
-    document.addEventListener("mousedown", onDown);
-    document.addEventListener("keydown", onKey, true);
-    return () => {
-      window.removeEventListener("scroll", onScroll, true);
-      window.removeEventListener("resize", place);
-      document.removeEventListener("mousedown", onDown);
-      document.removeEventListener("keydown", onKey, true);
-    };
-  }, [open, place]);
-
-  useEffect(() => {
-    if (open && searchable) searchRef.current?.focus();
-  }, [open, searchable]);
-
-  const commit = (o: Opt) => {
-    onChange(o.value);
-    setOpen(false);
-  };
-
-  const onNav = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-      e.preventDefault();
-      setActive((i) => {
-        const n = list.length;
-        if (!n) return 0;
-        const next = e.key === "ArrowDown" ? i + 1 : i - 1;
-        const wrapped = (next + n) % n;
-        listRef.current
-          ?.querySelectorAll("[data-opt]")
-          [wrapped]?.scrollIntoView({ block: "nearest" });
-        return wrapped;
-      });
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      if (list[active]) commit(list[active]);
-    }
-  };
+    setQ("");
+  }, [open]);
 
   return (
-    <div ref={wrapRef} style={{ position: "relative" }}>
+    <div ref={panelRef}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        onKeyDown={!searchable ? onNav : undefined}
         style={{
           width: "100%",
           boxSizing: "border-box",
@@ -799,12 +973,10 @@ function Picker({
           justifyContent: "space-between",
           gap: 10,
           border: "none",
-          borderBottom: `1.5px solid ${
-            hasError ? "#ef4444" : open ? "#1c2854" : "#b8c2d8"
-          }`,
+          borderBottom: `2px solid ${hasError ? "#ef4444" : open ? "#1c2854" : "#1c2854"}`,
           borderRadius: 0,
-          padding: "10px 0",
-          fontSize: 18,
+          padding: "12px 0",
+          fontSize: 20,
           fontWeight: 300,
           color: selected ? "#1c2854" : "#9a9fad",
           background: "transparent",
@@ -812,21 +984,12 @@ function Picker({
           cursor: "pointer",
           outline: "none",
           fontFamily: "inherit",
-          transition: "border-color 0.15s",
         }}
       >
-        <span
-          style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {selected ? selected.label : placeholder}
-        </span>
+        <span>{selected ? selected.name : "Select your country"}</span>
         <svg
-          width="13"
-          height="13"
+          width="14"
+          height="14"
           viewBox="0 0 24 24"
           fill="none"
           stroke="#1c2854"
@@ -843,136 +1006,110 @@ function Picker({
         </svg>
       </button>
 
-      {open &&
-        pos &&
-        createPortal(
+      {open && (
+        <div
+          style={{
+            marginTop: 8,
+            background: "#fff",
+            border: "1px solid #dfe1e6",
+            borderRadius: 12,
+            boxShadow: "0 12px 40px rgba(28,40,84,0.15)",
+            overflow: "hidden",
+            maxHeight: 320,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <div
-            ref={panelRef}
             style={{
-              position: "fixed",
-              top: pos.top,
-              left: pos.left,
-              width: pos.width,
-              transform: pos.up ? "translateY(-100%)" : undefined,
-              maxHeight: pos.maxH,
-              zIndex: 70,
-              display: "flex",
-              flexDirection: "column",
-              background: "#fff",
-              border: "1px solid #e4e4e4",
-              borderRadius: 16,
-              boxShadow: "0 20px 56px rgba(28,40,84,0.20)",
-              overflow: "hidden",
+              padding: 8,
+              borderBottom: "1px solid #f1f1f1",
+              flexShrink: 0,
             }}
           >
-            {searchable && (
-              <div
-                style={{
-                  flexShrink: 0,
-                  padding: 10,
-                  borderBottom: "1px solid #f1f1f1",
-                }}
-              >
-                <input
-                  ref={searchRef}
-                  value={q}
-                  onChange={(e) => {
-                    setQ(e.target.value);
-                    setActive(0);
+            <input
+              ref={searchRef}
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Search"
+              style={{
+                width: "100%",
+                boxSizing: "border-box",
+                border: "1px solid #e4e4e4",
+                borderRadius: 8,
+                padding: "10px 12px",
+                fontSize: 15,
+                fontWeight: 300,
+                color: "#1c2854",
+                background: "#f7f8fa",
+                outline: "none",
+                fontFamily: "inherit",
+              }}
+            />
+          </div>
+          <div style={{ overflowY: "auto", padding: 4 }}>
+            {list.map((c) => {
+              const sel = c.code === value;
+              return (
+                <button
+                  key={c.code}
+                  type="button"
+                  onClick={() => {
+                    onChange(c.code);
+                    setOpen(false);
                   }}
-                  onKeyDown={onNav}
-                  placeholder="Search"
                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
                     width: "100%",
-                    boxSizing: "border-box",
-                    border: "1px solid #e4e4e4",
-                    borderRadius: 10,
-                    padding: "10px 13px",
+                    textAlign: "left",
+                    border: "none",
+                    borderRadius: 8,
+                    padding: "10px 12px",
                     fontSize: 15,
-                    fontWeight: 300,
-                    color: "#1c2854",
-                    background: "#f1f1f1",
-                    outline: "none",
+                    fontWeight: sel ? 500 : 300,
+                    color: sel ? "#008eff" : "#1c2854",
+                    background: "transparent",
+                    cursor: "pointer",
                     fontFamily: "inherit",
                   }}
-                />
-              </div>
-            )}
-
-            <div
-              ref={listRef}
-              style={{
-                minHeight: 0,
-                overflowY: "auto",
-                overscrollBehavior: "contain",
-                padding: 6,
-              }}
-            >
-              {list.map((o, i) => {
-                const sel = o.value === value;
-                return (
-                  <button
-                    key={o.value}
-                    data-opt
-                    type="button"
-                    onClick={() => commit(o)}
-                    onMouseEnter={() => setActive(i)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: 10,
-                      width: "100%",
-                      textAlign: "left",
-                      border: "none",
-                      borderRadius: 10,
-                      padding: "11px 13px",
-                      fontSize: 16,
-                      fontWeight: sel ? 500 : 300,
-                      color: sel ? "#008eff" : "#1c2854",
-                      background: active === i ? "#f1f1f1" : "transparent",
-                      cursor: "pointer",
-                      fontFamily: "inherit",
-                    }}
-                  >
-                    <span>{o.label}</span>
-                    {sel && (
-                      <svg
-                        width="15"
-                        height="15"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#008eff"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        style={{ flexShrink: 0 }}
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    )}
-                  </button>
-                );
-              })}
-
-              {list.length === 0 && (
-                <p
-                  style={{
-                    margin: 0,
-                    padding: "20px 13px",
-                    textAlign: "center",
-                    fontSize: 14,
-                    fontWeight: 300,
-                    color: "#9a9fad",
-                  }}
                 >
-                  No matches
-                </p>
-              )}
-            </div>
-          </div>,
-          document.body
-        )}
+                  <span>{c.name}</span>
+                  {sel && (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#008eff"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  )}
+                </button>
+              );
+            })}
+            {list.length === 0 && (
+              <p
+                style={{
+                  margin: 0,
+                  padding: "16px 12px",
+                  textAlign: "center",
+                  fontSize: 14,
+                  fontWeight: 300,
+                  color: "#9a9fad",
+                }}
+              >
+                No matches
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

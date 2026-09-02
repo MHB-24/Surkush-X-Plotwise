@@ -21,16 +21,16 @@ export function Platform() {
   return (
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-start">
-          <div className="lg:sticky" style={{ top: "8rem" }}>
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+          <div className="text-center flex flex-col items-center justify-center">
             <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
               Day 11 onward
             </p>
-            <h2 className="heading-2">
+            <h2 className="heading-2 text-center">
               The build stops on day ten.{" "}
               <span className="font-secondary italic">The system doesn&apos;t.</span>
             </h2>
-            <p className="mt-4 heading-description max-w-2xl">
+            <p className="mt-4 heading-description text-center max-w-2xl">
               Everything we make lands inside your workspace, and you keep it running
               for 90 days. Here&apos;s what your team can actually do with it.
             </p>
@@ -56,12 +56,12 @@ export function Platform() {
                     {f.title}
                   </h3>
                 </div>
-                <p className="text-sm font-light text-tundora leading-relaxed">
+                <p className="text-[16px] font-light text-primary-1 leading-relaxed">
                   {f.body}
                 </p>
               </div>
             ))}
-            <p className="text-sm font-light text-gray text-right pr-1">
+            <p className="text-[18px] font-light text-tundora text-right pr-1">
               Ten days builds it. The next 90 is where it starts paying you back.
             </p>
           </div>
