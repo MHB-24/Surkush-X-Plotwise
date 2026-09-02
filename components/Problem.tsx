@@ -157,7 +157,7 @@ export function Problem() {
                       muted
                       preload="none"
                       onPause={() => setPlaying((p) => (p === i ? null : p))}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-contain object-top"
                     />
                     <div
                       className={`absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/45 transition-opacity ${
