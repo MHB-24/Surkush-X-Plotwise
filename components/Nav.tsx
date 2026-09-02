@@ -27,7 +27,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="mt-10 w-full px-[80px]">
+    <header className="mt-4 md:mt-10 w-full px-4 md:px-[80px]">
       <div className="flex justify-between items-center w-full">
         <Link href="/" className="flex items-center w-4 sm:w-6 aspect-1/2">
           <Image

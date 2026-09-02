@@ -86,7 +86,7 @@ export function Hero() {
               operation actually runs, and it stays yours.
             </p>
 
-            <p className="text-medium font-medium text-tundora text-center leading-relaxed">
+            <p className="text-medium font-medium text-tundora text-center leading-relaxed max-w-3xl">
               We map what your buyer actually believes, what&apos;s stopping
               them from buying, and the one argument your competitors can&apos;t
               make. Then we turn it into scripts you can shoot next week, and
