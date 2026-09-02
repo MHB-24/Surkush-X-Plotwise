@@ -26,8 +26,8 @@ const ads = [
     note: "Killed on day 6",
     src: `${MEDIA}/assets/cases/cs1-new-v1.mp4`,
     poster: `${MEDIA}/assets/cases/cs1-new-v1.jpg`,
-    accent: "#868686",
-    accentBg: "rgba(134,134,134,0.12)",
+    accent: "#e03535",
+    accentBg: "rgba(224,53,53,0.10)",
     metrics: [
       { label: "ROAS", value: "0.8x" },
       { label: "CTR", value: "0.6%" },

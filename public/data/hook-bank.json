@@ -1,0 +1,2938 @@
+{
+  "title": "Hook Bank | DTC & Ecommerce",
+  "description": "200 ready-to-use ad hooks for DTC and ecommerce brands, 100 for Meta and 100 for TikTok. Every hook is tagged by funnel stage, hook type, and product category so it can be filtered.",
+  "filters": {
+    "platform": [
+      {
+        "value": "meta",
+        "label": "Meta"
+      },
+      {
+        "value": "tiktok",
+        "label": "TikTok"
+      }
+    ],
+    "funnelStage": [
+      {
+        "value": "TOF",
+        "label": "TOF",
+        "description": "Top of funnel. Cold audience, stop the scroll, no product knowledge assumed."
+      },
+      {
+        "value": "MOF",
+        "label": "MOF",
+        "description": "Middle of funnel. Problem aware, weighing options, needs a reason to believe."
+      },
+      {
+        "value": "BOF",
+        "label": "BOF",
+        "description": "Bottom of funnel. Warm, close to buying, needs the objection handled."
+      }
+    ],
+    "hookType": [
+      "Curiosity",
+      "Problem-Solution",
+      "Controversial",
+      "Relatable",
+      "Social Proof",
+      "Authority",
+      "Transformation",
+      "Listicle",
+      "Direct Response",
+      "Negativity Bias",
+      "Testimonial",
+      "Question",
+      "POV",
+      "Trend Format"
+    ],
+    "categories": [
+      "All",
+      "Apparel",
+      "Beauty & Personal Care",
+      "Health & Supplements",
+      "Home & Kitchen",
+      "Electronics & Gadgets",
+      "Fitness & Outdoor",
+      "Food & Beverage",
+      "Pet",
+      "Baby & Kids",
+      "Jewellery"
+    ]
+  },
+  "placeholderKey": [
+    {
+      "placeholder": "[product]",
+      "meaning": "The specific product being sold"
+    },
+    {
+      "placeholder": "[product type]",
+      "meaning": "The category it sits in (trainers, protein powder, air fryer)"
+    },
+    {
+      "placeholder": "[problem]",
+      "meaning": "The customer problem the product solves"
+    },
+    {
+      "placeholder": "[outcome]",
+      "meaning": "The result the customer wants"
+    },
+    {
+      "placeholder": "[ingredient or spec]",
+      "meaning": "The differentiating ingredient, material, spec or mechanism"
+    },
+    {
+      "placeholder": "[old solution]",
+      "meaning": "What they are using now"
+    },
+    {
+      "placeholder": "[expert]",
+      "meaning": "The credible authority for that category"
+    },
+    {
+      "placeholder": "[amount], [number], [timeframe], [code], [offer], [event]",
+      "meaning": "Literal values"
+    }
+  ],
+  "hooks": [
+    {
+      "id": "meta-1",
+      "platform": "meta",
+      "number": 1,
+      "section": "Top of funnel",
+      "text": "If you have [problem], read this before you buy another [product type].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-2",
+      "platform": "meta",
+      "number": 2,
+      "section": "Top of funnel",
+      "text": "The [product] that sold out [number] times is finally back.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-3",
+      "platform": "meta",
+      "number": 3,
+      "section": "Top of funnel",
+      "text": "Your [problem] is not the problem. Your [product type] is.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-4",
+      "platform": "meta",
+      "number": 4,
+      "section": "Top of funnel",
+      "text": "I spent [amount] on [product type] before I found the one that worked.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-5",
+      "platform": "meta",
+      "number": 5,
+      "section": "Top of funnel",
+      "text": "The thing [expert] wish you would stop doing with your [product type].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-6",
+      "platform": "meta",
+      "number": 6,
+      "section": "Top of funnel",
+      "text": "Read this if your [problem] gets worse no matter what you try.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-7",
+      "platform": "meta",
+      "number": 7,
+      "section": "Top of funnel",
+      "text": "The 3 signs your [product type] is quietly making [problem] worse.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-8",
+      "platform": "meta",
+      "number": 8,
+      "section": "Top of funnel",
+      "text": "Anyone who has bought a [product type] in the last [timeframe] should read this.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-9",
+      "platform": "meta",
+      "number": 9,
+      "section": "Top of funnel",
+      "text": "I did not believe the reviews either, until I tried it myself.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-10",
+      "platform": "meta",
+      "number": 10,
+      "section": "Top of funnel",
+      "text": "Warning: this [product] will ruin every other [product type] for you.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-11",
+      "platform": "meta",
+      "number": 11,
+      "section": "Top of funnel",
+      "text": "The [problem] fix nobody selling [product type] wants you to find.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-12",
+      "platform": "meta",
+      "number": 12,
+      "section": "Top of funnel",
+      "text": "Stop wasting money on [product type] that does not do this one thing.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-13",
+      "platform": "meta",
+      "number": 13,
+      "section": "Top of funnel",
+      "text": "What I wish I knew before I spent years dealing with [problem].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-14",
+      "platform": "meta",
+      "number": 14,
+      "section": "Top of funnel",
+      "text": "This is what [problem] looks like at week 1 versus week 8.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "Beauty & Personal Care",
+        "Health & Supplements",
+        "Fitness & Outdoor"
+      ]
+    },
+    {
+      "id": "meta-15",
+      "platform": "meta",
+      "number": 15,
+      "section": "Top of funnel",
+      "text": "The reason your [old solution] stopped working, explained simply.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-16",
+      "platform": "meta",
+      "number": 16,
+      "section": "Top of funnel",
+      "text": "If you are still using [old solution], you need to see this.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-17",
+      "platform": "meta",
+      "number": 17,
+      "section": "Top of funnel",
+      "text": "5 [product type] purchases that are actually worth the money in [year].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-18",
+      "platform": "meta",
+      "number": 18,
+      "section": "Top of funnel",
+      "text": "How I fixed [problem] without [expensive alternative].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-19",
+      "platform": "meta",
+      "number": 19,
+      "section": "Top of funnel",
+      "text": "The truth about [ingredient or spec] that brands will not print on the box.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-20",
+      "platform": "meta",
+      "number": 20,
+      "section": "Top of funnel",
+      "text": "Save this before your next [product type] purchase.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-21",
+      "platform": "meta",
+      "number": 21,
+      "section": "Top of funnel",
+      "text": "[Outcome] started the day I threw this out.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-22",
+      "platform": "meta",
+      "number": 22,
+      "section": "Top of funnel",
+      "text": "The [product] that has [number] five star reviews for a reason.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-23",
+      "platform": "meta",
+      "number": 23,
+      "section": "Top of funnel",
+      "text": "Why does nobody talk about [problem] until it is too late.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-24",
+      "platform": "meta",
+      "number": 24,
+      "section": "Top of funnel",
+      "text": "I tried the viral [product] so you can see it in real use.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-25",
+      "platform": "meta",
+      "number": 25,
+      "section": "Top of funnel",
+      "text": "The [product] people keep stopping me to ask about.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "Apparel",
+        "Beauty & Personal Care",
+        "Jewellery"
+      ]
+    },
+    {
+      "id": "meta-26",
+      "platform": "meta",
+      "number": 26,
+      "section": "Top of funnel",
+      "text": "If your [product type] keeps [failure mode], here is the real reason.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-27",
+      "platform": "meta",
+      "number": 27,
+      "section": "Top of funnel",
+      "text": "Founder here. This is the [ingredient or spec] we refused to cut corners on.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-28",
+      "platform": "meta",
+      "number": 28,
+      "section": "Top of funnel",
+      "text": "The [product type] mistake 90 percent of buyers make.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-29",
+      "platform": "meta",
+      "number": 29,
+      "section": "Top of funnel",
+      "text": "Before you spend another [amount] on [product type], read this.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-30",
+      "platform": "meta",
+      "number": 30,
+      "section": "Top of funnel",
+      "text": "[Outcome] was not luck. It was [timeframe] and one change.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-31",
+      "platform": "meta",
+      "number": 31,
+      "section": "Top of funnel",
+      "text": "What [profession] actually buy for themselves.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-32",
+      "platform": "meta",
+      "number": 32,
+      "section": "Top of funnel",
+      "text": "This [product] does the job of [number] things I used to own.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "Home & Kitchen",
+        "Electronics & Gadgets",
+        "Beauty & Personal Care"
+      ]
+    },
+    {
+      "id": "meta-33",
+      "platform": "meta",
+      "number": 33,
+      "section": "Top of funnel",
+      "text": "I was one of the skeptics. Then I saw [outcome] at day [number].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "Health & Supplements",
+        "Beauty & Personal Care",
+        "Fitness & Outdoor"
+      ]
+    },
+    {
+      "id": "meta-34",
+      "platform": "meta",
+      "number": 34,
+      "section": "Top of funnel",
+      "text": "The one [product type] I would replace first if I lost everything I own.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-35",
+      "platform": "meta",
+      "number": 35,
+      "section": "Top of funnel",
+      "text": "Everything you were told about [problem] is a little bit wrong.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-36",
+      "platform": "meta",
+      "number": 36,
+      "section": "Top of funnel",
+      "text": "How to tell in 10 seconds if a [product type] is worth buying.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-37",
+      "platform": "meta",
+      "number": 37,
+      "section": "Top of funnel",
+      "text": "The reason this [product] keeps going viral, tested in real conditions.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-38",
+      "platform": "meta",
+      "number": 38,
+      "section": "Top of funnel",
+      "text": "I have tried every [product type] on the market. Start here.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-39",
+      "platform": "meta",
+      "number": 39,
+      "section": "Top of funnel",
+      "text": "Your [problem] deserves better than what you are giving it.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-40",
+      "platform": "meta",
+      "number": 40,
+      "section": "Top of funnel",
+      "text": "The [ingredient or spec] that finally made a visible difference, with proof.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-41",
+      "platform": "meta",
+      "number": 41,
+      "section": "Middle of funnel",
+      "text": "I compared [our product] to [category leader]. Here is the honest result.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-42",
+      "platform": "meta",
+      "number": 42,
+      "section": "Middle of funnel",
+      "text": "Here is exactly what [number] weeks of [product] did to [problem].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-43",
+      "platform": "meta",
+      "number": 43,
+      "section": "Middle of funnel",
+      "text": "The full breakdown of what is actually in [product], no marketing spin.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-44",
+      "platform": "meta",
+      "number": 44,
+      "section": "Middle of funnel",
+      "text": "Real reviews from real people who used [product] for a month.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-45",
+      "platform": "meta",
+      "number": 45,
+      "section": "Middle of funnel",
+      "text": "Why [product] costs more, and why it is cheaper in the long run.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-46",
+      "platform": "meta",
+      "number": 46,
+      "section": "Middle of funnel",
+      "text": "If you are choosing between [product A] and [product B], save this.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-47",
+      "platform": "meta",
+      "number": 47,
+      "section": "Middle of funnel",
+      "text": "Everything they do not tell you before you buy [product type].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-48",
+      "platform": "meta",
+      "number": 48,
+      "section": "Middle of funnel",
+      "text": "The before and after that made me a [product] customer for life.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-49",
+      "platform": "meta",
+      "number": 49,
+      "section": "Middle of funnel",
+      "text": "An expert breaks down why [ingredient or spec] actually works.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-50",
+      "platform": "meta",
+      "number": 50,
+      "section": "Middle of funnel",
+      "text": "I tracked [problem] for 30 days on [product]. The photos do not lie.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "Beauty & Personal Care",
+        "Health & Supplements",
+        "Fitness & Outdoor"
+      ]
+    },
+    {
+      "id": "meta-51",
+      "platform": "meta",
+      "number": 51,
+      "section": "Middle of funnel",
+      "text": "The pros and cons of [product] after real daily use.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-52",
+      "platform": "meta",
+      "number": 52,
+      "section": "Middle of funnel",
+      "text": "How [product] fits into the setup you already have.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-53",
+      "platform": "meta",
+      "number": 53,
+      "section": "Middle of funnel",
+      "text": "Answering every question my comments had about [product].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-54",
+      "platform": "meta",
+      "number": 54,
+      "section": "Middle of funnel",
+      "text": "What makes [product] different from the [number] dupes online.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-55",
+      "platform": "meta",
+      "number": 55,
+      "section": "Middle of funnel",
+      "text": "The results at week 1, week 4, and week 8 on [product].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "Beauty & Personal Care",
+        "Health & Supplements",
+        "Fitness & Outdoor"
+      ]
+    },
+    {
+      "id": "meta-56",
+      "platform": "meta",
+      "number": 56,
+      "section": "Middle of funnel",
+      "text": "Why I switched from [old solution] and have not looked back.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-57",
+      "platform": "meta",
+      "number": 57,
+      "section": "Middle of funnel",
+      "text": "Is [product type] right for your [use case]. Read this.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-58",
+      "platform": "meta",
+      "number": 58,
+      "section": "Middle of funnel",
+      "text": "The honest close up. Build, finish, and how it holds up.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "Apparel",
+        "Electronics & Gadgets",
+        "Home & Kitchen",
+        "Jewellery"
+      ]
+    },
+    {
+      "id": "meta-59",
+      "platform": "meta",
+      "number": 59,
+      "section": "Middle of funnel",
+      "text": "If [product type] failed you before, here is what was missing.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-60",
+      "platform": "meta",
+      "number": 60,
+      "section": "Middle of funnel",
+      "text": "Three things I got wrong about [ingredient or spec] before I understood it.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-61",
+      "platform": "meta",
+      "number": 61,
+      "section": "Middle of funnel",
+      "text": "The claim on the label, tested on real customers.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "Health & Supplements",
+        "Beauty & Personal Care",
+        "Food & Beverage"
+      ]
+    },
+    {
+      "id": "meta-62",
+      "platform": "meta",
+      "number": 62,
+      "section": "Middle of funnel",
+      "text": "What [number] customers said after their first [product].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-63",
+      "platform": "meta",
+      "number": 63,
+      "section": "Middle of funnel",
+      "text": "How to actually use [product] so it works the way it should.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-64",
+      "platform": "meta",
+      "number": 64,
+      "section": "Middle of funnel",
+      "text": "Side by side: [product] versus the budget version.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-65",
+      "platform": "meta",
+      "number": 65,
+      "section": "Middle of funnel",
+      "text": "The routine that finally fixed [problem], step by step.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-66",
+      "platform": "meta",
+      "number": 66,
+      "section": "Middle of funnel",
+      "text": "Why [profession] keep recommending this exact [ingredient or spec].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-67",
+      "platform": "meta",
+      "number": 67,
+      "section": "Middle of funnel",
+      "text": "The full cost breakdown of switching to [product].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-68",
+      "platform": "meta",
+      "number": 68,
+      "section": "Middle of funnel",
+      "text": "I read 100 reviews of [product] so you do not have to.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-69",
+      "platform": "meta",
+      "number": 69,
+      "section": "Middle of funnel",
+      "text": "What happened when I used [product] every day for a month.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-70",
+      "platform": "meta",
+      "number": 70,
+      "section": "Middle of funnel",
+      "text": "The one spec that separates good [product type] from bad.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "Electronics & Gadgets",
+        "Home & Kitchen",
+        "Fitness & Outdoor",
+        "Apparel"
+      ]
+    },
+    {
+      "id": "meta-71",
+      "platform": "meta",
+      "number": 71,
+      "section": "Bottom of funnel",
+      "text": "You have been thinking about [product]. Here is your sign.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-72",
+      "platform": "meta",
+      "number": 72,
+      "section": "Bottom of funnel",
+      "text": "The [product] is back in stock. It will not stay that way.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-73",
+      "platform": "meta",
+      "number": 73,
+      "section": "Bottom of funnel",
+      "text": "Your last objection to [product], handled in 30 seconds.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-74",
+      "platform": "meta",
+      "number": 74,
+      "section": "Bottom of funnel",
+      "text": "Use [code] for [offer]. The one you actually want should not cost full price.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-75",
+      "platform": "meta",
+      "number": 75,
+      "section": "Bottom of funnel",
+      "text": "[Number] people bought this last week. Here is why.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-76",
+      "platform": "meta",
+      "number": 76,
+      "section": "Bottom of funnel",
+      "text": "Still deciding on [product]. This review will make the call for you.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-77",
+      "platform": "meta",
+      "number": 77,
+      "section": "Bottom of funnel",
+      "text": "The bundle that gives you the full [setup] for less.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-78",
+      "platform": "meta",
+      "number": 78,
+      "section": "Bottom of funnel",
+      "text": "If you have tried everything for [problem], try this before you give up.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-79",
+      "platform": "meta",
+      "number": 79,
+      "section": "Bottom of funnel",
+      "text": "Everything you get with [product], laid out before you buy.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-80",
+      "platform": "meta",
+      "number": 80,
+      "section": "Bottom of funnel",
+      "text": "The reviews are in and they say the same thing about [product].",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-81",
+      "platform": "meta",
+      "number": 81,
+      "section": "Bottom of funnel",
+      "text": "Last chance on [offer] before it ends [timeframe].",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-82",
+      "platform": "meta",
+      "number": 82,
+      "section": "Bottom of funnel",
+      "text": "I bought it with my own money. Here is my unfiltered verdict.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-83",
+      "platform": "meta",
+      "number": 83,
+      "section": "Bottom of funnel",
+      "text": "Why [product] is worth it even at full price.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-84",
+      "platform": "meta",
+      "number": 84,
+      "section": "Bottom of funnel",
+      "text": "Add to cart if [problem] has waited long enough.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-85",
+      "platform": "meta",
+      "number": 85,
+      "section": "Bottom of funnel",
+      "text": "The [product] that sells out every drop is live right now.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-86",
+      "platform": "meta",
+      "number": 86,
+      "section": "Bottom of funnel",
+      "text": "[Event] is coming. This is the [product] to get before it.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-87",
+      "platform": "meta",
+      "number": 87,
+      "section": "Bottom of funnel",
+      "text": "Three reasons to buy [product] today and none to wait.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-88",
+      "platform": "meta",
+      "number": 88,
+      "section": "Bottom of funnel",
+      "text": "The one everyone keeps asking me the name of.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "Apparel",
+        "Beauty & Personal Care",
+        "Jewellery",
+        "Home & Kitchen"
+      ]
+    },
+    {
+      "id": "meta-89",
+      "platform": "meta",
+      "number": 89,
+      "section": "Bottom of funnel",
+      "text": "What [number] repeat buyers know about [product] that you do not yet.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Testimonial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-90",
+      "platform": "meta",
+      "number": 90,
+      "section": "Bottom of funnel",
+      "text": "Your [setup] is one product away from complete.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-91",
+      "platform": "meta",
+      "number": 91,
+      "section": "Trend and format led",
+      "text": "The \"POV you finally fixed [problem]\" Reel set to a calm trending audio.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-92",
+      "platform": "meta",
+      "number": 92,
+      "section": "Trend and format led",
+      "text": "\"Things I own that just make sense\" carousel with a strong cover line.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-93",
+      "platform": "meta",
+      "number": 93,
+      "section": "Trend and format led",
+      "text": "The silent Reel. On screen text only, [product] in real use.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-94",
+      "platform": "meta",
+      "number": 94,
+      "section": "Trend and format led",
+      "text": "\"Save this for your next [product type] purchase\" text-led feed post.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Direct Response",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-95",
+      "platform": "meta",
+      "number": 95,
+      "section": "Trend and format led",
+      "text": "The founder to camera \"why we made [product]\" origin story Reel.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-96",
+      "platform": "meta",
+      "number": 96,
+      "section": "Trend and format led",
+      "text": "\"Reply to this comment about [problem]\" as the hook, answering a real one.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-97",
+      "platform": "meta",
+      "number": 97,
+      "section": "Trend and format led",
+      "text": "The before and after carousel. Slide 1 is the hook, last slide is the offer.",
+      "funnelStage": [
+        "MOF",
+        "BOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-98",
+      "platform": "meta",
+      "number": 98,
+      "section": "Trend and format led",
+      "text": "\"Green screen me reacting to a review of [product]\" credibility Reel.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-99",
+      "platform": "meta",
+      "number": 99,
+      "section": "Trend and format led",
+      "text": "The \"3 options, ranked\" quick cut Reel with a clear winner.",
+      "funnelStage": [
+        "TOF",
+        "MOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "meta-100",
+      "platform": "meta",
+      "number": 100,
+      "section": "Trend and format led",
+      "text": "\"Do not buy [product] until you read this caption\" for a text-heavy feed post.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-1",
+      "platform": "tiktok",
+      "number": 1,
+      "section": "Top of funnel",
+      "text": "POV: you finally found the [product] that did what all the others promised.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "POV",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-2",
+      "platform": "tiktok",
+      "number": 2,
+      "section": "Top of funnel",
+      "text": "I was today years old when I learned I was using [product type] completely wrong.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-3",
+      "platform": "tiktok",
+      "number": 3,
+      "section": "Top of funnel",
+      "text": "Stop scrolling if [problem] has been getting worse and you cannot figure out why.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-4",
+      "platform": "tiktok",
+      "number": 4,
+      "section": "Top of funnel",
+      "text": "No one talks about how much [common habit] is costing you.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-5",
+      "platform": "tiktok",
+      "number": 5,
+      "section": "Top of funnel",
+      "text": "Tell me you have [problem] without telling me. I will go first.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-6",
+      "platform": "tiktok",
+      "number": 6,
+      "section": "Top of funnel",
+      "text": "This is your sign to throw out that [old solution] you have had since 2019.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-7",
+      "platform": "tiktok",
+      "number": 7,
+      "section": "Top of funnel",
+      "text": "Things my [expert] told me that I wish I knew ten years ago.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-8",
+      "platform": "tiktok",
+      "number": 8,
+      "section": "Top of funnel",
+      "text": "The [product] people keep gatekeeping and I refuse to keep the secret.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-9",
+      "platform": "tiktok",
+      "number": 9,
+      "section": "Top of funnel",
+      "text": "POV: [outcome] before and after you stopped believing the [product type] myths.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-10",
+      "platform": "tiktok",
+      "number": 10,
+      "section": "Top of funnel",
+      "text": "If you have [problem], watch this before you spend another dollar.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-11",
+      "platform": "tiktok",
+      "number": 11,
+      "section": "Top of funnel",
+      "text": "Nobody: ... me explaining why [ingredient or spec] changed how I buy [product type].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-12",
+      "platform": "tiktok",
+      "number": 12,
+      "section": "Top of funnel",
+      "text": "Rating the viral [product type] so you do not have to waste your money.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-13",
+      "platform": "tiktok",
+      "number": 13,
+      "section": "Top of funnel",
+      "text": "The signs your [old solution] is failing that everyone ignores.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-14",
+      "platform": "tiktok",
+      "number": 14,
+      "section": "Top of funnel",
+      "text": "Unpopular opinion: most [product type] is a waste of money except this one.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-15",
+      "platform": "tiktok",
+      "number": 15,
+      "section": "Top of funnel",
+      "text": "Come with me while I show you the [product] I would repurchase forever.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-16",
+      "platform": "tiktok",
+      "number": 16,
+      "section": "Top of funnel",
+      "text": "I asked a [expert] what they actually buy for themselves.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-17",
+      "platform": "tiktok",
+      "number": 17,
+      "section": "Top of funnel",
+      "text": "Green flags in a [product type], because we deserve to know.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-18",
+      "platform": "tiktok",
+      "number": 18,
+      "section": "Top of funnel",
+      "text": "This [before] to [after] took [timeframe] and one product.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-19",
+      "platform": "tiktok",
+      "number": 19,
+      "section": "Top of funnel",
+      "text": "Why is nobody talking about [ingredient or spec] for [problem].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-20",
+      "platform": "tiktok",
+      "number": 20,
+      "section": "Top of funnel",
+      "text": "The [product] that broke the internet, tested in real conditions.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-21",
+      "platform": "tiktok",
+      "number": 21,
+      "section": "Top of funnel",
+      "text": "Me pretending I did not just find the best [product type] I have ever owned.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-22",
+      "platform": "tiktok",
+      "number": 22,
+      "section": "Top of funnel",
+      "text": "Things that live in my [bag/kitchen/car] rent free after trying everything else.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-23",
+      "platform": "tiktok",
+      "number": 23,
+      "section": "Top of funnel",
+      "text": "POV: everyone keeps asking where you got your [product].",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "POV",
+      "categories": [
+        "Apparel",
+        "Beauty & Personal Care",
+        "Jewellery",
+        "Home & Kitchen"
+      ]
+    },
+    {
+      "id": "tiktok-24",
+      "platform": "tiktok",
+      "number": 24,
+      "section": "Top of funnel",
+      "text": "I tried the [well known person] setup for a week so you would not have to.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-25",
+      "platform": "tiktok",
+      "number": 25,
+      "section": "Top of funnel",
+      "text": "The [product type] tier list nobody asked for but everyone needed.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-26",
+      "platform": "tiktok",
+      "number": 26,
+      "section": "Top of funnel",
+      "text": "Warning: once you see how [old solution] compares, you cannot unsee it.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-27",
+      "platform": "tiktok",
+      "number": 27,
+      "section": "Top of funnel",
+      "text": "[Outcome] is not luck. It is this [timeframe] change.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-28",
+      "platform": "tiktok",
+      "number": 28,
+      "section": "Top of funnel",
+      "text": "A full day of [routine] and every product in it.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-29",
+      "platform": "tiktok",
+      "number": 29,
+      "section": "Top of funnel",
+      "text": "The math says this [product] is basically free if it replaces [number] others.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-30",
+      "platform": "tiktok",
+      "number": 30,
+      "section": "Top of funnel",
+      "text": "The [product] that makes strangers stop and ask.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "Apparel",
+        "Beauty & Personal Care",
+        "Jewellery"
+      ]
+    },
+    {
+      "id": "tiktok-31",
+      "platform": "tiktok",
+      "number": 31,
+      "section": "Top of funnel",
+      "text": "Ranking every [product type] I own from worst to best.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-32",
+      "platform": "tiktok",
+      "number": 32,
+      "section": "Top of funnel",
+      "text": "If your [product type] keeps [failure mode], this is the part you are missing.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-33",
+      "platform": "tiktok",
+      "number": 33,
+      "section": "Top of funnel",
+      "text": "The most underrated [product] in [product type] right now and it is not close.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-34",
+      "platform": "tiktok",
+      "number": 34,
+      "section": "Top of funnel",
+      "text": "POV: it is the year you finally fix [problem] for good.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "POV",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-35",
+      "platform": "tiktok",
+      "number": 35,
+      "section": "Top of funnel",
+      "text": "I stopped doing [common habit] and [outcome] has never been better.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-36",
+      "platform": "tiktok",
+      "number": 36,
+      "section": "Top of funnel",
+      "text": "[Product type] that is actually worth the hype, a brutally honest list.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-37",
+      "platform": "tiktok",
+      "number": 37,
+      "section": "Top of funnel",
+      "text": "The 3 second test that tells you if your [product] is actually working.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-38",
+      "platform": "tiktok",
+      "number": 38,
+      "section": "Top of funnel",
+      "text": "Everyone is switching to [product type] and here is the real reason.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-39",
+      "platform": "tiktok",
+      "number": 39,
+      "section": "Top of funnel",
+      "text": "Do not buy another [product type] until you watch this.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-40",
+      "platform": "tiktok",
+      "number": 40,
+      "section": "Top of funnel",
+      "text": "The [ingredient or spec] hype explained in 30 seconds so you can stop guessing.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-41",
+      "platform": "tiktok",
+      "number": 41,
+      "section": "Middle of funnel",
+      "text": "I compared the viral [product] to [our product] and the difference shocked me.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-42",
+      "platform": "tiktok",
+      "number": 42,
+      "section": "Middle of funnel",
+      "text": "Here is exactly why [our product] works when the cheaper ones do not.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-43",
+      "platform": "tiktok",
+      "number": 43,
+      "section": "Middle of funnel",
+      "text": "If you are deciding between [product A] and [product B], watch this first.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-44",
+      "platform": "tiktok",
+      "number": 44,
+      "section": "Middle of funnel",
+      "text": "The spec sheet that made me finally switch, broken down.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-45",
+      "platform": "tiktok",
+      "number": 45,
+      "section": "Middle of funnel",
+      "text": "I was skeptical about [product] until day [number]. Here is what happened.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-46",
+      "platform": "tiktok",
+      "number": 46,
+      "section": "Middle of funnel",
+      "text": "Three reasons [product] is worth it and one reason it might not be for you.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-47",
+      "platform": "tiktok",
+      "number": 47,
+      "section": "Middle of funnel",
+      "text": "Everything they do not tell you before you buy [product type].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-48",
+      "platform": "tiktok",
+      "number": 48,
+      "section": "Middle of funnel",
+      "text": "[Expert] reacts to why [our ingredient or spec] beats the trendy one.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-49",
+      "platform": "tiktok",
+      "number": 49,
+      "section": "Middle of funnel",
+      "text": "I read every review of [product] so you can decide in 40 seconds.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-50",
+      "platform": "tiktok",
+      "number": 50,
+      "section": "Middle of funnel",
+      "text": "How [product] fits into your existing setup without wrecking it.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-51",
+      "platform": "tiktok",
+      "number": 51,
+      "section": "Middle of funnel",
+      "text": "The honest pros and cons after using [product] for a full month.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-52",
+      "platform": "tiktok",
+      "number": 52,
+      "section": "Middle of funnel",
+      "text": "Why [product] costs more and why that is actually the point.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-53",
+      "platform": "tiktok",
+      "number": 53,
+      "section": "Middle of funnel",
+      "text": "Watch me test [product] against the claim on the box in real time.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Curiosity",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-54",
+      "platform": "tiktok",
+      "number": 54,
+      "section": "Middle of funnel",
+      "text": "The [problem] mistake you are making that [product] is designed to fix.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-55",
+      "platform": "tiktok",
+      "number": 55,
+      "section": "Middle of funnel",
+      "text": "What changed at week 1 versus week 4 on [product].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "Beauty & Personal Care",
+        "Health & Supplements",
+        "Fitness & Outdoor"
+      ]
+    },
+    {
+      "id": "tiktok-56",
+      "platform": "tiktok",
+      "number": 56,
+      "section": "Middle of funnel",
+      "text": "I asked 5 people who use [product] daily what they really think.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-57",
+      "platform": "tiktok",
+      "number": 57,
+      "section": "Middle of funnel",
+      "text": "How to know if [product type] is right for your [use case].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-58",
+      "platform": "tiktok",
+      "number": 58,
+      "section": "Middle of funnel",
+      "text": "The build, the weight, the finish. An honest close up of [product].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "Apparel",
+        "Electronics & Gadgets",
+        "Home & Kitchen",
+        "Jewellery"
+      ]
+    },
+    {
+      "id": "tiktok-59",
+      "platform": "tiktok",
+      "number": 59,
+      "section": "Middle of funnel",
+      "text": "If you tried [product type] before and hated it, this is probably why.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-60",
+      "platform": "tiktok",
+      "number": 60,
+      "section": "Middle of funnel",
+      "text": "Breaking down the setup that fixed [problem] for good.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-61",
+      "platform": "tiktok",
+      "number": 61,
+      "section": "Middle of funnel",
+      "text": "Why [profession] keep recommending [ingredient or spec] and how to use it right.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-62",
+      "platform": "tiktok",
+      "number": 62,
+      "section": "Middle of funnel",
+      "text": "The difference between [product] and the cheap dupe, tested side by side.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-63",
+      "platform": "tiktok",
+      "number": 63,
+      "section": "Middle of funnel",
+      "text": "I tracked [problem] for 30 days with [product]. Here is the data.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "Beauty & Personal Care",
+        "Health & Supplements",
+        "Fitness & Outdoor"
+      ]
+    },
+    {
+      "id": "tiktok-64",
+      "platform": "tiktok",
+      "number": 64,
+      "section": "Middle of funnel",
+      "text": "Things I wish someone told me before buying my first [product type].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-65",
+      "platform": "tiktok",
+      "number": 65,
+      "section": "Middle of funnel",
+      "text": "Answering the questions in my comments about [product] honestly.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Question",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-66",
+      "platform": "tiktok",
+      "number": 66,
+      "section": "Middle of funnel",
+      "text": "How [product] saved me from buying [number] other things I did not need.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-67",
+      "platform": "tiktok",
+      "number": 67,
+      "section": "Middle of funnel",
+      "text": "The order of operations that makes [product] actually work. Most people get this wrong.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-68",
+      "platform": "tiktok",
+      "number": 68,
+      "section": "Middle of funnel",
+      "text": "Testing whether [product] lives up to the reviews. Fully unsponsored energy.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-69",
+      "platform": "tiktok",
+      "number": 69,
+      "section": "Middle of funnel",
+      "text": "Why I switched from [category leader] to [our product] and never went back.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-70",
+      "platform": "tiktok",
+      "number": 70,
+      "section": "Middle of funnel",
+      "text": "The one thing to check on the label before you buy any [product type].",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-71",
+      "platform": "tiktok",
+      "number": 71,
+      "section": "Bottom of funnel",
+      "text": "Your sign to finally buy the [product] you keep seeing everywhere.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-72",
+      "platform": "tiktok",
+      "number": 72,
+      "section": "Bottom of funnel",
+      "text": "If you have watched this far, you already know you want [product].",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-73",
+      "platform": "tiktok",
+      "number": 73,
+      "section": "Bottom of funnel",
+      "text": "The [product] is back in stock and it will not last, here is why.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-74",
+      "platform": "tiktok",
+      "number": 74,
+      "section": "Bottom of funnel",
+      "text": "Everything about [product] in 30 seconds so you can add to cart guilt free.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-75",
+      "platform": "tiktok",
+      "number": 75,
+      "section": "Bottom of funnel",
+      "text": "Still on the fence about [product]. Let me handle your last objection.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-76",
+      "platform": "tiktok",
+      "number": 76,
+      "section": "Bottom of funnel",
+      "text": "Use [code] because you should not pay full price for the one you actually want.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-77",
+      "platform": "tiktok",
+      "number": 77,
+      "section": "Bottom of funnel",
+      "text": "The only reason not to buy [product] is if you already have it.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Controversial",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-78",
+      "platform": "tiktok",
+      "number": 78,
+      "section": "Bottom of funnel",
+      "text": "I bought [product] with my own money. Zero regrets, full review.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-79",
+      "platform": "tiktok",
+      "number": 79,
+      "section": "Bottom of funnel",
+      "text": "Run, do not walk. The [product] restock is selling out again.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Negativity Bias",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-80",
+      "platform": "tiktok",
+      "number": 80,
+      "section": "Bottom of funnel",
+      "text": "Add to cart if you have tried everything else for [problem].",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-81",
+      "platform": "tiktok",
+      "number": 81,
+      "section": "Bottom of funnel",
+      "text": "Here is what the [number] star reviews all say about [product].",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-82",
+      "platform": "tiktok",
+      "number": 82,
+      "section": "Bottom of funnel",
+      "text": "The bundle that gives you the full setup for less than [comparison].",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-83",
+      "platform": "tiktok",
+      "number": 83,
+      "section": "Bottom of funnel",
+      "text": "Buying [product] again and showing you why it earns the repurchase.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Transformation",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-84",
+      "platform": "tiktok",
+      "number": 84,
+      "section": "Bottom of funnel",
+      "text": "If you have [problem] and [event] coming up, this is your last sign.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-85",
+      "platform": "tiktok",
+      "number": 85,
+      "section": "Bottom of funnel",
+      "text": "Why the [product] sells out every single time it drops.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-86",
+      "platform": "tiktok",
+      "number": 86,
+      "section": "Bottom of funnel",
+      "text": "The three objections to [product], answered so you can just get it.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Listicle",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-87",
+      "platform": "tiktok",
+      "number": 87,
+      "section": "Bottom of funnel",
+      "text": "Gift yourself the [product] everyone in my comments swears by.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Social Proof",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-88",
+      "platform": "tiktok",
+      "number": 88,
+      "section": "Bottom of funnel",
+      "text": "Last call on the [offer]. Here is exactly what you get.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Problem-Solution",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-89",
+      "platform": "tiktok",
+      "number": 89,
+      "section": "Bottom of funnel",
+      "text": "I finally caved and bought [product]. Here is my honest first impression.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Relatable",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-90",
+      "platform": "tiktok",
+      "number": 90,
+      "section": "Bottom of funnel",
+      "text": "The [product] that is worth every penny, and I do not say that often.",
+      "funnelStage": [
+        "BOF"
+      ],
+      "hookType": "Authority",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-91",
+      "platform": "tiktok",
+      "number": 91,
+      "section": "Trend formats",
+      "text": "The \"come with me while I overshare about [problem]\" confessional.",
+      "funnelStage": [
+        "TOF",
+        "MOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-92",
+      "platform": "tiktok",
+      "number": 92,
+      "section": "Trend formats",
+      "text": "\"Things in my [routine] that just make sense\" set to the trending audio.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-93",
+      "platform": "tiktok",
+      "number": 93,
+      "section": "Trend formats",
+      "text": "The silent review. No talking, just [product] in use with on screen text.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-94",
+      "platform": "tiktok",
+      "number": 94,
+      "section": "Trend formats",
+      "text": "\"Rate my [setup], be honest\" inviting the duet and stitch.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-95",
+      "platform": "tiktok",
+      "number": 95,
+      "section": "Trend formats",
+      "text": "The \"I tested it so you do not have to\" 3 product speed run.",
+      "funnelStage": [
+        "TOF",
+        "MOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-96",
+      "platform": "tiktok",
+      "number": 96,
+      "section": "Trend formats",
+      "text": "\"Explaining [product] to my [skeptical relative]\" as the objection handler.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-97",
+      "platform": "tiktok",
+      "number": 97,
+      "section": "Trend formats",
+      "text": "The \"day in my life but every product is [brand]\" soft immersion.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-98",
+      "platform": "tiktok",
+      "number": 98,
+      "section": "Trend formats",
+      "text": "\"POV the [product] hit different\" reveal set to a dramatic drop.",
+      "funnelStage": [
+        "TOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-99",
+      "platform": "tiktok",
+      "number": 99,
+      "section": "Trend formats",
+      "text": "The \"tap for the products\" text overlay walkthrough with quick cuts.",
+      "funnelStage": [
+        "MOF",
+        "BOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    },
+    {
+      "id": "tiktok-100",
+      "platform": "tiktok",
+      "number": 100,
+      "section": "Trend formats",
+      "text": "\"Green screen me reacting to the reviews of [product]\" credibility stitch.",
+      "funnelStage": [
+        "MOF"
+      ],
+      "hookType": "Trend Format",
+      "categories": [
+        "All"
+      ]
+    }
+  ]
+}

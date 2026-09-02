@@ -13,6 +13,7 @@ import { FAQ } from "@/components/FAQ";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { BookingDrawer } from "@/components/BookingDrawer";
+import { HookLibrary } from "@/components/HookLibrary";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       <CTA />
       <Footer />
       <BookingDrawer />
+      <HookLibrary />
     </main>
   );
 }
