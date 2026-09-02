@@ -60,37 +60,30 @@ export function FAQ() {
               <div key={i}>
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left"
+                  className="w-full flex items-center justify-between gap-6 py-6 text-left"
                 >
-                  <span className={`text-medium font-medium leading-snug transition-colors ${isOpen ? "text-primary-1" : "text-tundora"}`}>
+                  <span className={`text-[20px] md:text-[22px] font-medium leading-snug transition-colors ${isOpen ? "text-primary-1" : "text-primary-1"}`}>
                     {faq.q}
                   </span>
-                  <span
-                    className={`w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-200 ${
-                      isOpen
-                        ? "border-primary-1 bg-primary-1 text-white"
-                        : "border-mercury text-gray"
-                    }`}
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`shrink-0 text-gray transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                   >
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      className={`transition-transform duration-200 ${isOpen ? "rotate-45" : ""}`}
-                    >
-                      <path d="M12 5v14M5 12h14" />
-                    </svg>
-                  </span>
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
                 </button>
                 <div
                   className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: isOpen ? "400px" : "0px", opacity: isOpen ? 1 : 0 }}
+                  style={{ maxHeight: isOpen ? "500px" : "0px", opacity: isOpen ? 1 : 0 }}
                 >
-                  <p className="pb-5 text-medium font-light text-tundora leading-relaxed">
+                  <p className="pb-6 text-[18px] font-normal text-black leading-relaxed max-w-3xl">
                     {faq.a}
                   </p>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 const MEDIA =
   "https://plotwise-website-media-054037107702.s3.us-east-1.amazonaws.com";
@@ -31,7 +31,7 @@ const ads = [
     metrics: [
       { label: "ROAS", value: "0.8x" },
       { label: "CTR", value: "0.6%" },
-      { label: "Spend", value: "$16,900" },
+      { label: "Spend", value: "$1,200" },
     ],
   },
 ];
@@ -55,7 +55,6 @@ const cards = [
 ];
 
 export function Problem() {
-  const [playing, setPlaying] = useState<number | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const sectionRef = useRef<HTMLElement | null>(null);
 
@@ -63,17 +62,13 @@ export function Problem() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          videoRefs.current.forEach((v, i) => {
-            if (v) {
-              v.play().then(() => setPlaying(i)).catch(() => {});
-            }
+          videoRefs.current.forEach((v) => {
+            if (v) v.play().catch(() => {});
           });
-          setPlaying(0);
         } else {
           videoRefs.current.forEach((v) => {
             if (v) v.pause();
           });
-          setPlaying(null);
         }
       },
       { threshold: 0.3 }
@@ -81,23 +76,6 @@ export function Problem() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const togglePlay = (i: number) => {
-    const target = videoRefs.current[i];
-    if (!target) return;
-    videoRefs.current.forEach((v, idx) => {
-      if (v && idx !== i) {
-        v.pause();
-      }
-    });
-    if (target.paused) {
-      target.play();
-      setPlaying(i);
-    } else {
-      target.pause();
-      setPlaying(null);
-    }
-  };
 
   return (
     <section ref={sectionRef} id="why-this" className="py-20 md:py-28">
@@ -142,8 +120,7 @@ export function Problem() {
                 <div key={ad.id} className="flex flex-col">
                   {/* Video */}
                   <div
-                    onClick={() => togglePlay(i)}
-                    className="group relative rounded-xl overflow-hidden bg-[#0a0d1a] cursor-pointer"
+                    className="relative rounded-xl overflow-hidden bg-[#0a0d1a]"
                     style={{ aspectRatio: "4/5" }}
                   >
                     <video
@@ -156,25 +133,8 @@ export function Problem() {
                       loop
                       muted
                       preload="none"
-                      onPause={() => setPlaying((p) => (p === i ? null : p))}
                       className="absolute inset-0 w-full h-full object-cover object-top"
                     />
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/45 transition-opacity ${
-                        playing === i ? "opacity-0" : "opacity-100"
-                      }`}
-                    />
-                    <div
-                      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/40 grid place-items-center transition-all duration-300 ${
-                        playing === i
-                          ? "opacity-0 scale-75"
-                          : "opacity-100 scale-100 group-hover:scale-110"
-                      }`}
-                    >
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
-                        <polygon points="5,3 19,12 5,21" />
-                      </svg>
-                    </div>
                   </div>
 
                   {/* Status */}

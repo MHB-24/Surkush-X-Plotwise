@@ -80,13 +80,33 @@ export function Hero() {
                 </span>
               ))}
             </div>
+          </div>
 
-            <p className="text-base md:text-lg xl:text-xl text-gray font-medium text-center">
+        {/* Video — right after pills */}
+        <div className="mt-8 md:mt-12">
+          <video
+            className="w-full rounded-2xl shadow-[0_24px_64px_rgba(28,40,84,0.18)]"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source
+              src="/assets/videos/hero-section-home-page.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        {/* Paragraphs + CTAs — same width as video */}
+        <div className="flex flex-col gap-5 items-center text-center mt-8">
+            <p className="text-base md:text-lg xl:text-xl text-black font-medium text-center w-full">
               Most agencies hand you files. This is where your creative
               operation actually runs, and it stays yours.
             </p>
 
-            <p className="text-medium font-medium text-tundora text-center leading-relaxed max-w-3xl">
+            <p className="text-medium font-medium text-tundora text-center leading-relaxed w-full">
               We map what your buyer actually believes, what&apos;s stopping
               them from buying, and the one argument your competitors can&apos;t
               make. Then we turn it into scripts you can shoot next week, and
@@ -108,122 +128,14 @@ export function Hero() {
                 </svg>
               </button>
 
-              <a
-                href="#how-it-works"
-                className="flex items-center gap-1 heading-description border-b-2 border-primary-1"
-              >
-                <span className="font-semibold text-primary-1">
-                  Explore how it works
-                </span>
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline-block rotate-45">
-                  <path d="M12 19V5M5 12l7-7 7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-        {/* Video — full width */}
-        <div className="mt-12 md:mt-16">
-          <video
-            className="w-full rounded-2xl shadow-[0_24px_64px_rgba(28,40,84,0.18)]"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source
-              src="/assets/videos/hero-section-home-page.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        {/* $1,500 card — below the video */}
-        <div className="mt-8 md:mt-12 rounded-2xl border border-mercury bg-white p-8 md:p-10 shadow-[0_16px_40px_-24px_rgba(28,40,84,0.28)] text-left">
-          <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
-            <div className="md:border-r md:border-mercury md:pr-12 flex flex-col items-center text-center">
-              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-4">
-                One flat fee. Everything included.
-              </p>
-              <span
-                className="font-secondary italic text-primary-1 block"
-                style={{ fontSize: "clamp(2.75rem, 6vw, 4rem)", lineHeight: 1 }}
-              >
-                $1,500
-              </span>
-              <p className="text-[18px] font-light text-tundora mt-1">One payment</p>
-
-              <button
-                onClick={() =>
-                  window.dispatchEvent(new CustomEvent("open-booking"))
-                }
-                className="mt-6 flex items-center justify-center gap-2 w-full bg-primary-1 text-white text-sm font-medium px-6 py-3.5 rounded-lg hover:bg-primary-1/90 transition-colors"
-              >
-                Book a Fit Call
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
 
-            <div>
-              <p className="text-medium font-light text-tundora leading-relaxed mb-6">
-                Don&apos;t like it? Full refund on day five. You see half the
-                build before you&apos;re committed. If it isn&apos;t what you
-                wanted, say so and we return every dollar. No reasons needed.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  "Delivered in ten working days",
-                  "Full refund on day five — no reasons needed",
-                  "90-day workspace access included",
-                  "Every finding sourced and verifiable",
-                  "The full research build",
-                  "Five scripts, ten hooks",
-                  "Your creative operation in one place",
-                  "Yours to keep",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary-1/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#1C2854"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </div>
-                    <p className="text-sm font-light text-primary-1 leading-snug">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-[15px] font-normal text-tundora mt-4">
-                You see half the build before you&apos;re committed
-              </p>
-            </div>
-          </div>
+            <p className="text-[17px] font-medium text-primary-1 text-center tracking-wide mt-1">
+              $1,500 &middot; One payment &middot; Delivered in ten working days
+            </p>
         </div>
 
         </div>
-
       </div>
     </section>
   );
