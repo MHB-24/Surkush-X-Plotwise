@@ -8,7 +8,7 @@ export function PricingBanner() {
           className="relative rounded-2xl overflow-hidden min-h-[480px] lg:min-h-[520px] flex items-center"
           style={{
             background:
-              "linear-gradient(135deg, #080c18 0%, #0e1428 30%, #1C2854 52%, #4a1080 72%, #9a1a74 87%, #cc2878 100%)",
+              "linear-gradient(135deg, #080c18 0%, #0e1428 30%, #1C2854 60%, #0d4a8a 82%, #008EFF 100%)",
           }}
         >
           {/* Left: pricing & details */}
