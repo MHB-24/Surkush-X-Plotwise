@@ -44,7 +44,7 @@ export function FAQ() {
     <section className="py-20 md:py-28">
       <div className="container-content">
         <div className="mb-12">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-3">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             The rest of it
           </p>
           <h2 className="heading-2">

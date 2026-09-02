@@ -104,7 +104,7 @@ export function Problem() {
       <div className="container-page">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-3">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             The real reason ads stall
           </p>
           <h2 className="heading-2-light">

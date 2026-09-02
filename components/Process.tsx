@@ -54,7 +54,7 @@ export function Process() {
         </div>
 
         <div className="mb-16 p-6 md:p-8 rounded-xl border border-mercury bg-white">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-3">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Your creative is your targeting now
           </p>
           <p className="text-medium font-light text-tundora leading-relaxed">

@@ -56,8 +56,8 @@ export function Diagnostic() {
   return (
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-content">
-        <div className="max-w-3xl mb-12">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-3">
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Prove it to yourself
           </p>
           <h2 className="heading-2">

@@ -23,7 +23,7 @@ export function Platform() {
       <div className="container-page">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-start">
           <div className="lg:sticky" style={{ top: "8rem" }}>
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-3">
+            <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
               Day 11 onward
             </p>
             <h2 className="heading-2">

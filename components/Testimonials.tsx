@@ -60,7 +60,7 @@ export function Testimonials() {
     <section id="reviews" className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
         <div className="flex flex-col gap-2 items-center max-w-4xl mx-auto mb-16">
-          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-gray mb-2">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-2">
             From the first builds
           </p>
           <h2 className="heading text-center leading-tight">
