@@ -142,14 +142,14 @@ export function Diagnostic() {
                   <p className="text-medium font-semibold text-primary-1 leading-snug mb-2">
                     {verdict.title}
                   </p>
-                  <p className="text-sm font-light text-tundora leading-relaxed">
+                  <p className="text-[17px] font-light text-tundora leading-relaxed">
                     {verdict.body}
                   </p>
                 </div>
               )}
 
               {!started && (
-                <p className="text-sm font-light text-gray leading-relaxed">
+                <p className="text-[14px] font-light text-gray leading-relaxed">
                   Every blank is a decision your next creative is making without you.
                 </p>
               )}
@@ -168,7 +168,7 @@ export function Diagnostic() {
                 Book a Fit Call
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
-              <p className="text-center text-xs text-gray font-light mt-2">
+              <p className="text-center text-[15px] text-gray font-light mt-2">
                 Refundable in full on day five
               </p>
             </div>

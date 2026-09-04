@@ -18,8 +18,8 @@ const steps = [
   },
   {
     num: "04",
-    title: "We pick the argument only you can win.",
-    body: "There's always one. The thing your product can say that your competitors can't, that also breaks the wall from step two. This is the whole job. Everything before it was finding it. Everything after is saying it well. Five angles beats fifty variations — we cap it at five and make each one count.",
+    title: "We find the arguments with the best odds.",
+    body: "Nobody can tell you which ad will win. Anyone who says otherwise is selling you something.\n\nWhat you can do is shorten the odds. Take the beliefs actually blocking the sale, cross them against the claims nobody in your category has taken, and keep the ones your product can genuinely back. Most ideas die here. The five that survive are the ones with a real reason to work, and you'll be able to read that reason.\n\nThis is the whole job. Everything before it was gathering evidence. Everything after is saying it well.",
   },
   {
     num: "05",
@@ -41,104 +41,86 @@ const steps = [
 export function Process() {
   return (
     <>
-    {/* Creative = Targeting Section */}
+    {/* Section 4 — Where a new angle comes from */}
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
-          <div className="grid md:grid-cols-[1fr_420px] gap-12 md:gap-20 items-center">
-            {/* Left: text */}
-            <div>
-              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-                Why angles beat audiences
-              </p>
-              <h2 className="heading-2 mb-5">
-                Your creative is your{" "}
-                <span className="font-secondary italic">targeting</span> now.
-              </h2>
-              <p className="text-[17px] font-light text-black leading-relaxed">
-                Meta stopped letting you choose your audience in any meaningful
-                way. Broad targeting won, interest stacking died, and the
-                algorithm now reads your ad to decide who sees it. Open with the
-                wrong belief and you get shown to the wrong people, no matter
-                how you set up the campaign. Which means the angle isn&apos;t
-                the thing that comes before the targeting.{" "}
-                <span className="text-primary-1 font-normal">
-                  It is the targeting.
-                </span>{" "}
-                That&apos;s what the seven steps below are actually building.
-              </p>
-            </div>
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
+            The part nobody explains
+          </p>
+          <h2 className="heading-2">
+            Nobody has ever told you
+            <br />
+            <span className="font-secondary italic">where a new angle comes from.</span>
+          </h2>
+          <p className="mt-4 heading-description">
+            There&apos;s an enormous amount of advice available about how to
+            make ads. Almost none about how to decide what they should argue.
+            So most people do the only thing available: look at what&apos;s
+            already working, theirs or a competitor&apos;s, and make something
+            adjacent to it.
+          </p>
+        </div>
 
-            {/* Right: signal-flow widget */}
-            <div className="flex flex-col gap-3">
-              {/* Step 1: Ad */}
-              <div className="rounded-xl bg-white border border-mercury px-5 py-4 flex items-center gap-4 shadow-[0_1px_4px_rgba(28,40,84,0.06)]">
-                <div className="w-10 h-10 rounded-lg bg-azure-radiance/10 border border-azure-radiance/30 flex items-center justify-center shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="14" rx="2"/>
-                    <path d="M3 9h18M9 21h6M12 17v4"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[14px] font-semibold text-primary-1">Your ad creative</p>
-                  <p className="text-[13px] font-light text-tundora mt-0.5">The angle you open with</p>
-                </div>
+        {/* 3 blocks — 01 & 02 in a row, 03 full width below */}
+        <div>
+          {/* Top row: 01 + 02 */}
+          <div className="grid md:grid-cols-2 gap-0 border-b border-mercury">
+            {[
+              {
+                num: "01",
+                title: "It isn’t in your account.",
+                body: "Your performance data is a record of the decisions you’ve already made. Mining it tells you which of your existing arguments did best. It cannot tell you about an argument you’ve never run, because that one has produced no data at all.",
+              },
+              {
+                num: "02",
+                title: "It isn’t in your competitors’ ads either.",
+                body: "Ad libraries only contain what exists. You finish a session with a clear map of what’s being said and no map of what nobody has taken. And the claims nobody has taken are exactly where a new angle lives.",
+              },
+            ].map((block, i) => (
+              <div
+                key={block.num}
+                className={`py-10 px-6 ${i === 0 ? "md:border-r border-mercury" : ""}`}
+              >
+                <span
+                  className="font-secondary italic text-primary-1/15 leading-none block mb-4"
+                  style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}
+                >
+                  {block.num}
+                </span>
+                <h3 className="text-xl md:text-2xl font-semibold text-primary-1 leading-snug mb-3">
+                  {block.title}
+                </h3>
+                <p className="text-[20px] font-light leading-relaxed text-tundora">
+                  {block.body}
+                </p>
               </div>
+            ))}
+          </div>
 
-              {/* Arrow */}
-              <div className="flex items-center gap-2 px-5">
-                <div className="flex-1 h-[1px] bg-mercury" />
-                <div className="flex flex-col items-center gap-1">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#424242" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                  </svg>
-                  <p className="text-[12px] font-light text-tundora whitespace-nowrap">Meta reads angle</p>
-                </div>
-                <div className="flex-1 h-[1px] bg-mercury" />
-              </div>
-
-              {/* Step 2: Algorithm */}
-              <div className="rounded-xl bg-white border border-mercury px-5 py-4 flex items-center gap-4 shadow-[0_1px_4px_rgba(28,40,84,0.06)]">
-                <div className="w-10 h-10 rounded-lg bg-primary-1/8 border border-primary-1/15 flex items-center justify-center shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[14px] font-semibold text-primary-1">Algorithm matches</p>
-                  <p className="text-[13px] font-light text-tundora mt-0.5">Belief → audience signal</p>
-                </div>
-              </div>
-
-              {/* Arrow */}
-              <div className="flex items-center gap-2 px-5">
-                <div className="flex-1 h-[1px] bg-mercury" />
-                <div className="flex flex-col items-center gap-1">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#424242" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                  </svg>
-                  <p className="text-[12px] font-light text-tundora whitespace-nowrap">Right people see it</p>
-                </div>
-                <div className="flex-1 h-[1px] bg-mercury" />
-              </div>
-
-              {/* Step 3: Audience */}
-              <div className="rounded-xl bg-azure-radiance/10 border border-azure-radiance/25 px-5 py-4 flex items-center gap-4 shadow-[0_1px_4px_rgba(0,142,255,0.08)]">
-                <div className="w-10 h-10 rounded-lg bg-azure-radiance/20 border border-azure-radiance/40 flex items-center justify-center shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[14px] font-semibold text-azure-radiance">Matched audience</p>
-                  <p className="text-[13px] font-light text-tundora mt-0.5">Your buyers, not everyone</p>
-                </div>
-              </div>
-            </div>
+          {/* Bottom row: 03 full width */}
+          <div className="py-10 px-6">
+            <span
+              className="font-secondary italic text-primary-1/15 leading-none block mb-4"
+              style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}
+            >
+              03
+            </span>
+            <h3 className="text-xl md:text-2xl font-semibold text-primary-1 leading-snug mb-3">
+              It&apos;s in the reviews of the product they bought before yours.
+            </h3>
+            <p className="text-[20px] font-light leading-relaxed text-tundora">
+              Not your reviews. The one-star reviews of whatever your buyer tried before they found you. That&apos;s where someone explains, in detail and at length, exactly what they wanted and didn&apos;t get. Your own reviews are written by people you already converted. The ones worth reading are written by people your competitor lost, because that&apos;s the argument nobody has made to them yet.
+            </p>
           </div>
         </div>
+
+        {/* Closing line */}
+        <p className="mt-14 text-xl md:text-2xl font-medium text-primary-1 text-center">
+          Every argument you&apos;ve never made is a group of buyers you&apos;ve never reached.
+        </p>
+      </div>
     </section>
 
     <section id="how-it-works" className="py-20 md:py-28 bg-white">
@@ -149,7 +131,7 @@ export function Process() {
             What We <span className="font-secondary italic">Actually</span> Do
           </h2>
           <p className="heading-description text-center">
-            We find the one thing your buyer needs to hear. Then we hand you the
+            We find the things your buyer needs to hear. Then we hand you the
             system that says it.
           </p>
           <p className="text-sm text-gray mt-2">
@@ -192,16 +174,20 @@ export function Process() {
                       )}
                     </div>
 
-                    <div className="rounded-xl border border-mercury bg-white p-6 md:p-7 shadow-[0_1px_2px_rgba(28,40,84,0.04)] hover:shadow-[0_16px_40px_-20px_rgba(28,40,84,0.28)] transition-shadow duration-300 flex-1 mb-0">
-                      <span className={`text-[11px] font-semibold tracking-[0.14em] uppercase ${isLast ? "text-primary-1" : "text-azure-radiance"}`}>
+                    <div className={`rounded-xl border p-6 md:p-7 shadow-[0_1px_2px_rgba(28,40,84,0.04)] hover:shadow-[0_16px_40px_-20px_rgba(28,40,84,0.28)] transition-shadow duration-300 flex-1 mb-0 ${isLast ? "border-azure-radiance/20 bg-zumthor" : "border-mercury bg-white"}`}>
+                      <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary-1">
                         {isLast ? "Outcome" : `Step ${step.num}`}
                       </span>
                       <h3 className="font-secondary text-xl md:text-2xl italic text-primary-1 leading-snug mt-2">
                         {step.title}
                       </h3>
-                      <p className="mt-3 text-medium text-tundora font-light leading-relaxed">
-                        {step.body}
-                      </p>
+                      <div className="mt-3 flex flex-col gap-3">
+                        {step.body.split("\n\n").map((para, pi) => (
+                          <p key={pi} className={`text-medium font-light leading-relaxed ${isLast ? "text-primary-1" : "text-tundora"}`}>
+                            {para}
+                          </p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   );

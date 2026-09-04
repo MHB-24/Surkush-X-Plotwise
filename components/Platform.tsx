@@ -21,51 +21,44 @@ export function Platform() {
   return (
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
-          <div className="text-center flex flex-col items-center justify-center">
-            <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-              Day 11 onward
-            </p>
-            <h2 className="heading-2 text-center">
-              The build stops on day ten.{" "}
-              <span className="font-secondary italic">The system doesn&apos;t.</span>
-            </h2>
-            <p className="mt-4 heading-description text-center max-w-2xl">
-              Everything we make lands inside your workspace, and you keep it running
-              for 90 days. Here&apos;s what your team can actually do with it.
-            </p>
-            <div className="mt-8 inline-flex items-center gap-3 border border-mercury rounded-xl px-5 py-4 bg-white">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-1 to-azure-radiance flex items-center justify-center shrink-0">
-                <span className="text-[8px] font-extrabold text-white">PW</span>
-              </div>
-              <div>
-                <p className="text-xs font-bold text-primary-1">90-day workspace access</p>
-                <p className="text-xs font-light text-gray">included with every build</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            {features.map((f, i) => (
-              <div key={i} className="border border-mercury rounded-xl p-6 bg-white">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="w-6 h-6 rounded-full bg-primary-1/8 flex items-center justify-center text-xs font-bold text-primary-1 shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-medium font-semibold text-primary-1 leading-snug">
-                    {f.title}
-                  </h3>
-                </div>
-                <p className="text-[16px] font-light text-primary-1 leading-relaxed">
-                  {f.body}
-                </p>
-              </div>
-            ))}
-            <p className="text-[18px] font-light text-tundora text-right pr-1">
-              Ten days builds it. The next 90 is where it starts paying you back.
-            </p>
-          </div>
+        {/* Heading — centered */}
+        <div className="flex flex-col items-center text-center mb-12">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
+            Day 11 onward
+          </p>
+          <h2 className="heading-2 text-center">
+            The build stops on day ten.{" "}
+            <span className="font-secondary italic">The system doesn&apos;t.</span>
+          </h2>
+          <p className="mt-4 heading-description text-center max-w-2xl">
+            Everything we make lands inside your workspace, and you keep it running
+            for 90 days. Here&apos;s what your team can actually do with it.
+          </p>
         </div>
+
+        {/* 2×2 card grid — centered */}
+        <div className="grid sm:grid-cols-2 gap-6">
+          {features.map((f, i) => (
+            <div key={i} className="border border-mercury rounded-xl p-6 bg-white">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-6 h-6 rounded-full bg-primary-1/8 flex items-center justify-center text-xs font-bold text-primary-1 shrink-0">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-medium font-semibold text-primary-1 leading-snug">
+                  {f.title}
+                </h3>
+              </div>
+              <p className="text-[15px] font-light text-primary-1 leading-relaxed">
+                {f.body}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer text — centered */}
+        <p className="text-[18px] font-light text-tundora text-center mt-10">
+          Ten days builds it. The next 90 is where it starts paying you back.
+        </p>
       </div>
     </section>
   );

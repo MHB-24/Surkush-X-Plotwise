@@ -39,18 +39,18 @@ const ads = [
 const cards = [
   {
     num: "01",
-    title: "You can't repeat your winners.",
-    body: `One video takes off. You tell the creator, "more like that one." The next batch flops — because nobody knows which part was the 'that.' The hook? The face? The angle? You bought a win. You didn't buy the reason.`,
+    title: "You're not testing. You're confirming.",
+    body: "A test tells you something you didn't know. Ten versions of the same claim tell you which version of a claim you already believe in performs slightly better. That's optimisation, and it has a ceiling you hit fast.",
   },
   {
     num: "02",
-    title: "You don't learn from your losers.",
-    body: "The eight that died cost exactly as much to make as the two that won. Nobody studies them. They get deleted and replaced with fresh guesses. Same coin, new flip.",
+    title: "Which is why the same people keep seeing your ads.",
+    body: "Meta reads the argument in your creative to decide who it goes to. One argument reaches one pocket of demand, no matter how many executions you put behind it. That pocket empties. Costs climb. It feels like the market got harder when what actually happened is you ran out of a specific group of buyers.",
   },
   {
     num: "03",
-    title: "Your spend compounds. Your knowledge doesn't.",
-    body: "So you're playing a numbers game with no memory. New batch, new invoice, same blindfold. At $5K a month, guessing is a tax you can afford. At $50K, it's the biggest line item on your P&L. Q4 raises everyone's spend. It doesn't raise anyone's answers.",
+    title: "And you can't build a second idea out of the first one.",
+    body: "Studying your winner produces relatives of your winner. That's the loop. Every new concept starts from the last thing that worked, so everything converges, and the only way out is an argument that didn't come from your own account.",
   },
 ];
 
@@ -83,24 +83,25 @@ export function Problem() {
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-            The real reason ads stall
+            Open your ads manager and check
           </p>
           <h2 className="heading-2-light">
-            Nineteen out of twenty ads{" "}
-            <span className="font-secondary italic">never work.</span>{" "}
-            Yours included.
+            Every ad you&apos;ve made since your winner
+            <br />
+            <span className="font-secondary italic">is a copy of your winner.</span>
           </h2>
-          <p className="mt-4 heading-description max-w-4xl mx-auto">
-            That isn&apos;t your team failing. Meta analysed $1.3 billion in
-            spend across 550,000 ads: only 5&ndash;8% ever become real winners.
-            The question isn&apos;t why most die. It&apos;s what you learn from
-            the ones that don&apos;t.
+          <p className="mt-4 heading-description">
+            Different creator. Different opening. Different edit. Same argument
+            underneath, because that argument worked once and nothing since has
+            given you a reason to make a different one. Most brands past
+            product-market fit are running one idea in a dozen outfits and
+            counting it as testing.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* LEFT — ad performance widget */}
-          <div className="rounded-2xl border border-mercury bg-white overflow-hidden shadow-[0_4px_20px_rgba(28,40,84,0.06)]">
+          <div className="rounded-2xl border border-mercury bg-white overflow-hidden shadow-[0_4px_20px_rgba(28,40,84,0.06)] flex flex-col">
             {/* Widget header */}
             <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-mercury">
               <div className="w-5 h-5 rounded-md bg-gradient-to-br from-primary-1 to-azure-radiance grid place-items-center shrink-0">
@@ -115,14 +116,11 @@ export function Problem() {
             </div>
 
             {/* Two ads — identical structure keeps every row aligned */}
-            <div className="grid grid-cols-2 gap-4 p-4">
+            <div className="grid grid-cols-2 gap-4 p-4 flex-1 min-h-0">
               {ads.map((ad, i) => (
-                <div key={ad.id} className="flex flex-col">
+                <div key={ad.id} className="flex flex-col min-h-0">
                   {/* Video */}
-                  <div
-                    className="relative rounded-xl overflow-hidden bg-[#0a0d1a]"
-                    style={{ aspectRatio: "4/5" }}
-                  >
+                  <div className="relative rounded-xl overflow-hidden bg-[#0a0d1a] flex-1 min-h-0">
                     <video
                       ref={(el) => {
                         videoRefs.current[i] = el;
@@ -237,6 +235,10 @@ export function Problem() {
             ))}
           </div>
         </div>
+
+        <p className="mt-12 text-xl md:text-2xl font-medium text-primary-1 text-center">
+          Think of your last five ads. How many arguments were they, really?
+        </p>
       </div>
     </section>
   );

@@ -367,11 +367,13 @@ export function BookingDrawer() {
           }}
         >
           {/* Logo */}
-          <img
-            src="/surkush-logo.png"
-            alt="Surkush"
-            style={{ height: 64 }}
-          />
+          <a href="/" aria-label="Go to homepage">
+            <img
+              src="/surkush-logo.png"
+              alt="Surkush"
+              style={{ height: 64 }}
+            />
+          </a>
 
           {/* Close */}
           <button

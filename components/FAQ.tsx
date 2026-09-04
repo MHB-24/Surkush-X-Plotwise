@@ -83,7 +83,7 @@ export function FAQ() {
                   className="overflow-hidden transition-all duration-300"
                   style={{ maxHeight: isOpen ? "500px" : "0px", opacity: isOpen ? 1 : 0 }}
                 >
-                  <p className="pb-6 text-[18px] font-normal text-black leading-relaxed max-w-3xl">
+                  <p className="pb-6 text-[18px] font-normal text-black leading-relaxed w-4/5">
                     {faq.a}
                   </p>
                 </div>
