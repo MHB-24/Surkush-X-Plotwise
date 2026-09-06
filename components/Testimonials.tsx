@@ -33,7 +33,7 @@ export function Testimonials() {
     <section id="reviews" className="py-20 md:py-28 bg-white">
       <div className="container-page">
         {/* Header */}
-        <div className="text-center mb-14 md:mb-20 max-w-4xl mx-auto">
+        <div className="text-center mb-14 md:mb-20">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Client reviews
           </p>

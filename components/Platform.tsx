@@ -31,7 +31,8 @@ export function Platform() {
             Day 11 onward
           </p>
           <h2 className="heading-2 text-center">
-            The build stops on day ten.{" "}
+            The build stops on day ten.
+            <br />
             <span className="font-secondary italic">The system doesn&apos;t.</span>
           </h2>
           <p className="mt-4 heading-description text-center">

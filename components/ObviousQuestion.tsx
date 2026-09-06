@@ -8,7 +8,8 @@ export function ObviousQuestion() {
             The obvious question
           </p>
           <h2 className="heading-2">
-            You could generate this yourself.{" "}
+            You could generate this yourself.
+            <br />
             <span className="font-secondary italic">
               So could your competitors.
             </span>
