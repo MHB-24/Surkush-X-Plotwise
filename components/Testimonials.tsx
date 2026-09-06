@@ -42,7 +42,7 @@ export function Testimonials() {
             style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
           >
             What the last{" "}
-            <span className="font-secondary italic text-azure-radiance">
+            <span className="font-secondary italic">
               five brands
             </span>{" "}
             had to say.
