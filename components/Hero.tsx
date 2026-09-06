@@ -38,7 +38,7 @@ export function Hero() {
             </p>
 
             {/* Chips */}
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 md:flex-nowrap">
               {[
                 "Buyer research, not account inference",
                 "Competitor whitespace mapped",

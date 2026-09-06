@@ -42,46 +42,45 @@ export function ObviousQuestion() {
             <div className="w-px flex-1 bg-mercury" />
           </div>
 
-          {/* Right — compact comparison widget */}
+          {/* Right — prompt vs research widget */}
           <div className="rounded-xl border border-mercury bg-white shadow-sm overflow-hidden">
-            {/* Prompt half */}
-            <div className="px-5 pt-5 pb-4">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-6 h-6 rounded-md bg-hero-bg flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#868686" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z" />
-                    <path d="M18 14a6 6 0 00-12 0v4h12v-4z" />
-                    <line x1="9" y1="22" x2="15" y2="22" />
-                  </svg>
+            {/* Prompt output */}
+            <div className="px-5 pt-5 pb-4 border-b border-mercury">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-md bg-hero-bg flex items-center justify-center">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#868686" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z" />
+                      <path d="M18 14a6 6 0 00-12 0v4h12v-4z" />
+                    </svg>
+                  </div>
+                  <span className="text-[11px] font-semibold tracking-[0.08em] uppercase text-gray">
+                    Prompt output
+                  </span>
                 </div>
-                <span className="text-[12px] font-semibold tracking-[0.08em] uppercase text-gray">
-                  What a prompt gives you
+                <span className="text-[10px] font-medium text-gray bg-hero-bg rounded-full px-2 py-0.5">
+                  Leggings brand
                 </span>
               </div>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-2">
                 {[
-                  "Target the 'tired of cheap dupes' belief",
-                  "Lead with durability over style",
-                  "Attack 'all leggings are the same'",
-                  "Reframe $88 as cost-per-wear",
-                  "Use creator social proof at gym",
-                  "Position against fast-fashion waste",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#868686" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <span className="text-[13px] font-light text-gray leading-snug">{item}</span>
+                  "“Our leggings outlast the competition.”",
+                  "“Stop wasting money on leggings that fall apart.”",
+                  "“Real women, real results — see the difference.”",
+                ].map((hook, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <span className="text-[11px] font-semibold text-gray/40 mt-px shrink-0">{i + 1}.</span>
+                    <p className="text-[13px] font-light text-gray leading-snug">{hook}</p>
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] font-light text-gray/50 mt-2 italic">
-                All plausible. All equal. No way to choose.
+              <p className="text-[10px] font-light text-gray/40 mt-2 italic">
+                Sounds right. Could be any brand.
               </p>
             </div>
 
-            {/* Divider with arrow */}
-            <div className="flex items-center gap-2 px-5">
+            {/* Arrow divider */}
+            <div className="flex items-center gap-2 px-5 py-1.5 bg-hero-bg/50">
               <div className="flex-1 h-px bg-mercury" />
               <span className="text-[10px] font-semibold tracking-[0.1em] uppercase text-primary-1 flex items-center gap-1">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -92,52 +91,41 @@ export function ObviousQuestion() {
               <div className="flex-1 h-px bg-mercury" />
             </div>
 
-            {/* Research half */}
-            <div className="px-5 pt-3 pb-5">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-6 h-6 rounded-md bg-primary-1/10 flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
-                </div>
-                <span className="text-[12px] font-semibold tracking-[0.08em] uppercase text-primary-1">
-                  What research gives you
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                {[
-                  { text: "Target the 'tired of cheap dupes' belief", status: "cut", reason: "3 competitors running it" },
-                  { text: "Lead with durability over style", status: "cut", reason: "Cheap-brand conversation" },
-                  { text: "Attack 'all leggings are the same'", status: "keep", reason: "Uncontested — 142 reviews" },
-                  { text: "Reframe $88 as cost-per-wear", status: "cut", reason: "Math nobody does" },
-                  { text: "Use creator social proof at gym", status: "keep", reason: "Matches real purchase trigger" },
-                  { text: "Position against fast-fashion waste", status: "cut", reason: "Audience not eco-motivated" },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    {item.status === "keep" ? (
-                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    ) : (
-                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#e03535" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
-                    )}
-                    <div className="flex items-baseline gap-1.5 flex-1 min-w-0">
-                      <span className={`text-[13px] leading-snug ${item.status === "keep" ? "font-medium text-primary-1" : "font-light text-gray line-through decoration-gray/30"}`}>
-                        {item.text}
-                      </span>
-                      <span className={`text-[10px] leading-snug whitespace-nowrap ${item.status === "keep" ? "font-medium text-primary-1" : "font-light text-[#e03535]/60"}`}>
-                        {item.reason}
-                      </span>
-                    </div>
+            {/* Research-rewritten versions */}
+            <div className="flex flex-col">
+              {[
+                {
+                  before: "“Our leggings outlast the competition.”",
+                  after: "“The leggings you bought last month are already pilling. These won’t.”",
+                  reason: "142 one-star reviews mention pilling within 3 washes. Lead with the specific frustration, not a generic claim.",
+                },
+                {
+                  before: "“Stop wasting money on leggings that fall apart.”",
+                  after: "“You’ve tried the $20 pair. You know how that ends.”",
+                  reason: "Buyers don’t think in “wasting money.” They remember the specific disappointment of the cheap pair.",
+                },
+                {
+                  before: "“Real women, real results.”",
+                  after: "“The squat test. That’s all you need to know.”",
+                  reason: "“Real women” is used by 4 competitors. The #1 purchase trigger in reviews is gym performance — specifically squats.",
+                },
+              ].map((item, i) => (
+                <div key={i} className={`px-5 py-3.5 ${i < 2 ? "border-b border-mercury/60" : ""}`}>
+                  <div className="flex items-start gap-2 mb-1.5">
+                    <span className="text-[11px] font-semibold text-primary-1/40 mt-px shrink-0">{i + 1}.</span>
+                    <p className="text-[13px] font-semibold text-primary-1 leading-snug">{item.after}</p>
                   </div>
-                ))}
-              </div>
-              <p className="text-[11px] font-semibold text-primary-1 mt-2">
-                2 of 6 survive. Each one has a reason.
+                  <p className="text-[11px] font-light text-primary-1/60 leading-snug pl-5">
+                    {item.reason}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="px-5 py-3 bg-primary-1/[0.04] border-t border-mercury">
+              <p className="text-[12px] font-semibold text-primary-1">
+                Same three angles. Different level of specificity.
               </p>
             </div>
           </div>
