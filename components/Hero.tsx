@@ -42,10 +42,10 @@ export function Hero() {
           {/* Chips — outside max-w-4xl so they fit on one line */}
           <div className="flex justify-center gap-2 md:gap-3 flex-wrap md:flex-nowrap">
             {[
-              "Buyer research, not account inference",
-              "Competitor whitespace mapped",
-              "Five briefable arguments",
-              "Yours to keep",
+              "Buyer and category research",
+              "Five creative arguments",
+              "Five scripts, two hooks each",
+              "90-day creative workspace",
             ].map((item) => (
               <span
                 key={item}
