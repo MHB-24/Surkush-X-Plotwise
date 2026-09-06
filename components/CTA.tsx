@@ -4,38 +4,45 @@ export function CTA() {
   return (
     <section id="book" className="py-20 md:py-28 bg-zumthor">
       <div className="container-page">
-        <div className="text-center mb-12">
+        {/* Headline + subhead */}
+        <div className="text-center mb-14">
           <h2 className="heading-2 leading-[1.1]">
             Ten days from now, you&apos;ll{" "}
-            <span className="font-secondary italic">know</span> what to shoot
-            next.
+            <span className="font-secondary italic">know what to shoot next.</span>
           </h2>
-          <p className="mt-6 text-lg md:text-xl font-light text-tundora leading-relaxed">
-            The full research build on your brand. Five scripts, ten hooks,
-            tagged and ready for any creator. Your workspace for 90 days.
+          <p className="mt-6 text-xl md:text-2xl font-normal text-primary-1 leading-relaxed max-w-4xl mx-auto">
+            The full research build on your brand. Five arguments your buyer
+            hasn&apos;t heard yet, scripted, tagged and ready for any creator.
+            Your workspace for 90 days. One payment of $2,500, and you see half
+            of it on day five before you&apos;re committed.
           </p>
-          <p className="mt-3 text-base md:text-lg font-light text-gray">
-            One payment of $1,500, and you see half of it on day five before
-            you&apos;re committed.
+
+          {/* Odds callback */}
+          <p className="mt-6 text-lg md:text-xl font-medium text-tundora">
+            We still can&apos;t promise you a winner.{" "}
+            <span className="text-primary-1">
+              We can promise you&apos;ll stop guessing at the odds.
+            </span>
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-12">
-          <div className="p-6 md:p-7 rounded-xl border border-mercury bg-white">
+        {/* Guarantee + Timing panels */}
+        <div className="grid md:grid-cols-2 gap-5 mb-14">
+          <div className="p-6 md:p-8 rounded-xl border border-mercury bg-white">
             <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
               The guarantee
             </p>
-            <p className="text-base md:text-lg font-light text-primary-1 leading-relaxed">
+            <p className="text-[18px] font-normal text-primary-1 leading-relaxed">
               Still not sure? You see half the build on day five and can walk
               away with a full refund. No reasons needed.
             </p>
           </div>
 
-          <div className="p-6 md:p-7 rounded-xl border border-mercury bg-white">
+          <div className="p-6 md:p-8 rounded-xl border border-mercury bg-white">
             <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
               Timing
             </p>
-            <p className="text-base md:text-lg font-light text-primary-1 leading-relaxed">
+            <p className="text-[18px] font-normal text-primary-1 leading-relaxed">
               Builds starting this week deliver before Q4 spend ramps. Builds
               starting in October arrive after you&apos;ve already made the
               decisions.
@@ -43,6 +50,7 @@ export function CTA() {
           </div>
         </div>
 
+        {/* CTA */}
         <div className="flex flex-col items-center text-center">
           <button
             onClick={() =>
@@ -65,10 +73,10 @@ export function CTA() {
             </svg>
           </button>
 
-          <div className="mt-5 text-[16px] font-normal text-tundora space-y-1">
-            <p>20 minutes &middot; No pitch at the end</p>
-            <p>If we&apos;re not right for you, we&apos;ll say so on the call</p>
-          </div>
+          <p className="mt-5 text-[17px] font-normal text-tundora">
+            20 minutes &middot; No pitch at the end &middot; If we&apos;re not
+            right for you, we&apos;ll say so on the call
+          </p>
         </div>
       </div>
     </section>

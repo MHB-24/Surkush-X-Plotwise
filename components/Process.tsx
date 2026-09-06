@@ -92,7 +92,7 @@ export function Process() {
                 <h3 className="text-xl md:text-2xl font-semibold text-primary-1 leading-snug mb-3">
                   {block.title}
                 </h3>
-                <p className="text-[20px] font-light leading-relaxed text-tundora">
+                <p className="text-[20px] font-light leading-relaxed text-primary-1">
                   {block.body}
                 </p>
               </div>
@@ -110,7 +110,7 @@ export function Process() {
             <h3 className="text-xl md:text-2xl font-semibold text-primary-1 leading-snug mb-3">
               It&apos;s in the reviews of the product they bought before yours.
             </h3>
-            <p className="text-[20px] font-light leading-relaxed text-tundora">
+            <p className="text-[20px] font-light leading-relaxed text-primary-1">
               Not your reviews. The one-star reviews of whatever your buyer tried before they found you. That&apos;s where someone explains, in detail and at length, exactly what they wanted and didn&apos;t get. Your own reviews are written by people you already converted. The ones worth reading are written by people your competitor lost, because that&apos;s the argument nobody has made to them yet.
             </p>
           </div>
@@ -131,7 +131,7 @@ export function Process() {
             What We <span className="font-secondary italic">Actually</span> Do
           </h2>
           <p className="heading-description text-center">
-            We find the things your buyer needs to hear. Then we hand you the
+            We find the one thing your buyer needs to hear. Then we hand you the
             system that says it.
           </p>
           <p className="text-sm text-gray mt-2">
@@ -202,87 +202,6 @@ export function Process() {
 
         </div>
 
-        {/* $1,500 band */}
-        <div className="mt-16 rounded-2xl border border-mercury bg-white p-8 md:p-10 shadow-[0_16px_40px_-24px_rgba(28,40,84,0.28)]">
-          <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
-            <div className="md:border-r md:border-mercury md:pr-12">
-              <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-4">
-                One flat fee. Everything included.
-              </p>
-              <div className="flex items-baseline gap-3">
-                <span
-                  className="font-secondary italic text-primary-1"
-                  style={{ fontSize: "clamp(2.75rem, 6vw, 4rem)", lineHeight: 1 }}
-                >
-                  $1,500
-                </span>
-                <p className="text-sm font-light text-gray">One payment</p>
-              </div>
-
-              <button
-                onClick={() =>
-                  window.dispatchEvent(new CustomEvent("open-booking"))
-                }
-                className="mt-6 flex items-center justify-center gap-2 w-full bg-primary-1 text-white text-sm font-medium px-6 py-3.5 rounded-lg hover:bg-primary-1/90 transition-colors"
-              >
-                Book a Fit Call
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-
-            <div>
-              <p className="text-medium font-light text-tundora leading-relaxed mb-6">
-                A creative strategist costs $6&ndash;8K/month. An agency
-                retainer starts at $5K and locks you in for three. This is the
-                research layer, done once, done properly, and it&apos;s yours
-                whether you ever work with us again.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  "Delivered in ten working days",
-                  "Full refund on day five — no reasons needed",
-                  "Every finding sourced and verifiable",
-                  "90-day workspace access included",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary-1/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg
-                        width="11"
-                        height="11"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#1C2854"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </div>
-                    <p className="text-[18px] font-light text-tundora leading-snug">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-[15px] font-normal text-tundora mt-4">
-                You see half the build before you&apos;re committed
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     </>

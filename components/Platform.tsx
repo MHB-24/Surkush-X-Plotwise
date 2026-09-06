@@ -1,19 +1,23 @@
 const features = [
   {
-    title: "Brief creators without briefing creators.",
-    body: "Generate a link, send it to any creator you work with. They see the script, the angle it came from, the hook variants, and what the video is supposed to do. No PDF attachments, no explaining the strategy over WhatsApp, no version three of a doc nobody can find.",
+    num: "01",
+    title: "Brief a creator without writing a brief.",
+    body: "Generate a link, send it to whoever's shooting for you. They see the script, the argument behind it, both hook options and what the video is meant to do. No PDF attachments, no explaining the strategy over WhatsApp, no version three of a doc nobody can find.",
   },
   {
+    num: "02",
     title: "Uploads land where they belong.",
-    body: "When a creator submits, the file attaches to the angle it was shot for. Six weeks later, when you're looking at what performed, you're not staring at a Drive folder called \"final_v2_USE THIS.\" You're looking at a video with its belief, its hook type and its funnel stage still attached to it.",
+    body: "When a creator submits, the file attaches to the argument it was shot for. Six weeks later, when you're working out what performed, you're not staring at a Drive folder called final_v2_USE THIS. You're looking at a video with its reasoning still attached to it.",
   },
   {
+    num: "03",
     title: "Your research stops being a document.",
-    body: "The six sections stay live. When you learn something from a test, it goes back into the angle it came from. The next round of creative starts from what you know now, not from what you knew in September.",
+    body: "The six sections stay live. When a test teaches you something, it goes back into the argument it came from. The next round starts from what you know now, not from a PDF you read once in September and haven't opened since.",
   },
   {
+    num: "04",
     title: "Everyone works from the same page.",
-    body: "Your media buyer, your editor, your creators and you are all looking at the same angles and the same reasoning. Nobody is briefing from memory. This is the part that compounds.",
+    body: "You, your media buyer, your editor, your creators. Same arguments, same reasoning, nobody briefing from memory or from a screenshot someone sent them in March. This is the part that compounds.",
   },
 ];
 
@@ -21,8 +25,8 @@ export function Platform() {
   return (
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
-        {/* Heading — centered */}
-        <div className="flex flex-col items-center text-center mb-12">
+        {/* Heading */}
+        <div className="flex flex-col items-center text-center mb-14">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Day 11 onward
           </p>
@@ -30,34 +34,34 @@ export function Platform() {
             The build stops on day ten.{" "}
             <span className="font-secondary italic">The system doesn&apos;t.</span>
           </h2>
-          <p className="mt-4 heading-description text-center max-w-2xl">
-            Everything we make lands inside your workspace, and you keep it running
-            for 90 days. Here&apos;s what your team can actually do with it.
+          <p className="mt-4 heading-description text-center">
+            Everything we make lands inside your workspace and stays live for 90 days.
+            Not as a document you open once. Here&apos;s what your team actually does with it.
           </p>
         </div>
 
-        {/* 2×2 card grid — centered */}
+        {/* 2×2 card grid */}
         <div className="grid sm:grid-cols-2 gap-6">
-          {features.map((f, i) => (
-            <div key={i} className="border border-mercury rounded-xl p-6 bg-white">
-              <div className="flex items-center gap-3 mb-3">
+          {features.map((f) => (
+            <div key={f.num} className="border border-mercury rounded-xl p-6 md:p-8 bg-white">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="w-6 h-6 rounded-full bg-primary-1/8 flex items-center justify-center text-xs font-bold text-primary-1 shrink-0">
-                  {String(i + 1).padStart(2, "0")}
+                  {f.num}
                 </span>
-                <h3 className="text-medium font-semibold text-primary-1 leading-snug">
+                <h3 className="text-lg font-semibold text-primary-1 leading-snug">
                   {f.title}
                 </h3>
               </div>
-              <p className="text-[15px] font-light text-primary-1 leading-relaxed">
+              <p className="text-[17px] font-normal text-tundora leading-relaxed">
                 {f.body}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Footer text — centered */}
-        <p className="text-[18px] font-light text-tundora text-center mt-10">
-          Ten days builds it. The next 90 is where it starts paying you back.
+        {/* Closing line */}
+        <p className="text-[18px] font-normal text-primary-1 text-center mt-12">
+          The build ends on day ten. What you learn after it has somewhere to go.
         </p>
       </div>
     </section>
