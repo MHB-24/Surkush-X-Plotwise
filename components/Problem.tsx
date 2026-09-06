@@ -81,11 +81,11 @@ export function Problem() {
     <section ref={sectionRef} id="why-this" className="py-20 md:py-28">
       <div className="container-page">
         {/* Heading */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Open your ads manager. Look at the last five ads.
           </p>
-          <h2 className="heading-2-light">
+          <h2 className="heading-2">
             Your winning ad did its job.
             <br />
             <span className="font-secondary italic">Now you&apos;re making it the starting point for everything else.</span>

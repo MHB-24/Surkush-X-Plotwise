@@ -4,7 +4,7 @@ import { Marquee } from "@/components/Marquee";
 import { Problem } from "@/components/Problem";
 import { Diagnostic } from "@/components/Diagnostic";
 import { Process } from "@/components/Process";
-import { CaseStudy } from "@/components/CaseStudy";
+// import { CaseStudy } from "@/components/CaseStudy";
 import { Platform } from "@/components/Platform";
 import { Testimonials } from "@/components/Testimonials";
 import { ObviousQuestion } from "@/components/ObviousQuestion";
@@ -25,7 +25,6 @@ export default function Home() {
       <Problem />
       <Diagnostic />
       <Process />
-      <CaseStudy />
       <ObviousQuestion />
       <Pricing />
       <Platform />

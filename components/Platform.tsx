@@ -26,7 +26,7 @@ export function Platform() {
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
         {/* Heading */}
-        <div className="flex flex-col items-center text-center mb-14">
+        <div className="flex flex-col items-center text-center mb-14 max-w-4xl mx-auto">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Day 11 onward
           </p>

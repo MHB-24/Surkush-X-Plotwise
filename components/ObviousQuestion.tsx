@@ -3,14 +3,11 @@ export function ObviousQuestion() {
     <section className="py-20 md:py-28 bg-zumthor">
       <div className="container-page">
         {/* Header */}
-        <div className="text-center mb-14 md:mb-20">
+        <div className="text-center mb-14 md:mb-20 max-w-4xl mx-auto">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             The obvious question
           </p>
-          <h2
-            className="text-primary-1 tracking-tight leading-[1.1]"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
-          >
+          <h2 className="heading-2">
             You could generate this yourself.{" "}
             <span className="font-secondary italic">
               So could your competitors.

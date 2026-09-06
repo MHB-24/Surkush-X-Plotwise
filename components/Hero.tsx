@@ -8,7 +8,7 @@ export function Hero() {
       <div className="container-page pt-6 pb-12 md:pt-10 md:pb-20">
         <div className="flex flex-col gap-5 items-center text-center">
           {/* Text content */}
-          <div className="flex flex-col gap-5 items-center w-full">
+          <div className="flex flex-col gap-5 items-center w-full max-w-4xl">
             <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora">
               For DTC and ecommerce founders spending real money on creative
             </p>

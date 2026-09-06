@@ -33,14 +33,11 @@ export function Testimonials() {
     <section id="reviews" className="py-20 md:py-28 bg-white">
       <div className="container-page">
         {/* Header */}
-        <div className="text-center mb-14 md:mb-20">
+        <div className="text-center mb-14 md:mb-20 max-w-4xl mx-auto">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             Client reviews
           </p>
-          <h2
-            className="text-primary-1 tracking-tight leading-[1.1]"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
-          >
+          <h2 className="heading-2">
             What the last{" "}
             <span className="font-secondary italic">
               five brands

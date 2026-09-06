@@ -45,7 +45,7 @@ export function Process() {
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-16 md:mb-20 max-w-4xl mx-auto">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             The part nobody explains
           </p>
@@ -134,11 +134,11 @@ export function Process() {
     <section id="how-it-works" className="py-20 md:py-28 bg-white">
       <div className="container-page">
         {/* Heading */}
-        <div className="flex flex-col gap-2 items-center mb-10">
+        <div className="flex flex-col gap-2 items-center mb-10 max-w-4xl mx-auto">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-1">
             What happens after you stop guessing
           </p>
-          <h2 className="heading text-center leading-tight">
+          <h2 className="heading-2 text-center leading-tight">
             We find out what your next ad should{" "}
             <span className="font-secondary italic">argue.</span>
             <br />

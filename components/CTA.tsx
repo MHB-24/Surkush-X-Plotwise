@@ -5,7 +5,7 @@ export function CTA() {
     <section id="book" className="py-20 md:py-28 bg-zumthor">
       <div className="container-page">
         {/* Headline + subhead */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-14 max-w-4xl mx-auto">
           <h2 className="heading-2 leading-[1.1]">
             Ten days from now, you&apos;ll{" "}
             <span className="font-secondary italic">know what to shoot next.</span>
