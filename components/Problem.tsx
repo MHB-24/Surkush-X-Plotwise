@@ -39,18 +39,18 @@ const ads = [
 const cards = [
   {
     num: "01",
-    title: "You're not testing. You're confirming.",
-    body: "A test tells you something you didn't know. Ten versions of the same claim tell you which version of a claim you already believe in performs slightly better. That's optimisation, and it has a ceiling you hit fast.",
+    title: "You can test the same idea forever.",
+    body: "A new hook is not a new argument. Neither is a new creator, a new format, or a different first three seconds. You can make ten versions of the same claim and learn which version of that claim performs best. Useful. But you are still learning about the same claim. The next useful thing to learn might be something else entirely.",
   },
   {
     num: "02",
-    title: "Which is why the same people keep seeing your ads.",
-    body: "Meta reads the argument in your creative to decide who it goes to. One argument reaches one pocket of demand, no matter how many executions you put behind it. That pocket empties. Costs climb. It feels like the market got harder when what actually happened is you ran out of a specific group of buyers.",
+    title: "You can run out of the same buyers.",
+    body: "When the same argument keeps reaching the same kind of buyer, you can end up paying more to get the same people to listen again. Then the usual conversation starts. More creative. More testing. More ways to say the thing that already worked. Sometimes that is the right answer. Sometimes you have simply run out of the people who wanted to hear that particular argument. The distinction matters.",
   },
   {
     num: "03",
-    title: "And you can't build a second idea out of the first one.",
-    body: "Studying your winner produces relatives of your winner. That's the loop. Every new concept starts from the last thing that worked, so everything converges, and the only way out is an argument that didn't come from your own account.",
+    title: "Your own account is a useful place to start.",
+    body: "Your winning ad tells you what worked. It does not tell you everything that could work. If every new concept starts with the last winner, the next concept is usually its cousin. Same family. Slightly different hair. A second idea needs a different starting point. That means looking at the buyer, the category, and the things your competitors are not saying. Not just asking what made the last ad work.",
   },
 ];
 
@@ -83,19 +83,21 @@ export function Problem() {
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-            Open your ads manager and check
+            Open your ads manager. Look at the last five ads.
           </p>
           <h2 className="heading-2-light">
-            Every ad you&apos;ve made since your winner
+            Your winning ad did its job.
             <br />
-            <span className="font-secondary italic">is a copy of your winner.</span>
+            <span className="font-secondary italic">Now you&apos;re making it the starting point for everything else.</span>
           </h2>
           <p className="mt-4 heading-description">
-            Different creator. Different opening. Different edit. Same argument
-            underneath, because that argument worked once and nothing since has
-            given you a reason to make a different one. Most brands past
-            product-market fit are running one idea in a dozen outfits and
-            counting it as testing.
+            You found a message that worked. You built a business around it.
+            Now every new ad starts there. Different creator. Different opening.
+            Different edit. Same argument underneath. That is not a creative
+            problem. It is what happens when the last thing that worked becomes
+            the only thing you have to work from. And eventually, you stop
+            asking <em>what else could we say?</em> and start
+            asking <em>how many more ways can we say the same thing?</em>
           </p>
         </div>
 

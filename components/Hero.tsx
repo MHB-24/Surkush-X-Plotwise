@@ -27,15 +27,14 @@ export function Hero() {
             </h1>
 
             <p className="heading-description text-center max-w-3xl">
-              In ten days we tell you what your buyer actually believes, which
-              argument your competitors have left open, and the five things most
-              worth shooting next. Then we hand you the workspace your team runs
-              it all from.
+              In ten working days, we research your buyer, your category, and
+              the gaps between them. Then we turn that into five scripts, two
+              hooks each, and a workspace your team can work from for 90 days.
             </p>
 
             <p className="text-base md:text-lg text-black font-medium text-center max-w-2xl">
               We can&apos;t promise you a winner. Nobody honestly can. What we
-              can do is stop you betting blind.
+              can do is shorten the odds.
             </p>
 
             {/* Chips */}
@@ -100,6 +99,10 @@ export function Hero() {
 
             <p className="text-[17px] font-medium text-primary-1 text-center tracking-wide mt-1">
               $2,500 &middot; One payment &middot; Delivered in ten working days
+            </p>
+
+            <p className="text-sm md:text-base font-medium text-tundora text-center mt-3 tracking-wide">
+              Five clients a month. Done by hand.
             </p>
           </div>
         </div>

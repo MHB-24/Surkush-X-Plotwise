@@ -1,151 +1,3 @@
-"use client";
-
-const pairs = [
-  {
-    before: {
-      icon: "dice",
-      label: "Brief on vibes",
-      detail:
-        "You tell the creator what feels right. They interpret it. You hope the audience agrees.",
-    },
-    after: {
-      icon: "target",
-      label: "Brief on evidence",
-      detail:
-        "Every script carries the buyer belief it attacks, the competitor gap it fills, and the language it came from.",
-    },
-  },
-  {
-    before: {
-      icon: "loop",
-      label: "Test one idea at a time",
-      detail:
-        "Each test is a guess. If it fails, you make another guess. Every iteration costs money and calendar.",
-    },
-    after: {
-      icon: "layers",
-      label: "Test five angles at once",
-      detail:
-        "Five arguments your buyer hasn’t heard, each with two hooks. Ten openings, and you’ll know which door they walk through.",
-    },
-  },
-  {
-    before: {
-      icon: "copy",
-      label: "Copy what’s working",
-      detail:
-        "You watch competitors and remake what they’re running. By the time you launch it, they’ve moved on and the audience has seen it twice.",
-    },
-    after: {
-      icon: "gap",
-      label: "Say what nobody else is saying",
-      detail:
-        "The research maps every claim in your category. Your angles come from the gaps — the things no competitor has taken.",
-    },
-  },
-];
-
-function DiceIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="3" />
-      <circle cx="8.5" cy="8.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="15.5" cy="8.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="8.5" cy="15.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="15.5" cy="15.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function LoopIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="17 1 21 5 17 9" />
-      <path d="M3 11V9a4 4 0 014-4h14" />
-      <polyline points="7 23 3 19 7 15" />
-      <path d="M21 13v2a4 4 0 01-4 4H3" />
-    </svg>
-  );
-}
-
-function CopyIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="9" y="9" width="13" height="13" rx="2" />
-      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-    </svg>
-  );
-}
-
-function TargetIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>
-  );
-}
-
-function LayersIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="12 2 2 7 12 12 22 7 12 2" />
-      <polyline points="2 17 12 22 22 17" />
-      <polyline points="2 12 12 17 22 12" />
-    </svg>
-  );
-}
-
-function GapIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 12h6M16 12h6" />
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 2v6M12 16v6" />
-    </svg>
-  );
-}
-
-const iconMap: Record<string, () => React.JSX.Element> = {
-  dice: DiceIcon,
-  loop: LoopIcon,
-  copy: CopyIcon,
-  target: TargetIcon,
-  layers: LayersIcon,
-  gap: GapIcon,
-};
-
-function ArrowConnector() {
-  return (
-    <div className="flex flex-col items-center justify-center gap-1 py-4 md:py-0 md:px-2 shrink-0">
-      {/* Vertical line on mobile, horizontal on md+ */}
-      <div className="hidden md:flex items-center gap-0">
-        <div className="w-8 h-[2px] bg-azure-radiance/30" />
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-azure-radiance text-white text-[11px] font-semibold tracking-[0.1em] uppercase whitespace-nowrap">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-          After research
-        </div>
-        <div className="w-8 h-[2px] bg-azure-radiance/30" />
-      </div>
-      {/* Mobile vertical version */}
-      <div className="flex md:hidden items-center gap-0 flex-col">
-        <div className="h-6 w-[2px] bg-azure-radiance/30" />
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-azure-radiance text-white text-[11px] font-semibold tracking-[0.1em] uppercase whitespace-nowrap">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-          After research
-        </div>
-        <div className="h-6 w-[2px] bg-azure-radiance/30" />
-      </div>
-    </div>
-  );
-}
-
 export function ObviousQuestion() {
   return (
     <section className="py-20 md:py-28 bg-zumthor">
@@ -159,68 +11,149 @@ export function ObviousQuestion() {
             className="text-primary-1 tracking-tight leading-[1.1]"
             style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
           >
-            If nobody can promise a winner,{" "}
+            You could generate this yourself.{" "}
             <span className="font-secondary italic">
-              why pay for this?
+              So could your competitors.
             </span>
           </h2>
-          <p className="mt-5 text-lg md:text-xl font-light text-tundora max-w-3xl mx-auto leading-relaxed">
-            You&apos;re right that nobody can promise a winner. The question is
-            what changes when you stop guessing at the odds.
-          </p>
         </div>
 
-        {/* Before → After pairs */}
-        <div className="max-w-6xl mx-auto flex flex-col gap-8">
-          {pairs.map((pair, i) => {
-            const BeforeIcon = iconMap[pair.before.icon];
-            const AfterIcon = iconMap[pair.after.icon];
-            return (
-              <div
-                key={i}
-                className="flex flex-col md:flex-row items-stretch"
-              >
-                {/* Before card */}
-                <div className="flex-1 rounded-xl bg-white border border-mercury p-6 md:p-7 shadow-sm">
-                  <div className="w-11 h-11 rounded-lg bg-hero-bg flex items-center justify-center text-tundora mb-5">
-                    <BeforeIcon />
-                  </div>
-                  <h4 className="text-lg font-semibold text-primary-1 mb-2">
-                    {pair.before.label}
-                  </h4>
-                  <p className="text-[18px] font-light text-primary-1 leading-relaxed">
-                    {pair.before.detail}
-                  </p>
-                </div>
+        <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-6 items-start max-w-6xl mx-auto">
+          {/* Left — Body copy */}
+          <div className="flex flex-col gap-0">
+            <p className="text-[20px] font-light leading-relaxed text-primary-1">
+              A model can give you six buyer beliefs and ten angles before your
+              coffee gets cold. And, to be fair, some of them will be good. But
+              your competitor can ask the same question and get almost the same
+              list. That is not the expensive part anymore. The expensive part
+              is knowing which belief is actually true, which argument your
+              product can support, and which idea is worth putting money behind.
+            </p>
+            <p className="text-[20px] font-light leading-relaxed text-primary-1 mt-5">
+              A model has never watched a promising angle quietly eat a month
+              of budget. It has no reason to tell you, &ldquo;Don&apos;t shoot
+              that. Four brands are already saying it.&rdquo; It can generate
+              the options. It cannot take responsibility for the decision. That
+              is the gap we work on: turning research into a small number of
+              arguments your team can defend, test, and build from.
+            </p>
+          </div>
 
-                {/* Connector */}
-                <ArrowConnector />
+          {/* Divider */}
+          <div className="hidden lg:flex flex-col items-center self-stretch">
+            <div className="w-px flex-1 bg-mercury" />
+          </div>
 
-                {/* After card */}
-                <div className="flex-1 rounded-xl bg-white border border-azure-radiance/25 p-6 md:p-7 shadow-sm">
-                  <div className="w-11 h-11 rounded-lg bg-azure-radiance/10 flex items-center justify-center text-azure-radiance mb-5">
-                    <AfterIcon />
-                  </div>
-                  <h4 className="text-lg font-semibold text-primary-1 mb-2">
-                    {pair.after.label}
-                  </h4>
-                  <p className="text-[18px] font-light text-primary-1 leading-relaxed">
-                    {pair.after.detail}
-                  </p>
+          {/* Right — compact comparison widget */}
+          <div className="rounded-xl border border-mercury bg-white shadow-sm overflow-hidden">
+            {/* Prompt half */}
+            <div className="px-5 pt-5 pb-4">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-md bg-hero-bg flex items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#868686" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z" />
+                    <path d="M18 14a6 6 0 00-12 0v4h12v-4z" />
+                    <line x1="9" y1="22" x2="15" y2="22" />
+                  </svg>
                 </div>
+                <span className="text-[12px] font-semibold tracking-[0.08em] uppercase text-gray">
+                  What a prompt gives you
+                </span>
               </div>
-            );
-          })}
+              <div className="flex flex-col gap-1">
+                {[
+                  "Target the 'tired of cheap dupes' belief",
+                  "Lead with durability over style",
+                  "Attack 'all leggings are the same'",
+                  "Reframe $88 as cost-per-wear",
+                  "Use creator social proof at gym",
+                  "Position against fast-fashion waste",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#868686" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span className="text-[13px] font-light text-gray leading-snug">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[11px] font-light text-gray/50 mt-2 italic">
+                All plausible. All equal. No way to choose.
+              </p>
+            </div>
+
+            {/* Divider with arrow */}
+            <div className="flex items-center gap-2 px-5">
+              <div className="flex-1 h-px bg-mercury" />
+              <span className="text-[10px] font-semibold tracking-[0.1em] uppercase text-primary-1 flex items-center gap-1">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+                After research
+              </span>
+              <div className="flex-1 h-px bg-mercury" />
+            </div>
+
+            {/* Research half */}
+            <div className="px-5 pt-3 pb-5">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-md bg-primary-1/10 flex items-center justify-center">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                </div>
+                <span className="text-[12px] font-semibold tracking-[0.08em] uppercase text-primary-1">
+                  What research gives you
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                {[
+                  { text: "Target the 'tired of cheap dupes' belief", status: "cut", reason: "3 competitors running it" },
+                  { text: "Lead with durability over style", status: "cut", reason: "Cheap-brand conversation" },
+                  { text: "Attack 'all leggings are the same'", status: "keep", reason: "Uncontested — 142 reviews" },
+                  { text: "Reframe $88 as cost-per-wear", status: "cut", reason: "Math nobody does" },
+                  { text: "Use creator social proof at gym", status: "keep", reason: "Matches real purchase trigger" },
+                  { text: "Position against fast-fashion waste", status: "cut", reason: "Audience not eco-motivated" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    {item.status === "keep" ? (
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#e03535" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    )}
+                    <div className="flex items-baseline gap-1.5 flex-1 min-w-0">
+                      <span className={`text-[13px] leading-snug ${item.status === "keep" ? "font-medium text-primary-1" : "font-light text-gray line-through decoration-gray/30"}`}>
+                        {item.text}
+                      </span>
+                      <span className={`text-[10px] leading-snug whitespace-nowrap ${item.status === "keep" ? "font-medium text-primary-1" : "font-light text-[#e03535]/60"}`}>
+                        {item.reason}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[11px] font-semibold text-primary-1 mt-2">
+                2 of 6 survive. Each one has a reason.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Closing */}
         <div className="text-center mt-14 md:mt-20">
           <p className="text-xl md:text-2xl font-medium text-primary-1 max-w-2xl mx-auto leading-snug">
-            The question isn&apos;t whether research guarantees a winner.
-            <br />
+            Generating options is free now.{" "}
             <span className="font-secondary italic">
-              It&apos;s whether you&apos;d rather test five informed bets or
-              five guesses.
+              Knowing which one to bet on is the part that isn&apos;t.
+            </span>{" "}
+            <span className="text-lg font-light text-tundora italic">
+              That is the only part we charge for.
             </span>
           </p>
         </div>

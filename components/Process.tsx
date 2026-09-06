@@ -3,38 +3,38 @@
 const steps = [
   {
     num: "01",
-    title: "We find out what your buyer already believes.",
-    body: "If you have reviews, DMs and support tickets, we start there — because your buyer has already told you what they think in their own words. If you're launching, or you're early, we go where they talk instead: competitor reviews, forums, comment sections, the one-star reviews of the product they tried before yours. Either way, we come back with their language, not yours.",
+    title: "We find out what your buyer is actually saying.",
+    body: "Your reviews, DMs, support tickets. That is where we start. Not because we need to understand your brand. You already do. We need to understand what your buyer is trying to solve, what they have already tried, and what they are still not getting. If you are early, we go where they talk instead. Competitor reviews. Forums. Comment sections. The one-star reviews of the product they tried before yours. We come back with their language. Not yours.",
   },
   {
     num: "02",
-    title: "We find the reason they don't buy.",
-    body: `Every category has one belief that blocks the sale. "They all do the same thing." "It won't work on me." "It's not worth the money." We find yours, and the fear sitting under it. That's the wall your ads keep bouncing off.`,
+    title: "We find the reason they don’t buy.",
+    body: "There is usually something standing between the buyer and the purchase. “They all do the same thing.” “It won’t work on me.” “It’s not worth the money.” Sometimes it is a belief. Sometimes it is a bad experience. Sometimes it is something they have not been given a reason to believe yet. We find it. Then we find what is sitting underneath it. Because that is what your next ad needs to deal with.",
   },
   {
     num: "03",
-    title: "We map the competitors who matter.",
-    body: "Not fifty. The handful you're actually losing customers to, plus whoever's spending hardest in your category. We pull their live and retired ads and write down what each one is claiming, so you can see the whole conversation on one page and spot the claims nobody has taken.",
+    title: "We map the conversation your category is already having.",
+    body: "Not fifty competitors. The handful you are actually losing customers to, plus whoever is spending hardest in your category. We pull their live and retired ads and write down what each one is claiming. You get to see the whole conversation on one page. More importantly, you get to see what is missing from it.",
   },
   {
     num: "04",
-    title: "We find the arguments with the best odds.",
-    body: "Nobody can tell you which ad will win. Anyone who says otherwise is selling you something.\n\nWhat you can do is shorten the odds. Take the beliefs actually blocking the sale, cross them against the claims nobody in your category has taken, and keep the ones your product can genuinely back. Most ideas die here. The five that survive are the ones with a real reason to work, and you'll be able to read that reason.\n\nThis is the whole job. Everything before it was gathering evidence. Everything after is saying it well.",
+    title: "We find the arguments worth making.",
+    body: "This is where the research becomes useful. We take the beliefs actually blocking the sale, cross them against the claims nobody in your category has taken, and keep the ones your product can genuinely back. Most ideas die here. The five that survive are the ones with a real reason to work. And you will be able to read that reason.",
   },
   {
     num: "05",
-    title: "We write two hooks for every ad.",
-    body: "Same message, two completely different openings. Because when you test one hook you learn nothing. When you test two, you find out which door your buyer walks through.",
+    title: "We write two hooks for every script.",
+    body: "Same argument. Two different ways in. Not because one hook is guaranteed to win. Because you want to know which opening gets your buyer to pay attention to the argument — plus it also increases the odds.",
   },
   {
     num: "06",
     title: "You get five scripts, tagged and ready to shoot.",
-    body: "Each one carries the angle it came from, the belief it's attacking and the funnel stage it's built for, so you and your media buyer can decide what to run and when. Hand them to any creator.",
+    body: "Each one carries the argument it came from, the belief it is attacking, and the funnel stage it is built for. So you and your media buyer can decide what to run and when. Hand them to any creator. They know what they are making and why.",
   },
   {
     num: "07",
-    title: "It all lives in your workspace, not a folder.",
-    body: "The research, the angles and the scripts land inside the platform, where your team works from them. Generate a link, send it to any creator you use, and their uploads come back against the right angle. Three months included.",
+    title: "Your team gets a workspace, not a folder.",
+    body: "The research, the arguments, and the scripts all live in one place. Your team can work from them for 90 days. Generate a link, send it to any creator you use, and their uploads come back against the right argument. No more Drive folder called final_v2_USE THIS.",
   },
 ];
 
@@ -50,16 +50,17 @@ export function Process() {
             The part nobody explains
           </p>
           <h2 className="heading-2">
-            Nobody has ever told you
+            Your next winning ad might start with
             <br />
-            <span className="font-secondary italic">where a new angle comes from.</span>
+            <span className="font-secondary italic">someone else&apos;s one-star review.</span>
           </h2>
           <p className="mt-4 heading-description">
-            There&apos;s an enormous amount of advice available about how to
-            make ads. Almost none about how to decide what they should argue.
-            So most people do the only thing available: look at what&apos;s
-            already working, theirs or a competitor&apos;s, and make something
-            adjacent to it.
+            The best place to find a new argument is not always the place you
+            have been looking. Your buyer has already tried something before
+            you. They had a reason to buy it. They had a reason to be
+            disappointed. And they probably explained that disappointment in a
+            review. That is useful information. Because the thing they wanted
+            and did not get is often the thing your next ad should talk about.
           </p>
         </div>
 
@@ -70,13 +71,13 @@ export function Process() {
             {[
               {
                 num: "01",
-                title: "It isn’t in your account.",
-                body: "Your performance data is a record of the decisions you’ve already made. Mining it tells you which of your existing arguments did best. It cannot tell you about an argument you’ve never run, because that one has produced no data at all.",
+                title: "Start with the disappointment.",
+                body: "Your buyer did not wake up wanting to buy your product. They wanted something the product was supposed to do. Maybe it was a better night’s sleep. Maybe it was a cleaner kitchen. Maybe it was a product that finally did what the last one promised. The review tells you what happened between the promise and the experience. That is where the useful part starts.",
               },
               {
                 num: "02",
-                title: "It isn’t in your competitors’ ads either.",
-                body: "Ad libraries only contain what exists. You finish a session with a clear map of what’s being said and no map of what nobody has taken. And the claims nobody has taken are exactly where a new angle lives.",
+                title: "Your competitors’ one-star reviews are not just complaints.",
+                body: "They are a record of what people expected to get, what they actually got, and what they wish had been different. That is a lot more useful than another afternoon looking at someone else’s headline. And it is not limited to what your competitors are doing badly. Sometimes the complaint is about something nobody in the category has bothered to address. That is the interesting part.",
               },
             ].map((block, i) => (
               <div
@@ -108,17 +109,24 @@ export function Process() {
               03
             </span>
             <h3 className="text-xl md:text-2xl font-semibold text-primary-1 leading-snug mb-3">
-              It&apos;s in the reviews of the product they bought before yours.
+              The argument is already there. You just have to find it.
             </h3>
             <p className="text-[20px] font-light leading-relaxed text-primary-1">
-              Not your reviews. The one-star reviews of whatever your buyer tried before they found you. That&apos;s where someone explains, in detail and at length, exactly what they wanted and didn&apos;t get. Your own reviews are written by people you already converted. The ones worth reading are written by people your competitor lost, because that&apos;s the argument nobody has made to them yet.
+              A buyer says, &ldquo;I bought this because I wanted X. It did Y.
+              I wish it had done Z.&rdquo; You now have a reason to make an ad
+              about Z. Not because you think it is a good idea. Because someone
+              has already told you it matters. That is the difference between
+              making another ad and finding a new argument.
             </p>
           </div>
         </div>
 
         {/* Closing line */}
         <p className="mt-14 text-xl md:text-2xl font-medium text-primary-1 text-center">
-          Every argument you&apos;ve never made is a group of buyers you&apos;ve never reached.
+          Every argument you&apos;ve never made is a group of buyers you&apos;ve never reached.{" "}
+          <span className="font-secondary italic font-normal text-lg md:text-xl text-tundora">
+            That is how we think about creative. And this is just one place we look.
+          </span>
         </p>
       </div>
     </section>
@@ -127,15 +135,22 @@ export function Process() {
       <div className="container-page">
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center mb-10">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-1">
+            What happens after you stop guessing
+          </p>
           <h2 className="heading text-center leading-tight">
-            What We <span className="font-secondary italic">Actually</span> Do
+            We find out what your next ad should{" "}
+            <span className="font-secondary italic">argue.</span>
+            <br />
+            Not just how it should look.
           </h2>
           <p className="heading-description text-center">
-            We find the one thing your buyer needs to hear. Then we hand you the
-            system that says it.
+            We research the buyer, the category, and the gaps between them.
+            Then we turn what we find into five arguments your team can
+            actually use.
           </p>
           <p className="text-sm text-gray mt-2">
-            Seven steps. Ten days. Here&apos;s exactly what happens.
+            Ten working days. Six sections of research. Five scripts. One workspace.
           </p>
         </div>
 

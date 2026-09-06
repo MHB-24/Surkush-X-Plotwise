@@ -85,6 +85,17 @@ export function Pricing() {
             </div>
           </div>
 
+          {/* For context comparison */}
+          <div className="mt-8 px-1">
+            <p className="text-[18px] font-light text-tundora leading-relaxed">
+              For context, a freelance creative strategist can cost $6,000 to
+              $12,000 a month — and you still have to manage them. An agency
+              retainer can start around $5,000 and ask you to commit for three
+              months. Those can be sensible decisions. They are just much larger
+              decisions to make before you know whether the thinking is any good.
+            </p>
+          </div>
+
           {/* Capacity line */}
           <div className="mt-8 rounded-xl bg-hero-bg px-6 py-4">
             <p className="text-[18px] font-normal text-primary-1 text-center">

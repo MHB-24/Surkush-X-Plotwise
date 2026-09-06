@@ -309,7 +309,7 @@ export function CaseStudy() {
                 ref={(el) => {
                   sectionRefs.current[i] = el;
                 }}
-                className={`py-24 ${i < sections.length - 1 ? "border-b border-mercury" : ""}`}
+                className={`py-48 ${i < sections.length - 1 ? "border-b border-mercury" : ""}`}
               >
                 <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary-1">
                   Section {s.num}
