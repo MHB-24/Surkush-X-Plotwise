@@ -49,11 +49,11 @@ export function Testimonials() {
           </h2>
         </div>
 
-        {/* Masonry grid */}
-        <div className="columns-1 md:columns-2 xl:columns-3 gap-6">
+        {/* Card grid — 3 top, 2 centered bottom */}
+        <div className="flex flex-wrap justify-center gap-6">
           {reviews.map((r, i) => (
-            <div key={i} className="break-inside-avoid mb-6">
-              <div className="rounded-2xl border border-mercury bg-white p-7 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-4">
+            <div key={i} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]">
+              <div className="rounded-2xl border border-mercury bg-white p-7 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-4 h-full">
                 {/* Opening quote mark */}
                 <span
                   className="font-secondary italic text-azure-radiance/30 leading-none select-none"
