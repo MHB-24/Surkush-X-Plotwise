@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 const reviews = [
   {
     descriptor: "The founder who was testing the same idea",
@@ -28,6 +30,82 @@ const reviews = [
   },
 ];
 
+function ReviewCard({ review, index }: { review: (typeof reviews)[number]; index: number }) {
+  const [expanded, setExpanded] = useState(false);
+  const paragraphs = review.quote.split("\n\n");
+  const preview = paragraphs[0];
+  const hasMore = paragraphs.length > 1;
+
+  return (
+    <div className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]">
+      <div className="rounded-2xl border border-mercury bg-white p-7 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-4 h-full">
+        {/* Opening quote mark */}
+        <span
+          className="font-secondary italic text-azure-radiance/30 leading-none select-none"
+          style={{ fontSize: "3.5rem", lineHeight: 1 }}
+          aria-hidden
+        >
+          &ldquo;
+        </span>
+
+        {/* Quote content */}
+        <div className="flex flex-col gap-3 -mt-4">
+          <p className="text-[17px] font-light leading-relaxed text-primary-1">
+            {preview}
+          </p>
+
+          {hasMore && (
+            <div
+              className="overflow-hidden transition-all duration-300"
+              style={{ maxHeight: expanded ? "1000px" : "0px", opacity: expanded ? 1 : 0 }}
+            >
+              <div className="flex flex-col gap-3">
+                {paragraphs.slice(1).map((para, pi) => (
+                  <p
+                    key={pi}
+                    className="text-[17px] font-light leading-relaxed text-primary-1"
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {hasMore && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="text-[14px] font-medium text-azure-radiance hover:text-primary-1 transition-colors text-left flex items-center gap-1"
+            >
+              {expanded ? "Read less" : "Read more"}
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* Descriptor */}
+        {review.descriptor && (
+          <p className="text-[13px] font-semibold tracking-[0.12em] uppercase text-tundora border-t border-mercury pt-4 mt-auto">
+            {review.descriptor}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function Testimonials() {
   return (
     <section id="reviews" className="py-20 md:py-28 bg-white">
@@ -46,40 +124,10 @@ export function Testimonials() {
           </h2>
         </div>
 
-        {/* Card grid — 3 top, 2 centered bottom */}
+        {/* Card grid */}
         <div className="flex flex-wrap justify-center gap-6">
           {reviews.map((r, i) => (
-            <div key={i} className="w-full md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]">
-              <div className="rounded-2xl border border-mercury bg-white p-7 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col gap-4 h-full">
-                {/* Opening quote mark */}
-                <span
-                  className="font-secondary italic text-azure-radiance/30 leading-none select-none"
-                  style={{ fontSize: "3.5rem", lineHeight: 1 }}
-                  aria-hidden
-                >
-                  &ldquo;
-                </span>
-
-                {/* Quote paragraphs */}
-                <div className="flex flex-col gap-3 -mt-4">
-                  {r.quote.split("\n\n").map((para, pi) => (
-                    <p
-                      key={pi}
-                      className="text-[17px] font-light leading-relaxed text-primary-1"
-                    >
-                      {para}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Descriptor */}
-                {r.descriptor && (
-                  <p className="text-[13px] font-semibold tracking-[0.12em] uppercase text-tundora border-t border-mercury pt-4 mt-1">
-                    {r.descriptor}
-                  </p>
-                )}
-              </div>
-            </div>
+            <ReviewCard key={i} review={r} index={i} />
           ))}
         </div>
       </div>

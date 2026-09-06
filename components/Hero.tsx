@@ -37,22 +37,23 @@ export function Hero() {
               can do is shorten the odds.
             </p>
 
-            {/* Chips */}
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3 md:flex-nowrap">
-              {[
-                "Buyer research, not account inference",
-                "Competitor whitespace mapped",
-                "Five briefable arguments",
-                "Yours to keep",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center px-4 py-2 rounded-full border border-mercury bg-white text-sm md:text-base font-medium text-tundora"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+          </div>
+
+          {/* Chips — outside max-w-4xl so they fit on one line */}
+          <div className="flex justify-center gap-2 md:gap-3 flex-wrap md:flex-nowrap">
+            {[
+              "Buyer research, not account inference",
+              "Competitor whitespace mapped",
+              "Five briefable arguments",
+              "Yours to keep",
+            ].map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center px-4 py-2 rounded-full border border-mercury bg-white text-sm md:text-base font-medium text-tundora"
+              >
+                {item}
+              </span>
+            ))}
           </div>
 
           {/* Video */}
