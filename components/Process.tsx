@@ -104,90 +104,137 @@ export function Process() {
             ))}
           </div>
 
-          {/* Right — sticky video + review-to-angle widget */}
-          <div className="hidden lg:block">
-            <div className="sticky top-28 flex flex-col gap-6">
-              {/* Video */}
-              <div className="rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(28,40,84,0.12)]">
-                <video
-                  className="w-full aspect-[9/16] object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source
-                    src="https://plotwise-website-media-054037107702.s3.us-east-1.amazonaws.com/assets/cases/cs1-new-v1.mp4"
-                    type="video/mp4"
-                  />
-                </video>
+          {/* Right — competitor review audit widget (stretches to match left) */}
+          <div className="hidden lg:flex flex-col rounded-2xl border border-mercury bg-white shadow-sm overflow-hidden">
+            {/* Header */}
+            <div className="px-6 py-4 border-b border-mercury bg-white">
+              <div className="flex items-center justify-between">
+                <p className="text-[12px] font-semibold tracking-[0.08em] uppercase text-primary-1">
+                  Competitor review audit
+                </p>
+                <span className="text-[10px] font-medium text-gray bg-hero-bg rounded-full px-2.5 py-0.5">
+                  Activewear &middot; $88 legging
+                </span>
               </div>
+              <p className="text-[11px] font-light text-gray mt-1">
+                What buyers are saying about the products they tried before yours.
+              </p>
+            </div>
 
-              {/* Review → Angle widget */}
-              <div className="rounded-xl border border-mercury bg-white shadow-sm overflow-hidden">
-                <div className="px-5 py-3 border-b border-mercury bg-hero-bg/50">
-                  <p className="text-[11px] font-semibold tracking-[0.08em] uppercase text-primary-1">
-                    From review to argument
-                  </p>
-                </div>
-
-                {/* The review */}
-                <div className="px-5 py-4 border-b border-mercury/60">
-                  <div className="flex items-center gap-1 mb-2">
-                    {[1].map((_, i) => (
-                      <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" strokeWidth="1">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                      </svg>
-                    ))}
-                    {[2, 3, 4, 5].map((_, i) => (
-                      <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" strokeWidth="1">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                      </svg>
-                    ))}
-                    <span className="text-[10px] text-gray ml-1">Competitor review</span>
+            {/* Reviews with red complaint highlights */}
+            <div className="flex-1 flex flex-col">
+              {[
+                {
+                  stars: 1,
+                  text: "Went see-through the first time I did squats. For $95 I expected way more than this.",
+                  complaint: "See-through",
+                  count: "142 mentions",
+                  source: "Competitor A",
+                },
+                {
+                  stars: 2,
+                  text: "Waistband rolls down every single workout. I spend half the class pulling them up.",
+                  complaint: "Waistband rolls",
+                  count: "89 mentions",
+                  source: "Competitor B",
+                },
+                {
+                  stars: 1,
+                  text: "Pilling after three washes. Three. I have $30 leggings that lasted longer than these.",
+                  complaint: "Pilling",
+                  count: "67 mentions",
+                  source: "Competitor A",
+                },
+                {
+                  stars: 2,
+                  text: "Sizing is completely off. Ordered my usual medium and they were skin-tight in the worst way.",
+                  complaint: "Sizing issues",
+                  count: "54 mentions",
+                  source: "Competitor C",
+                },
+              ].map((review, i) => (
+                <div key={i} className={`px-6 py-4 ${i < 3 ? "border-b border-mercury/60" : ""}`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, si) => (
+                        <svg key={si} width="11" height="11" viewBox="0 0 24 24" fill={si < review.stars ? "#ef4444" : "none"} stroke={si < review.stars ? "#ef4444" : "#d1d5db"} strokeWidth="1.5">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                      ))}
+                      <span className="text-[10px] text-gray ml-1">{review.source}</span>
+                    </div>
+                    <span className="text-[9px] font-semibold tracking-[0.05em] uppercase bg-red-50 text-red-500 rounded px-2 py-0.5">
+                      {review.complaint}
+                    </span>
                   </div>
                   <p className="text-[13px] font-light text-primary-1 leading-snug italic">
-                    &ldquo;Went see-through the first time I did squats. For $95 I expected more. Back to my old brand.&rdquo;
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <p className="text-[10px] font-medium text-red-400 mt-1.5">
+                    {review.count} across category
                   </p>
                 </div>
+              ))}
+            </div>
 
-                {/* Arrow */}
-                <div className="flex justify-center py-1.5">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                  </svg>
+            {/* Divider — what this means */}
+            <div className="px-6 py-3 bg-red-50/50 border-t border-b border-mercury">
+              <div className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+                <p className="text-[12px] font-semibold text-red-600">
+                  352 complaints. Zero brands addressing them in ads.
+                </p>
+              </div>
+            </div>
+
+            {/* The gap becomes the argument */}
+            <div className="px-6 py-5 bg-primary-1/[0.03]">
+              <p className="text-[10px] font-semibold tracking-[0.08em] uppercase text-primary-1/50 mb-2">
+                The gap becomes the argument
+              </p>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-primary-1 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-primary-1 leading-snug">
+                      &ldquo;The squat test. That&apos;s all you need to know.&rdquo;
+                    </p>
+                    <p className="text-[11px] font-light text-primary-1/60 mt-0.5">
+                      142 reviews say see-through. No one is proving otherwise.
+                    </p>
+                  </div>
                 </div>
-
-                {/* The insight */}
-                <div className="px-5 py-3 border-b border-mercury/60 bg-primary-1/[0.03]">
-                  <p className="text-[10px] font-semibold tracking-[0.08em] uppercase text-primary-1/50 mb-1">
-                    What research finds
-                  </p>
-                  <p className="text-[13px] font-medium text-primary-1 leading-snug">
-                    142 reviews mention &ldquo;see-through&rdquo; across 3 competitors. No brand is addressing it in their ads. That gap is uncontested.
-                  </p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex justify-center py-1.5">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1c2854" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 5v14M5 12l7 7 7-7" />
-                  </svg>
-                </div>
-
-                {/* The angle */}
-                <div className="px-5 py-4">
-                  <p className="text-[10px] font-semibold tracking-[0.08em] uppercase text-primary-1/50 mb-1">
-                    Becomes the ad argument
-                  </p>
-                  <p className="text-[14px] font-semibold text-primary-1 leading-snug">
-                    &ldquo;The squat test. That&apos;s all you need to know.&rdquo;
-                  </p>
-                  <p className="text-[11px] font-light text-primary-1/60 mt-1">
-                    Demonstrative proof under adverse conditions. No claim — just the test.
-                  </p>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-primary-1 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-primary-1 leading-snug">
+                      &ldquo;Put them on. Forget about them. That&apos;s the review we&apos;re after.&rdquo;
+                    </p>
+                    <p className="text-[11px] font-light text-primary-1/60 mt-0.5">
+                      89 complaints about waistband. The absence of that is the selling point.
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Footer */}
+            <div className="px-6 py-3 border-t border-mercury">
+              <p className="text-[11px] font-medium text-primary-1">
+                Two arguments. Both backed by evidence your competitor handed you for free.
+              </p>
             </div>
           </div>
         </div>
