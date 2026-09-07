@@ -5,50 +5,12 @@ export function CTA() {
     <section id="book" className="py-20 md:py-28 bg-zumthor">
       <div className="container-page">
         {/* Headline + subhead */}
-        <div className="text-center mb-14 max-w-5xl mx-auto">
+        <div className="text-center mb-12 max-w-5xl mx-auto">
           <h2 className="heading-2 leading-[1.1]">
             Ten days from now, you&apos;ll
             <br />
             <span className="font-secondary italic">know what to shoot next.</span>
           </h2>
-          <p className="mt-6 text-xl md:text-2xl font-normal text-primary-1 leading-relaxed max-w-4xl mx-auto">
-            The full research build on your brand. Five arguments your buyer
-            hasn&apos;t heard yet, scripted, tagged and ready for any creator.
-            Your workspace for 90 days. One payment of $2,500, and you see half
-            of it on day five before you&apos;re committed.
-          </p>
-
-          {/* Odds callback */}
-          <p className="mt-6 text-lg md:text-xl font-medium text-tundora">
-            We still can&apos;t promise you a winner.{" "}
-            <span className="text-primary-1">
-              We can promise you&apos;ll stop guessing at the odds.
-            </span>
-          </p>
-        </div>
-
-        {/* Guarantee + Timing panels */}
-        <div className="grid md:grid-cols-2 gap-5 mb-14">
-          <div className="p-6 md:p-8 rounded-xl border border-mercury bg-white">
-            <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-              The guarantee
-            </p>
-            <p className="text-[18px] font-normal text-primary-1 leading-relaxed">
-              Still not sure? You see half the build on day five and can walk
-              away with a full refund. No reasons needed.
-            </p>
-          </div>
-
-          <div className="p-6 md:p-8 rounded-xl border border-mercury bg-white">
-            <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
-              Timing
-            </p>
-            <p className="text-[18px] font-normal text-primary-1 leading-relaxed">
-              Builds starting this week deliver before Q4 spend ramps. Builds
-              starting in October arrive after you&apos;ve already made the
-              decisions.
-            </p>
-          </div>
         </div>
 
         {/* CTA */}

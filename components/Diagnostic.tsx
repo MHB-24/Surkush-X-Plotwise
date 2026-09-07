@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const QUESTIONS = [
-  "Your last winning ad: which single element made it win?",
+  "Your last winning Ad: which single element made it win?",
   "If that winner died tomorrow, what would you shoot next, and why that?",
   "What did your last three losing ads change about what you shot next?",
   "Can you describe your best customer in their words, not yours?",

@@ -34,7 +34,7 @@ export function Qualify() {
     window.dispatchEvent(new CustomEvent("open-booking"));
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="heading-2">
@@ -47,7 +47,7 @@ export function Qualify() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-start">
+        <div className="max-w-3xl mx-auto">
           {/* Good fit */}
           <div className="rounded-2xl border border-mercury bg-white p-6 md:p-8 h-full">
             <div className="flex items-center gap-3 pb-5 mb-6 border-b border-mercury">
@@ -109,58 +109,6 @@ export function Qualify() {
             </div>
           </div>
 
-          {/* Not a fit */}
-          <div className="rounded-2xl border border-mercury bg-white p-6 md:p-8 h-full">
-            <div className="flex items-center gap-3 pb-5 mb-6 border-b border-mercury">
-              <span className="w-9 h-9 rounded-xl grid place-items-center shrink-0 bg-mercury">
-                <svg
-                  width="17"
-                  height="17"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#868686"
-                  strokeWidth="2.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </span>
-              <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary-1">
-                Don&apos;t book if
-              </p>
-            </div>
-
-            <ul className="divide-y divide-mercury">
-              {dontBook.map((item, i) => (
-                <li key={i} className="flex gap-3 items-start py-4">
-                  <svg
-                    className="shrink-0 mt-[7px]"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#868686"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                  <div>
-                    <h3 className="text-medium font-medium text-primary-1 leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1.5 text-medium font-light text-tundora leading-relaxed">
-                      {item.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </section>

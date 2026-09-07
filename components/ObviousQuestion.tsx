@@ -20,7 +20,7 @@ export function ObviousQuestion() {
           {/* Left — Body copy */}
           <div className="flex flex-col gap-0">
             <p className="text-[20px] font-light leading-relaxed text-primary-1">
-              A model can give you six buyer beliefs and ten angles before your
+              An AI-model can give you six buyer beliefs and ten angles before your
               coffee gets cold. And, to be fair, some of them will be good. But
               your competitor can ask the same question and get almost the same
               list. That is not the expensive part anymore. The expensive part
@@ -28,7 +28,7 @@ export function ObviousQuestion() {
               product can support, and which idea is worth putting money behind.
             </p>
             <p className="text-[20px] font-light leading-relaxed text-primary-1 mt-5">
-              A model has never watched a promising angle quietly eat a month
+              AI-model has never watched a promising angle quietly eat a month
               of budget. It has no reason to tell you, &ldquo;Don&apos;t shoot
               that. Four brands are already saying it.&rdquo; It can generate
               the options. It cannot take responsibility for the decision. That
@@ -138,7 +138,7 @@ export function ObviousQuestion() {
             <span className="font-secondary italic">
               Knowing which one to bet on is the part that isn&apos;t.
             </span>{" "}
-            <span className="text-lg font-light text-tundora italic">
+            <span>
               That is the only part we charge for.
             </span>
           </p>

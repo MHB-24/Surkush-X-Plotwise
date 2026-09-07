@@ -5,11 +5,11 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Why you and not someone else?",
-    a: "Eight years of brand strategy, and brands we've built positioning for have gone past seven figures. That's the part most creative shops skip. They start at production because production is what they sell. We start at what your buyer believes, because that decides whether the production is worth anything.\n\nEvery finding in your build traces back to a real customer quote, a review, or a competitor ad we can show you. Nothing generated, nothing assumed, nothing recycled from another client. That's why it takes ten days rather than two.",
+    a: "Eight years of brand strategy, and brands we've built positioning for have gone past seven figures. That's the part most creative shops skip. They start at production because production is what they sell. We start at what your buyer believes, because that decides whether the production is worth anything.\n\nEvery finding in your build traces back to a real customer quote, a review, or a competitor Ad we can show you. Nothing generated, nothing assumed, nothing recycled from another client. That's why it takes ten days rather than two.",
   },
   {
     q: "How is the research actually done?",
-    a: "By reading, mostly. Reviews and support tickets on your side, then the one and two-star reviews of the products your buyer tried before yours, then forum and comment threads where your category gets argued about, then every live and retired ad from the competitors who matter. Ten days is what that takes when nothing is generated.",
+    a: "By reading, mostly. Reviews and support tickets on your side, then the one and two-star reviews of the products your buyer tried before yours, then forum and comment threads where your category gets argued about, then every live and retired Ad from the competitors who matter. Ten days is what that takes when nothing is generated.",
   },
   {
     q: "What if it just tells us what we already knew?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "We haven't properly researched our customer since the early days. Is that a problem?",
-    a: "It's the most common situation we see and it's usually where the biggest gap is. Everything since has been inference from ad performance, which is a record of your own decisions rather than of your buyer.",
+    a: "It's the most common situation we see and it's usually where the biggest gap is. Everything since has been inference from Ad performance, which is a record of your own decisions rather than of your buyer.",
   },
   {
     q: "Does this slow us down?",

@@ -17,7 +17,7 @@ export function Hero() {
               className="text-primary-1 tracking-tight text-center leading-[1.1]"
               style={{ fontSize: "clamp(2.2rem, 5vw, 72px)" }}
             >
-              Your ad budget is a bet.
+              Your Ad budget is a bet.
               <br />
               <span className="font-secondary italic">
                 Somebody should be able

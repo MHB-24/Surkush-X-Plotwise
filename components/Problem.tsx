@@ -50,7 +50,7 @@ const cards = [
   {
     num: "03",
     title: "Your own account is a useful place to start.",
-    body: "Your winning ad tells you what worked. It does not tell you everything that could work. If every new concept starts with the last winner, the next concept is usually its cousin. Same family. Slightly different hair. A second idea needs a different starting point. That means looking at the buyer, the category, and the things your competitors are not saying. Not just asking what made the last ad work.",
+    body: "Your winning Ad tells you what worked. It does not tell you everything that could work. If every new concept starts with the last winner, the next concept is usually its cousin. Same family. Slightly different hair. A second idea needs a different starting point. That means looking at the buyer, the category, and the things your competitors are not saying. Not just asking what made the last Ad work.",
   },
 ];
 
@@ -86,13 +86,13 @@ export function Problem() {
             Open your ads manager. Look at the last five ads.
           </p>
           <h2 className="heading-2">
-            Your winning ad did its job.
+            Your winning Ad did its job.
             <br />
             <span className="font-secondary italic">Now you&apos;re making it the starting point for everything else.</span>
           </h2>
           <p className="mt-4 heading-description">
             You found a message that worked. You built a business around it.
-            Now every new ad starts there. Different creator. Different opening.
+            Now every new Ad starts there. Different creator. Different opening.
             Different edit. Same argument underneath. That is not a creative
             problem. It is what happens when the last thing that worked becomes
             the only thing you have to work from. And eventually, you stop
