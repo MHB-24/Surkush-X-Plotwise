@@ -24,11 +24,11 @@ export default function Home() {
       <Marquee />
       <Problem />
       <Diagnostic />
+      <Testimonials />
       <Process />
       <ObviousQuestion />
       <Pricing />
       <Platform />
-      <Testimonials />
       <Qualify />
       <FAQ />
       <CTA />

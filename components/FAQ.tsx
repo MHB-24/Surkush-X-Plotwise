@@ -55,11 +55,11 @@ export function FAQ() {
   return (
     <section className="py-20 md:py-28">
       <div className="container-page">
-        <div className="mb-12">
+        <div className="mb-12 text-center">
           <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-3">
             The rest of it
           </p>
-          <h2 className="heading-2">
+          <h2 className="heading-2 text-center">
             Everything people ask{" "}
             <span className="font-secondary italic">before they book.</span>
           </h2>

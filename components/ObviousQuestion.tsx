@@ -8,10 +8,10 @@ export function ObviousQuestion() {
             The obvious question
           </p>
           <h2 className="heading-2">
-            You could generate this yourself.
+            AI will give you ten angles.
             <br />
             <span className="font-secondary italic">
-              So could your competitors.
+              It won&apos;t tell you which one to bet on.
             </span>
           </h2>
         </div>

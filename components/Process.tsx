@@ -9,7 +9,7 @@ const steps = [
   {
     num: "02",
     title: "We find the reason they don\u2019t buy.",
-    body: "There is usually something standing between the buyer and the purchase. \u201CThey all do the same thing.\u201D \u201CIt won\u2019t work on me.\u201D \u201CIt\u2019s not worth the money.\u201D Sometimes it is a belief. Sometimes it is a bad experience. Sometimes it is something they have not been given a reason to believe yet. We find it. Then we find what is sitting underneath it. Because that is what your next Ad needs to deal with.",
+    body: "There is mostly something standing between the buyer and the purchase. \u201CThey all do the same thing.\u201D \u201CIt won\u2019t work on me.\u201D \u201CIt\u2019s not worth the money.\u201D Sometimes it is a belief. Sometimes it is a bad experience. Sometimes it is something they have not been given a reason to believe yet. We find it. Then we find what is sitting underneath it. Because that is what your next Ad needs to deal with.",
   },
   {
     num: "03",
@@ -19,17 +19,17 @@ const steps = [
   {
     num: "04",
     title: "We find the arguments worth making.",
-    body: "This is where the research becomes useful. We take the beliefs actually blocking the sale, cross them against the claims nobody in your category has taken, and keep the ones your product can genuinely back. Most ideas die here. The five that survive are the ones with a real reason to work. And you will be able to read that reason.",
+    body: "This is where the research becomes useful. We take the beliefs actually blocking the sale, cross them against the claims nobody in your category has taken, and keep the ones your product can genuinely back. Most ideas die here. The three that survive are the ones with a real reason to work. And you will be able to read that reason.",
   },
   {
     num: "05",
-    title: "We write two hooks for every script.",
-    body: "Same argument. Two different ways in. Not because one hook is guaranteed to win. Because you want to know which opening gets your buyer to pay attention to the argument \u2014 plus it also increases the odds.",
+    title: "You get five scripts, tagged and ready to shoot.",
+    body: "Each one carries the argument it came from, the belief it is attacking, and the funnel stage it is built for. So you and your media buyer can decide what to run and when. Hand them to any creator. They know what they are making and why.",
   },
   {
     num: "06",
-    title: "You get five scripts, tagged and ready to shoot.",
-    body: "Each one carries the argument it came from, the belief it is attacking, and the funnel stage it is built for. So you and your media buyer can decide what to run and when. Hand them to any creator. They know what they are making and why.",
+    title: "We write two hooks for every script.",
+    body: "Same argument but opening with two different ways. Not because one hook is guaranteed to win. Because you want to know which opening gets your buyer to pay attention to the argument \u2014 plus it also increases the odds.",
   },
   {
     num: "07",
@@ -109,6 +109,94 @@ function StarRating({ count }: { count: number }) {
 export function Process() {
   return (
     <>
+    <section id="how-it-works" className="py-20 md:py-28 bg-white">
+      <div className="container-page">
+        {/* Heading */}
+        <div className="flex flex-col gap-2 items-center mb-10 max-w-5xl mx-auto">
+          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-1">
+            What happens after you stop guessing
+          </p>
+          <h2 className="heading-2 text-center leading-tight">
+            We find out what your next Ad should{" "}
+            <span className="font-secondary italic">argue.</span>{" "}
+            Not just how it should look.
+          </h2>
+          <p className="heading-description text-center">
+            We research the buyer, the category, and the gaps between them.
+            Then we turn what we find into three arguments your team can
+            actually use.
+          </p>
+          <p className="text-sm text-gray mt-2">
+            Ten working days. Six sections of research. Five scripts. One workspace.
+          </p>
+        </div>
+
+        <div>
+          <div>
+
+            {/* Single-column timeline */}
+            <div className="relative">
+              {/* Spine */}
+              <div
+                aria-hidden
+                className="absolute top-5 bottom-0 left-5 w-[2px]"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(28,40,84,0.30) 0%, rgba(0,142,255,0.45) 62%, rgba(0,142,255,0) 100%)",
+                }}
+              />
+
+              <div className="flex flex-col gap-6">
+                {steps.map((step) => {
+                  const isLast = step.num === "07";
+                  return (
+                  <div key={step.num} className="relative flex gap-8">
+                    {/* Node */}
+                    <div
+                      aria-hidden
+                      className="shrink-0 z-10 w-10 h-10 rounded-full bg-primary-1 text-white grid place-items-center"
+                      style={{ boxShadow: "0 0 0 5px #ffffff" }}
+                    >
+                      {isLast ? (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        <span className="font-secondary italic text-sm">{step.num}</span>
+                      )}
+                    </div>
+
+                    <div className={`rounded-xl border p-6 md:p-7 shadow-[0_1px_2px_rgba(28,40,84,0.04)] hover:shadow-[0_16px_40px_-20px_rgba(28,40,84,0.28)] transition-shadow duration-300 flex-1 mb-0 ${isLast ? "border-azure-radiance/20 bg-zumthor" : "border-mercury bg-white"}`}>
+                      <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary-1">
+                        {isLast ? "Outcome" : `Step ${step.num}`}
+                      </span>
+                      <h3 className="font-secondary text-xl md:text-2xl italic text-primary-1 leading-snug mt-2">
+                        {step.title}
+                      </h3>
+                      <div className="mt-3 flex flex-col gap-3">
+                        {step.body.split("\n\n").map((para, pi) => (
+                          <p key={pi} className={`text-medium font-light leading-relaxed ${isLast ? "text-primary-1" : "text-tundora"}`}>
+                            {para}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <p className="text-[18px] text-tundora font-light mt-10 pl-[4.5rem]">
+              Ten days from now, you stop briefing creators on vibes.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     {/* Section 4 */}
     <section className="py-20 md:py-28 bg-hero-bg">
       <div className="container-page">
@@ -203,7 +291,7 @@ export function Process() {
                 <line x1="12" y1="17" x2="12.01" y2="17" />
               </svg>
               <p className="text-[13px] font-semibold text-red-600">
-                390 complaints. Zero brands addressing them in ads.
+                20 complaints. Zero brands addressing them in ads.
               </p>
             </div>
 
@@ -267,93 +355,6 @@ export function Process() {
       </div>
     </section>
 
-    <section id="how-it-works" className="py-20 md:py-28 bg-white">
-      <div className="container-page">
-        {/* Heading */}
-        <div className="flex flex-col gap-2 items-center mb-10 max-w-5xl mx-auto">
-          <p className="text-[14px] font-semibold tracking-[0.15em] uppercase text-tundora mb-1">
-            What happens after you stop guessing
-          </p>
-          <h2 className="heading-2 text-center leading-tight">
-            We find out what your next Ad should{" "}
-            <span className="font-secondary italic">argue.</span>{" "}
-            Not just how it should look.
-          </h2>
-          <p className="heading-description text-center">
-            We research the buyer, the category, and the gaps between them.
-            Then we turn what we find into three arguments your team can
-            actually use.
-          </p>
-          <p className="text-sm text-gray mt-2">
-            Ten working days. Six sections of research. Five scripts. One workspace.
-          </p>
-        </div>
-
-        <div>
-          <div>
-
-            {/* Single-column timeline */}
-            <div className="relative">
-              {/* Spine */}
-              <div
-                aria-hidden
-                className="absolute top-5 bottom-0 left-5 w-[2px]"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(28,40,84,0.30) 0%, rgba(0,142,255,0.45) 62%, rgba(0,142,255,0) 100%)",
-                }}
-              />
-
-              <div className="flex flex-col gap-6">
-                {steps.map((step) => {
-                  const isLast = step.num === "07";
-                  return (
-                  <div key={step.num} className="relative flex gap-8">
-                    {/* Node */}
-                    <div
-                      aria-hidden
-                      className="shrink-0 z-10 w-10 h-10 rounded-full bg-primary-1 text-white grid place-items-center"
-                      style={{ boxShadow: "0 0 0 5px #ffffff" }}
-                    >
-                      {isLast ? (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                      ) : (
-                        <span className="font-secondary italic text-sm">{step.num}</span>
-                      )}
-                    </div>
-
-                    <div className={`rounded-xl border p-6 md:p-7 shadow-[0_1px_2px_rgba(28,40,84,0.04)] hover:shadow-[0_16px_40px_-20px_rgba(28,40,84,0.28)] transition-shadow duration-300 flex-1 mb-0 ${isLast ? "border-azure-radiance/20 bg-zumthor" : "border-mercury bg-white"}`}>
-                      <span className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary-1">
-                        {isLast ? "Outcome" : `Step ${step.num}`}
-                      </span>
-                      <h3 className="font-secondary text-xl md:text-2xl italic text-primary-1 leading-snug mt-2">
-                        {step.title}
-                      </h3>
-                      <div className="mt-3 flex flex-col gap-3">
-                        {step.body.split("\n\n").map((para, pi) => (
-                          <p key={pi} className={`text-medium font-light leading-relaxed ${isLast ? "text-primary-1" : "text-tundora"}`}>
-                            {para}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <p className="text-[18px] text-tundora font-light mt-10 pl-[4.5rem]">
-              Ten days from now, you stop briefing creators on vibes.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
     </>
   );
 }

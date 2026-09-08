@@ -55,7 +55,7 @@ export function Platform() {
             <span className="font-secondary italic">The system doesn&apos;t.</span>
           </h2>
           <p className="mt-4 heading-description text-center">
-            Everything we make lands inside your workspace and stays live for 90 days.
+            Everything we make lands inside your workspace and stays with you forever.
             Not as a document you open once. Here&apos;s what your team actually does with it.
           </p>
         </div>

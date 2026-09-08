@@ -50,8 +50,7 @@ export function Pricing() {
                 You are not signing up for another retainer, another monthly
                 invoice, or another person to manage. This is one defined piece
                 of work. We research the buyer, the category, and the gaps
-                between them. Then we turn that into five scripts, ten hooks,
-                and a workspace your team can use for 90 days.
+                between them. Then we turn that into five scripts, ten hooks.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3">
@@ -120,9 +119,7 @@ export function Pricing() {
 
         {/* CTA subtext */}
         <p className="text-[18px] font-normal text-tundora text-center mt-8 max-w-lg mx-auto leading-relaxed">
-          20 minutes &middot; We&apos;ll have looked at your ads before we
-          speak &middot; If it isn&apos;t a fit we&apos;ll say so in the
-          first five minutes
+          20 minutes &middot; We&apos;ll use the call to understand where you are, what you&apos;ve tried, and whether we can help &middot; If it isn&apos;t a fit, we&apos;ll say so
         </p>
       </div>
     </section>

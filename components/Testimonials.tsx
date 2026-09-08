@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 
 const reviews = [
@@ -41,20 +41,50 @@ const reviews = [
   },
 ];
 
+const allCards = [...reviews, ...reviews, ...reviews];
+
 function RatingBadge() {
   return (
-    <div className="flex items-center gap-1.5">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-      <span className="text-[13px] font-semibold text-tundora">
-        4.9 Rating
-      </span>
+    <div className="flex items-center gap-0.5">
+      {[...Array(5)].map((_, i) => (
+        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        </svg>
+      ))}
     </div>
   );
 }
 
-function SmallCard({ review }: { review: (typeof reviews)[number] }) {
+function CarouselCard({ review }: { review: (typeof reviews)[number] }) {
+  const paragraphs = review.quote.split("\n\n");
+  return (
+    <div className="h-full rounded-2xl border border-mercury bg-white p-6 flex flex-col shadow-sm">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-full overflow-hidden border border-mercury shrink-0">
+          <Image src={review.photo} alt={review.name} width={40} height={40} className="w-full h-full object-cover" />
+        </div>
+        <RatingBadge />
+      </div>
+
+      <div className="flex flex-col gap-3 flex-1">
+        {paragraphs.map((para, pi) => (
+          <p key={pi} className="text-[15px] font-light text-primary-1 leading-relaxed">
+            {pi === 0 && <>&ldquo;</>}
+            {para}
+            {pi === paragraphs.length - 1 && <>&rdquo;</>}
+          </p>
+        ))}
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-mercury">
+        <p className="text-[14px] font-semibold text-primary-1">{review.name}</p>
+        <p className="text-[12px] font-light text-tundora mt-0.5">{review.role}</p>
+      </div>
+    </div>
+  );
+}
+
+function MobileCard({ review }: { review: (typeof reviews)[number] }) {
   const [expanded, setExpanded] = useState(false);
   const paragraphs = review.quote.split("\n\n");
   const previewParas = paragraphs.slice(0, 2);
@@ -62,7 +92,7 @@ function SmallCard({ review }: { review: (typeof reviews)[number] }) {
   const hasMore = hiddenParas.length > 0;
 
   return (
-    <div className="rounded-2xl border border-mercury bg-white p-5 md:p-6 flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div className="rounded-2xl border border-mercury bg-white p-5 flex flex-col shadow-sm">
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 rounded-full overflow-hidden border border-mercury shrink-0">
           <Image src={review.photo} alt={review.name} width={40} height={40} className="w-full h-full object-cover" />
@@ -130,8 +160,66 @@ function SmallCard({ review }: { review: (typeof reviews)[number] }) {
 }
 
 export function Testimonials() {
-  const featured = reviews[0];
-  const paragraphs = featured.quote.split("\n\n");
+  const totalCards = allCards.length;
+  const advanceBy = 2;
+  const resetAtStep = 5;
+
+  const [currentStep, setCurrentStep] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const isPausedRef = useRef(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const scheduleNext = useCallback(() => {
+    timerRef.current = setTimeout(() => {
+      if (isPausedRef.current) return;
+      setCurrentStep((prev) => prev + 1);
+    }, 4000);
+  }, []);
+
+  useEffect(() => {
+    scheduleNext();
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [scheduleNext]);
+
+  useEffect(() => {
+    if (currentStep === resetAtStep) {
+      const resetTimeout = setTimeout(() => {
+        setTransitionEnabled(false);
+        setCurrentStep(0);
+      }, 700);
+      return () => clearTimeout(resetTimeout);
+    }
+
+    if (currentStep === 0 && !transitionEnabled) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setTransitionEnabled(true);
+          scheduleNext();
+        });
+      });
+      return;
+    }
+
+    scheduleNext();
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [currentStep, transitionEnabled, scheduleNext]);
+
+  const handleMouseEnter = () => {
+    isPausedRef.current = true;
+    if (timerRef.current) clearTimeout(timerRef.current);
+  };
+
+  const handleMouseLeave = () => {
+    isPausedRef.current = false;
+    scheduleNext();
+  };
+
+  const offset = currentStep * advanceBy;
+  const translatePercent = (offset / totalCards) * 100;
 
   return (
     <section id="reviews" className="py-20 md:py-28 bg-white">
@@ -147,40 +235,36 @@ export function Testimonials() {
             had to say.
           </h2>
         </div>
+      </div>
 
-        {/* Grid: 1 large card left (row-span-2) + 2x2 right */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:grid-rows-2">
-
-          {/* Featured — large, spans 2 rows, full quote */}
-          <div className="md:row-span-2 rounded-2xl border border-mercury bg-white p-5 md:p-6 flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-mercury shrink-0">
-                <Image src={featured.photo} alt={featured.name} width={40} height={40} className="w-full h-full object-cover" />
-              </div>
-              <RatingBadge />
+      {/* Desktop: card-based carousel, 3 visible, advance by 2 */}
+      <div
+        className="hidden md:block container-page overflow-hidden"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div
+          className="flex items-stretch"
+          style={{
+            width: `${(totalCards / 3) * 100}%`,
+            transform: `translateX(-${translatePercent}%)`,
+            transition: transitionEnabled ? "transform 0.7s ease-in-out" : "none",
+          }}
+        >
+          {allCards.map((review, i) => (
+            <div key={i} className="shrink-0 px-2.5" style={{ width: `${100 / totalCards}%` }}>
+              <CarouselCard review={review} />
             </div>
-
-            <div className="flex flex-col gap-3 flex-1">
-              {paragraphs.map((para, pi) => (
-                <p key={pi} className="text-[15px] font-light text-primary-1 leading-relaxed">
-                  {pi === 0 && <>&ldquo;</>}
-                  {para}
-                  {pi === paragraphs.length - 1 && <>&rdquo;</>}
-                </p>
-              ))}
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-mercury">
-              <p className="text-[14px] font-bold text-primary-1">{featured.name}</p>
-              <p className="text-[12px] font-light text-tundora mt-0.5">{featured.role}</p>
-            </div>
-          </div>
-
-          {/* 4 smaller cards with read more */}
-          {reviews.slice(1).map((r) => (
-            <SmallCard key={r.name} review={r} />
           ))}
+        </div>
+      </div>
 
+      {/* Mobile: stacked cards */}
+      <div className="md:hidden container-page">
+        <div className="flex flex-col gap-4">
+          {reviews.map((r) => (
+            <MobileCard key={r.name} review={r} />
+          ))}
         </div>
       </div>
     </section>
